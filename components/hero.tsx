@@ -9,7 +9,7 @@ export function Hero() {
       {/* Hero Image */}
       <div className="absolute inset-0 flex items-center justify-center">
         <Image
-          src="/images/hero-ai-human.jpg"
+          src="/images/hero-ai-human.png"
           alt="Human and AI walking together"
           fill
           className="object-cover animate-fade-in-image"
