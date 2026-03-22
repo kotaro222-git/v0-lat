@@ -33,13 +33,13 @@ export function MissionSection() {
           {/* Left - Main Title */}
           <div className="lg:col-span-7">
             <h2 className="text-[clamp(32px,5vw,56px)] font-bold leading-[1.15] text-neutral-900 tracking-tight">
-              <span className="text-neutral-400">AI産業時代</span>に
+              <span className="text-[#999]">すべての人と企業に</span>
               <br />
-              人間の意志と、
+              デジタルレイバーを。
               <br />
-              純度の高い創造が
+              <span className="text-[#999]">私たちは、AI時代のなめらかな</span>
               <br />
-              溢れる世界を創る。
+              産業インフラをつくる。
             </h2>
           </div>
 

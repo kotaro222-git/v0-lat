@@ -9,7 +9,7 @@ const services = [
     title: "DXソリューション",
     titleEn: "DX Solution",
     description:
-      "業務プロセスの分析から再設計まで、企業のDXを包括的にサポートします。",
+      "業務プロセスの分析・再設計から実装まで、企業DXを包括的にサポートします。",
   },
   {
     number: "02",
