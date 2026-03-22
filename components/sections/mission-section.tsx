@@ -19,7 +19,7 @@ export function MissionSection() {
 
       <div className="relative max-w-6xl mx-auto">
         {/* Section Label */}
-        <div className="mb-20">
+        <div className="mb-12">
           <span className="inline-flex items-center gap-3">
             <span className="w-12 h-px bg-neutral-900" />
             <span className="font-mono text-xs tracking-[0.3em] uppercase text-neutral-400">
@@ -29,10 +29,10 @@ export function MissionSection() {
         </div>
 
         {/* Main Content - Two Column Layout */}
-        <div className="grid lg:grid-cols-12 gap-16 items-start">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left - Main Title */}
           <div className="lg:col-span-7">
-            <h2 className="text-[clamp(28px,4vw,48px)] font-bold leading-[1.3] text-neutral-900 tracking-tight">
+            <h2 className="text-[clamp(28px,4vw,48px)] font-bold leading-[1.4] text-neutral-900 tracking-tight">
               <span className="block text-[#999]">すべての人と企業に</span>
               <span className="block">デジタルレイバーを。</span>
               <span className="block text-[#999]">AI時代の確かな</span>
@@ -41,13 +41,13 @@ export function MissionSection() {
           </div>
 
           {/* Right - Description */}
-          <div className="lg:col-span-5 lg:pt-8">
-            <p className="text-base md:text-lg leading-[2] text-neutral-600 mb-10">
+          <div className="lg:col-span-5">
+            <p className="text-base md:text-lg leading-[1.9] text-neutral-500 mb-8">
               AIが99%を引き受ける時代に、
               <br className="hidden md:block" />
               人に残るのは1%の意志と創造だけになる。
             </p>
-            <p className="text-base md:text-lg leading-[2] text-neutral-600 mb-12">
+            <p className="text-base md:text-lg leading-[1.9] text-neutral-500 mb-10">
               何を美しいと感じるか。何を選ぶか。何を創るか。
               <br className="hidden md:block" />
               その1%を応援する会社です。
