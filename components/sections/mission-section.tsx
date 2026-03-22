@@ -46,7 +46,7 @@ export function MissionSection() {
               産業革命から続く、人が労働力になる時代は、まもなく歴史の転換点を迎えます。
             </p>
             <p className="text-base md:text-lg leading-[1.9] text-neutral-500 mb-6">
-              私たちが提供するのは、自律して実務を完遂するAI——デジタルレイバーという新しい労働力の設計と実装。
+              私たちが提供するのは、自律して実務を完遂するAI、デジタルレイバーという新しい労働力の実装。
             </p>
             <p className="text-base md:text-lg leading-[1.9] text-neutral-500 mb-6">
               電気や水道が社会を底支えするように、この無休の知能を、誰もが当たり前に使える確かなインフラとして日本から敷設する。

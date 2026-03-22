@@ -46,7 +46,7 @@ export function ServicesSection(): JSX.Element {
               </span>
             </span>
             <h2 className="text-[clamp(28px,4vw,44px)] font-bold text-neutral-900 tracking-tight">
-              事業概要
+              Service
             </h2>
           </div>
           <p className="text-neutral-500 text-base max-w-md">
