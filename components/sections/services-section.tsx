@@ -8,25 +8,25 @@ const services = [
     number: "01",
     title: "DXソリューション",
     titleEn: "DX Solution",
-    description: "DX Strategy to Execution - 戦略立案から実行まで一貫支援",
+    description: "End-to-end digital transformation from strategy to execution",
   },
   {
     number: "02",
     title: "AIエージェント構築・運用",
     titleEn: "AI Agent Development",
-    description: "経営課題を起点に、最適なAIエージェントを設計・構築・運用まで一気通貫で支援します。",
+    description: "Design, build, and operate AI agents tailored to business needs",
   },
   {
     number: "03",
     title: "AI社員派遣",
     titleEn: "AI Staff Dispatch",
-    description: "最適化された弊社のAIエージェントが「AI社員」として稼働し続ける派遣モデルです。",
+    description: "Our optimized AI agents work continuously as AI employees",
   },
   {
     number: "04",
     title: "プロダクト開発",
     titleEn: "Product Development",
-    description: "自社プロダクトの企画・設計・開発・マーケティングまで、プロダクトライフサイクル全体を支援します。",
+    description: "Full product lifecycle support from planning to marketing",
   },
 ]
 

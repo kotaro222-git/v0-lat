@@ -55,19 +55,20 @@ export function StrengthSection() {
               </span>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               {[
                 "AIでできることから考える",
                 "既存業務にアドオンする",
                 "現場にハマらない、成果が出ない。",
               ].map((step, index) => (
-                <div key={step} className="flex items-start gap-5">
-                  <span className="flex-shrink-0 w-8 h-8 rounded-full bg-red-500/5 border border-red-500/10 flex items-center justify-center text-xs text-red-400/60 font-mono">
-                    {index + 1}
+                <div 
+                  key={step} 
+                  className="flex items-start gap-4 p-4 rounded-xl bg-neutral-700/30 border border-neutral-700/50"
+                >
+                  <span className="font-mono text-xs text-red-400/60 pt-0.5">
+                    {String(index + 1).padStart(2, '0')}
                   </span>
-                  <div className="pt-1.5">
-                    <p className="text-neutral-400">{step}</p>
-                  </div>
+                  <p className="text-sm text-neutral-400 leading-relaxed">{step}</p>
                 </div>
               ))}
             </div>
