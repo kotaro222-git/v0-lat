@@ -42,15 +42,14 @@ export function MissionSection() {
 
           {/* Right - Description */}
           <div className="lg:col-span-5">
-            <p className="text-base md:text-lg leading-[1.9] text-neutral-500 mb-8">
-              AIが99%を引き受ける時代に、
-              <br className="hidden md:block" />
-              人に残るのは1%の意志と創造だけになる。
+            <p className="text-base md:text-lg leading-[1.9] text-neutral-500 mb-6">
+              産業革命から続く、人が労働力になる時代は、まもなく歴史の転換点を迎えます。
+            </p>
+            <p className="text-base md:text-lg leading-[1.9] text-neutral-500 mb-6">
+              私たちが提供するのは、自律して実務を完遂するAI、デジタルレイバーという新しい労働力の設計と実装。電気や水道が社会を底支えするように、この無休の知能を誰もが当たり前に使える確かなインフラとして日本から敷設する。
             </p>
             <p className="text-base md:text-lg leading-[1.9] text-neutral-500 mb-10">
-              何を美しいと感じるか。何を選ぶか。何を創るか。
-              <br className="hidden md:block" />
-              その1%を応援する会社です。
+              実務の摩擦をAIが引き受け、人間が純粋な意思や創造へと向かうための次代の産業インフラを創り出します。
             </p>
 
             <Link
