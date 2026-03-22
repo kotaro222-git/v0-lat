@@ -23,9 +23,9 @@ export function CTASection() {
         </span>
 
         <h2 className="text-[clamp(28px,5vw,48px)] font-bold text-neutral-900 leading-tight mb-6">
-          AIエージェントの活用を
+          AIエージェントの活用に
           <br />
-          検討中の企業様へ
+          ご興味のある企業様へ
         </h2>
 
         <p className="text-neutral-500 text-lg mb-12">
