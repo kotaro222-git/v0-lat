@@ -58,25 +58,18 @@ export function CoverageSection() {
     <section className="relative bg-white py-32 md:py-40 px-6 md:px-12">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="mb-20">
-          <span className="inline-flex items-center gap-3 mb-6">
-            <span className="w-12 h-px bg-neutral-900" />
-            <span className="font-mono text-xs tracking-[0.3em] uppercase text-neutral-400">
-              Coverage
-            </span>
+        <div className="mb-16 text-left">
+          <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-[#999]">
+            Coverage
           </span>
-          <div className="grid lg:grid-cols-2 gap-8">
-            <h2 className="text-[clamp(28px,4vw,44px)] font-bold text-neutral-900 tracking-tight">
-              対応領域
-            </h2>
-            <p className="text-neutral-500 text-base leading-relaxed lg:pt-3">
-              ビジネスの成長ドライバーとして重点領域を横断的に網羅。
-              <br className="hidden md:block" />
-              各社ごとのカスタマイズに対応し、AIエージェントを活用した
-              <br className="hidden md:block" />
-              自動化・効率化・高品質化を実現します。
-            </p>
-          </div>
+          <h2 className="text-[32px] font-bold text-neutral-900 tracking-tight mt-2">
+            対応領域
+          </h2>
+          <p className="text-[16px] text-[#666] leading-relaxed mt-4 max-w-[560px]">
+            重点4領域を横断的にカバー。
+            <br />
+            各社の課題に合わせ、AIエージェントで自動化・効率化を実現します。
+          </p>
         </div>
 
         {/* Domains Grid */}
