@@ -8,6 +8,7 @@ type Section = "hero" | "mission" | "services"
 
 export function FixedSectionsContainer() {
   const [currentSection, setCurrentSection] = useState<Section>("hero")
+  const [isExitingToServices, setIsExitingToServices] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
   const lastWheelTime = useRef(0)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -29,8 +30,8 @@ export function FixedSectionsContainer() {
       return
     }
     
-    // Skip if animating
-    if (isAnimating) {
+    // Skip if animating or exiting
+    if (isAnimating || isExitingToServices) {
       e.preventDefault()
       return
     }
@@ -51,33 +52,23 @@ export function FixedSectionsContainer() {
       setCurrentSection("hero")
       setTimeout(() => setIsAnimating(false), 800)
     } else if (currentSection === "mission" && isScrollingDown) {
-      // Transition to services - hide fixed container and scroll
+      // Transition to services with smooth fade out
       e.preventDefault()
       lastWheelTime.current = now
-      setIsAnimating(true)
-      setCurrentSection("services")
+      setIsExitingToServices(true)
       
-      // After transition, scroll to services section
+      // Wait for fade out animation, then switch to services
       setTimeout(() => {
-        const servicesSection = document.getElementById("services")
-        if (servicesSection) {
-          window.scrollTo({ top: window.innerHeight, behavior: "instant" })
-        }
-        setIsAnimating(false)
-      }, 100)
+        window.scrollTo({ top: window.innerHeight, behavior: "instant" })
+        setCurrentSection("services")
+        setIsExitingToServices(false)
+      }, 500)
     }
-  }, [currentSection, isAnimating])
+  }, [currentSection, isAnimating, isExitingToServices])
 
   useEffect(() => {
-    const container = containerRef.current
-    if (!container) return
-
-    // Also listen on window for better capture
     window.addEventListener("wheel", handleWheel, { passive: false })
-    
-    return () => {
-      window.removeEventListener("wheel", handleWheel)
-    }
+    return () => window.removeEventListener("wheel", handleWheel)
   }, [handleWheel])
 
   // Handle scroll back from services to mission
@@ -107,6 +98,7 @@ export function FixedSectionsContainer() {
       style={{
         backgroundColor: currentSection === "hero" ? "#050e10" : "#ffffff",
         transition: "background-color 800ms ease-in-out",
+        opacity: isExitingToServices ? 0 : 1,
       }}
     >
       {/* Hero Section */}
@@ -126,9 +118,9 @@ export function FixedSectionsContainer() {
       <div
         className="absolute inset-0 w-full h-full overflow-auto"
         style={{
-          opacity: currentSection === "mission" ? 1 : 0,
+          opacity: currentSection === "mission" && !isExitingToServices ? 1 : 0,
           transform: currentSection === "mission" ? "translateY(0)" : "translateY(30px)",
-          transition: "opacity 800ms ease-in-out, transform 800ms ease-in-out",
+          transition: "opacity 500ms ease-in-out, transform 500ms ease-in-out",
           pointerEvents: currentSection === "mission" ? "auto" : "none",
         }}
       >
