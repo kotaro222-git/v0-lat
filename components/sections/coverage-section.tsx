@@ -55,7 +55,7 @@ const domains = [
 
 export function CoverageSection() {
   return (
-    <section className="relative bg-white py-32 md:py-40 px-6 md:px-12">
+    <section className="relative bg-[#f5f5f5] py-32 md:py-40 px-6 md:px-12">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="mb-16 text-left">
@@ -77,38 +77,45 @@ export function CoverageSection() {
           {domains.map((domain) => (
             <div
               key={domain.titleEn}
-              className="group relative bg-neutral-50 rounded-2xl p-8 hover:bg-neutral-900 transition-all duration-500"
+              className="group relative bg-white rounded-2xl p-9 transition-all duration-300 hover:-translate-y-1"
+              style={{
+                boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04)",
+              }}
             >
+              {/* Accent Line */}
+              <div 
+                className="absolute top-0 left-0 right-0 h-[3px] bg-[#3a6b6b] rounded-t-2xl transition-all duration-300 group-hover:h-[4px]"
+              />
+
               {/* Icon */}
-              <div className="w-14 h-14 rounded-xl bg-white flex items-center justify-center mb-8 group-hover:bg-neutral-800 transition-colors">
+              <div className="w-16 h-16 rounded-xl bg-[#f5f5f5] flex items-center justify-center mb-6">
                 <domain.icon
-                  size={24}
-                  className="text-neutral-900 group-hover:text-white transition-colors"
+                  size={32}
+                  className="text-[#3a6b6b]"
                 />
               </div>
 
               {/* Title */}
-              <div className="mb-6">
-                <h3 className="text-lg font-bold text-neutral-900 group-hover:text-white transition-colors mb-1">
+              <div className="mb-5">
+                <h3 className="text-lg font-bold text-neutral-900 mb-1">
                   {domain.titleEn}
                 </h3>
-                <p className="text-xs text-neutral-400 group-hover:text-neutral-500 transition-colors">
+                <p className="text-xs text-neutral-400">
                   {domain.titleJa}
                 </p>
               </div>
 
-              {/* Items */}
-              <ul className="space-y-3">
+              {/* Items as Pill Tags */}
+              <div className="flex flex-wrap gap-2">
                 {domain.items.map((item) => (
-                  <li
+                  <span
                     key={item}
-                    className="text-sm text-neutral-500 group-hover:text-neutral-400 transition-colors flex items-center gap-3"
+                    className="inline-flex items-center bg-[#f0f0f0] rounded-full px-3.5 py-1.5 text-[13px] text-neutral-600"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-neutral-300 group-hover:bg-neutral-600 transition-colors" />
                     {item}
-                  </li>
+                  </span>
                 ))}
-              </ul>
+              </div>
             </div>
           ))}
         </div>
