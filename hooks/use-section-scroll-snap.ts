@@ -1,114 +1,109 @@
 "use client"
 
-import { useEffect, useRef, useCallback, useState } from "react"
+import { useEffect, useRef, useCallback } from "react"
 
-export type SectionIndex = 0 | 1 | 2 // 0: Hero, 1: Mission, 2: Services (normal scroll)
+// Simple scroll snap hook for Hero -> Mission -> Services
+// Uses smooth scrolling with debounce
+export function useSectionScrollSnap() {
+  const isScrollingRef = useRef(false)
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
-interface UseSectionTransitionReturn {
-  currentSection: SectionIndex
-  isTransitioning: boolean
-}
-
-export function useSectionTransition(): UseSectionTransitionReturn {
-  const [currentSection, setCurrentSection] = useState<SectionIndex>(0)
-  const [isTransitioning, setIsTransitioning] = useState(false)
-  const cooldownRef = useRef(false)
-  const isTouchDeviceRef = useRef(false)
-
-  // Detect touch device on mount
-  useEffect(() => {
-    isTouchDeviceRef.current = "ontouchstart" in window || navigator.maxTouchPoints > 0
-  }, [])
-
-  const transitionTo = useCallback((targetSection: SectionIndex) => {
-    if (isTransitioning || cooldownRef.current) return
-
-    setIsTransitioning(true)
-    setCurrentSection(targetSection)
-
-    // If transitioning to services (section 2), scroll to services after animation
-    if (targetSection === 2) {
-      setTimeout(() => {
-        const servicesEl = document.getElementById("services")
-        if (servicesEl) {
-          servicesEl.scrollIntoView({ behavior: "smooth", block: "start" })
-        }
-        setIsTransitioning(false)
-        // Set cooldown
-        cooldownRef.current = true
-        setTimeout(() => {
-          cooldownRef.current = false
-        }, 1000)
-      }, 800) // After fade out animation
-    } else {
-      // For hero/mission transitions, just wait for animation to complete
-      setTimeout(() => {
-        setIsTransitioning(false)
-        // Set cooldown
-        cooldownRef.current = true
-        setTimeout(() => {
-          cooldownRef.current = false
-        }, 1000)
+  const scrollToSection = useCallback((sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      isScrollingRef.current = true
+      element.scrollIntoView({ behavior: "smooth", block: "start" })
+      
+      // Reset after scroll completes + debounce time
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
+      timeoutRef.current = setTimeout(() => {
+        isScrollingRef.current = false
       }, 800)
     }
-  }, [isTransitioning])
+  }, [])
 
-  const handleWheel = useCallback(
-    (e: WheelEvent) => {
-      // Skip on touch devices
-      if (isTouchDeviceRef.current) return
+  const getCurrentSection = useCallback((): string | null => {
+    const hero = document.getElementById("hero")
+    const mission = document.getElementById("mission")
+    const services = document.getElementById("services")
 
-      // Ignore small deltaY (trackpad micro-scrolls)
-      if (Math.abs(e.deltaY) < 5) return
+    if (!hero || !mission || !services) return null
 
-      // Skip if transitioning or in cooldown
-      if (isTransitioning || cooldownRef.current) return
+    const scrollY = window.scrollY
+    const viewportHeight = window.innerHeight
 
-      const isScrollingDown = e.deltaY > 0
-      const isScrollingUp = e.deltaY < 0
+    const heroBottom = hero.offsetTop + hero.offsetHeight
+    const missionBottom = mission.offsetTop + mission.offsetHeight
 
-      // Get current scroll position
-      const scrollY = window.scrollY
-      const viewportHeight = window.innerHeight
+    // Determine which section is currently "active"
+    // Use center of viewport as reference point
+    const viewportCenter = scrollY + viewportHeight / 2
 
-      // If we're in normal scroll area (services and beyond)
-      if (currentSection === 2) {
-        // Check if we're at the very top of services and scrolling up
-        const servicesEl = document.getElementById("services")
-        if (servicesEl && isScrollingUp) {
-          const servicesTop = servicesEl.getBoundingClientRect().top
-          // If services section is at or near the top of viewport
-          if (servicesTop >= -10 && servicesTop <= 50) {
-            e.preventDefault()
-            transitionTo(1) // Go back to mission
-            // Scroll to top for the fixed container
-            window.scrollTo({ top: 0, behavior: "instant" })
-          }
-        }
-        return // Normal scrolling otherwise
-      }
+    if (viewportCenter < heroBottom) {
+      return "hero"
+    } else if (viewportCenter < missionBottom) {
+      return "mission"
+    } else {
+      return "services"
+    }
+  }, [])
 
-      // For sections 0 (hero) and 1 (mission), prevent default scroll
+  const handleWheel = useCallback((e: WheelEvent) => {
+    // Skip if already scrolling (debounce)
+    if (isScrollingRef.current) {
       e.preventDefault()
+      return
+    }
 
-      if (currentSection === 0 && isScrollingDown) {
-        transitionTo(1) // Hero -> Mission
-      } else if (currentSection === 1 && isScrollingDown) {
-        transitionTo(2) // Mission -> Services
-      } else if (currentSection === 1 && isScrollingUp) {
-        transitionTo(0) // Mission -> Hero
+    // Ignore micro-scrolls (trackpad sensitivity)
+    if (Math.abs(e.deltaY) < 10) return
+
+    const currentSection = getCurrentSection()
+    if (!currentSection) return
+
+    const isScrollingDown = e.deltaY > 0
+    const isScrollingUp = e.deltaY < 0
+
+    // Handle snap scrolling only for hero and mission sections
+    if (currentSection === "hero" && isScrollingDown) {
+      e.preventDefault()
+      scrollToSection("mission")
+    } else if (currentSection === "mission" && isScrollingDown) {
+      e.preventDefault()
+      scrollToSection("services")
+    } else if (currentSection === "mission" && isScrollingUp) {
+      e.preventDefault()
+      scrollToSection("hero")
+    } else if (currentSection === "services" && isScrollingUp) {
+      // Check if we're at the top of services section
+      const services = document.getElementById("services")
+      if (services) {
+        const servicesTop = services.getBoundingClientRect().top
+        // If services section top is near viewport top, snap back to mission
+        if (servicesTop >= -20 && servicesTop <= 100) {
+          e.preventDefault()
+          scrollToSection("mission")
+        }
+        // Otherwise, allow normal scroll within services
       }
-    },
-    [currentSection, isTransitioning, transitionTo]
-  )
+    }
+    // Services section and beyond: normal scrolling (no preventDefault)
+  }, [getCurrentSection, scrollToSection])
 
   useEffect(() => {
+    // Check if touch device - disable snap on touch devices for better UX
+    const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0
+    if (isTouchDevice) return
+
     window.addEventListener("wheel", handleWheel, { passive: false })
 
     return () => {
       window.removeEventListener("wheel", handleWheel)
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
     }
   }, [handleWheel])
-
-  return { currentSection, isTransitioning }
 }
