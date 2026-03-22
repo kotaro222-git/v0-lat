@@ -32,10 +32,11 @@ export function MissionSection() {
         <div className="grid lg:grid-cols-12 gap-16 items-start">
           {/* Left - Main Title */}
           <div className="lg:col-span-7">
-            <h2 className="text-[clamp(32px,5vw,56px)] font-bold leading-[1.15] text-neutral-900 tracking-tight">
-              <span className="text-[#999]">すべての人と企業に</span>デジタルレイバーを。
-              <br />
-              <span className="text-[#999]">AI時代のしなやかな</span>産業インフラをつくる
+            <h2 className="text-[clamp(28px,4vw,48px)] font-bold leading-[1.3] text-neutral-900 tracking-tight">
+              <span className="block text-[#999]">すべての人と企業に</span>
+              <span className="block">デジタルレイバーを。</span>
+              <span className="block text-[#999]">AI時代の確かな</span>
+              <span className="block">産業インフラをつくる</span>
             </h2>
           </div>
 
