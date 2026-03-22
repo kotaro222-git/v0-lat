@@ -35,9 +35,7 @@ export function MissionSection() {
             <h2 className="text-[clamp(32px,5vw,56px)] font-bold leading-[1.15] text-neutral-900 tracking-tight">
               <span className="text-[#999]">すべての人と企業に</span>デジタルレイバーを。
               <br />
-              <span className="text-[#999]">私たちは、AI時代のなめらかな</span>
-              <br />
-              産業インフラをつくる。
+              <span className="text-[#999]">AI時代のしなやかな</span>産業インフラをつくる
             </h2>
           </div>
 
