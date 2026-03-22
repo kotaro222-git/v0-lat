@@ -1,93 +1,105 @@
 "use client"
 
-import { useEffect, useRef, useCallback } from "react"
+import { useEffect, useRef, useCallback, useState } from "react"
 
-interface SectionConfig {
-  id: string
-  nextId?: string
-  prevId?: string
+export type SectionIndex = 0 | 1 | 2 // 0: Hero, 1: Mission, 2: Services (normal scroll)
+
+interface UseSectionTransitionReturn {
+  currentSection: SectionIndex
+  isTransitioning: boolean
 }
 
-const sections: SectionConfig[] = [
-  { id: "hero", nextId: "mission", prevId: undefined },
-  { id: "mission", nextId: "services", prevId: "hero" },
-]
+export function useSectionTransition(): UseSectionTransitionReturn {
+  const [currentSection, setCurrentSection] = useState<SectionIndex>(0)
+  const [isTransitioning, setIsTransitioning] = useState(false)
+  const cooldownRef = useRef(false)
+  const isTouchDeviceRef = useRef(false)
 
-export function useSectionScrollSnap() {
-  const isScrollingRef = useRef(false)
-  const lastScrollTimeRef = useRef(0)
-  const debounceDelay = 800
+  // Detect touch device on mount
+  useEffect(() => {
+    isTouchDeviceRef.current = "ontouchstart" in window || navigator.maxTouchPoints > 0
+  }, [])
 
-  const getCurrentSection = useCallback((): SectionConfig | null => {
-    const scrollY = window.scrollY
-    const viewportHeight = window.innerHeight
+  const transitionTo = useCallback((targetSection: SectionIndex) => {
+    if (isTransitioning || cooldownRef.current) return
 
-    for (const section of sections) {
-      const element = document.getElementById(section.id)
-      if (!element) continue
+    setIsTransitioning(true)
+    setCurrentSection(targetSection)
 
-      const rect = element.getBoundingClientRect()
-      const elementTop = rect.top + scrollY
-      const elementBottom = elementTop + rect.height
-
-      // Check if viewport center is within this section
-      const viewportCenter = scrollY + viewportHeight / 2
-      if (viewportCenter >= elementTop && viewportCenter < elementBottom) {
-        return section
-      }
+    // If transitioning to services (section 2), scroll to services after animation
+    if (targetSection === 2) {
+      setTimeout(() => {
+        const servicesEl = document.getElementById("services")
+        if (servicesEl) {
+          servicesEl.scrollIntoView({ behavior: "smooth", block: "start" })
+        }
+        setIsTransitioning(false)
+        // Set cooldown
+        cooldownRef.current = true
+        setTimeout(() => {
+          cooldownRef.current = false
+        }, 1000)
+      }, 800) // After fade out animation
+    } else {
+      // For hero/mission transitions, just wait for animation to complete
+      setTimeout(() => {
+        setIsTransitioning(false)
+        // Set cooldown
+        cooldownRef.current = true
+        setTimeout(() => {
+          cooldownRef.current = false
+        }, 1000)
+      }, 800)
     }
-
-    return null
-  }, [])
-
-  const scrollToSection = useCallback((sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (!element) return
-
-    isScrollingRef.current = true
-    element.scrollIntoView({ behavior: "smooth", block: "start" })
-
-    // Reset scrolling state after animation completes
-    setTimeout(() => {
-      isScrollingRef.current = false
-    }, debounceDelay)
-  }, [])
+  }, [isTransitioning])
 
   const handleWheel = useCallback(
     (e: WheelEvent) => {
-      const now = Date.now()
+      // Skip on touch devices
+      if (isTouchDeviceRef.current) return
 
-      // Debounce check
-      if (now - lastScrollTimeRef.current < debounceDelay) {
-        return
-      }
+      // Ignore small deltaY (trackpad micro-scrolls)
+      if (Math.abs(e.deltaY) < 5) return
 
-      // Skip if already scrolling
-      if (isScrollingRef.current) {
-        return
-      }
-
-      const currentSection = getCurrentSection()
-      if (!currentSection) return
+      // Skip if transitioning or in cooldown
+      if (isTransitioning || cooldownRef.current) return
 
       const isScrollingDown = e.deltaY > 0
       const isScrollingUp = e.deltaY < 0
 
-      let targetId: string | undefined
+      // Get current scroll position
+      const scrollY = window.scrollY
+      const viewportHeight = window.innerHeight
 
-      if (isScrollingDown && currentSection.nextId) {
-        targetId = currentSection.nextId
-      } else if (isScrollingUp && currentSection.prevId) {
-        targetId = currentSection.prevId
+      // If we're in normal scroll area (services and beyond)
+      if (currentSection === 2) {
+        // Check if we're at the very top of services and scrolling up
+        const servicesEl = document.getElementById("services")
+        if (servicesEl && isScrollingUp) {
+          const servicesTop = servicesEl.getBoundingClientRect().top
+          // If services section is at or near the top of viewport
+          if (servicesTop >= -10 && servicesTop <= 50) {
+            e.preventDefault()
+            transitionTo(1) // Go back to mission
+            // Scroll to top for the fixed container
+            window.scrollTo({ top: 0, behavior: "instant" })
+          }
+        }
+        return // Normal scrolling otherwise
       }
 
-      if (targetId) {
-        e.preventDefault()
-        lastScrollTimeRef.current = now
-        scrollToSection(targetId)
+      // For sections 0 (hero) and 1 (mission), prevent default scroll
+      e.preventDefault()
+
+      if (currentSection === 0 && isScrollingDown) {
+        transitionTo(1) // Hero -> Mission
+      } else if (currentSection === 1 && isScrollingDown) {
+        transitionTo(2) // Mission -> Services
+      } else if (currentSection === 1 && isScrollingUp) {
+        transitionTo(0) // Mission -> Hero
       }
     },
-    [getCurrentSection, scrollToSection]
+    [currentSection, isTransitioning, transitionTo]
   )
 
   useEffect(() => {
@@ -97,4 +109,6 @@ export function useSectionScrollSnap() {
       window.removeEventListener("wheel", handleWheel)
     }
   }, [handleWheel])
+
+  return { currentSection, isTransitioning }
 }
