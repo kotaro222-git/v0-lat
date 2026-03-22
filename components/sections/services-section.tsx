@@ -3,32 +3,36 @@ import { ArrowRight, ArrowUpRight } from "lucide-react"
 
 const services = [
   {
+    id: "dx-solution",
     number: "01",
     title: "DXソリューション",
     titleEn: "DX Solution",
     description: "Strategy to execution support for digital transformation",
   },
   {
+    id: "ai-agent",
     number: "02",
     title: "AIエージェント構築・運用",
     titleEn: "AI Agent Development",
     description: "Custom AI agent design, development, and operations",
   },
   {
+    id: "ai-staff",
     number: "03",
     title: "AI社員派遣",
     titleEn: "AI Staff Dispatch",
     description: "AI agents deployed as continuous digital workforce",
   },
   {
+    id: "product-dev",
     number: "04",
     title: "プロダクト開発",
     titleEn: "Product Development",
     description: "End-to-end product lifecycle from planning to launch",
   },
-]
+] as const
 
-export function ServicesSection() {
+export function ServicesSection(): JSX.Element {
   return (
     <section id="services" className="relative bg-neutral-50 py-32 md:py-40 px-6 md:px-12">
       <div className="max-w-6xl mx-auto">
@@ -54,7 +58,7 @@ export function ServicesSection() {
         <div className="border-t border-neutral-200">
           {services.map((service) => (
             <Link
-              key={service.number}
+              key={service.id}
               href="/service"
               className="group flex flex-col md:flex-row md:items-center gap-6 md:gap-12 py-10 border-b border-neutral-200 hover:bg-white transition-colors px-0 md:px-8 -mx-0 md:-mx-8"
             >
