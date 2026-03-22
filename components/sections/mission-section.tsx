@@ -18,21 +18,29 @@ export function MissionSection() {
       </div>
 
       <div className="relative max-w-6xl mx-auto">
-        
+        {/* Section Label */}
+        <div className="mb-20">
+          <span className="inline-flex items-center gap-3">
+            <span className="w-12 h-px bg-neutral-900" />
+            <span className="font-mono text-xs tracking-[0.3em] uppercase text-neutral-400">
+              Mission
+            </span>
+          </span>
+        </div>
 
         {/* Main Content */}
         <div className="grid lg:grid-cols-12 gap-16 items-start">
           {/* Left - Main Title */}
-          <div className="lg:col-span-7 text-left" style={{ lineHeight: 1.4 }}>
-            <h3 className="text-[0.875rem] text-[#999] mb-4">MISSION</h3>
-            <h2 className="text-[2.5rem] font-bold text-neutral-900 mb-2">すべての人と企業に</h2>
-            <h2 className="text-[2.5rem] font-bold text-neutral-900 mb-8">デジタルレイバーを。</h2>
-            <p className="text-[1.25rem] mb-2">
-              <span className="text-[#999]">私たちは、AI時代の</span>
-            </p>
-            <p className="text-[1.25rem] font-bold text-neutral-900">
-              なめらかな産業インフラをつくる。
-            </p>
+          <div className="lg:col-span-7">
+            <h2 className="text-[clamp(32px,5vw,56px)] font-bold leading-[1.15] text-neutral-900 tracking-tight">
+              <span className="text-[#999]">すべての人と企業に</span>
+              <br />
+              デジタルレイバーを。
+              <br />
+              <span className="text-[#999]">私たちは、AI時代のなめらかな</span>
+              <br />
+              産業インフラをつくる。
+            </h2>
           </div>
 
           {/* Right - Description */}
