@@ -28,7 +28,7 @@ const serviceItems = [
     number: "04",
     title: "プロダクト開発",
     titleEn: "Product Development",
-    description: "End-to-end product lifecycle from planning to launch",
+    description: "新規事業としてのプロダクト立ち上げや、全社規模の業務を支える独自のAIプラットフォームをゼロから開発します。AIの自律的な動作を前提としたUI/UX設計から、複雑な要件定義、システム実装まで、エンドツーエンドで完遂します。",
   },
 ] as const
 
