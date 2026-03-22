@@ -23,14 +23,14 @@ const services = [
     title: "AI社員派遣",
     titleEn: "AI Staff Dispatch",
     description:
-      "最適化された弊社のAIエージェントがAI社員として稼働し続ける派遣モデルです。",
+      "最適化された弊社のAIエージェントが「AI社員」として稼働し続ける派遣モデルです。",
   },
   {
     number: "04",
     title: "プロダクト開発",
     titleEn: "Product Development",
     description:
-      "自社プロダクトの企画から開発、マーケティングまで、プロダクトライフサイクル全体を支援します。",
+      "自社プロダクトの企画・設計・開発・マーケティングまで、プロダクトライフサイクル全体を支援します。",
   },
 ]
 
