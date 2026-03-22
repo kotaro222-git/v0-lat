@@ -1,7 +1,7 @@
 "use client"
 
 import { FixedSectionsContainer } from "@/components/fixed-sections-container"
-import { ServicesSection } from "@/components/sections/service-section"
+import { ServiceSection } from "@/components/sections/service-section"
 import { CoverageSection } from "@/components/sections/coverage-section"
 import { StrengthSection } from "@/components/sections/strength-section"
 import { CTASection } from "@/components/sections/cta-section"
@@ -18,7 +18,7 @@ export default function Home() {
       <div className="h-screen" />
       
       {/* Normal flow sections */}
-      <ServicesSection />
+      <ServiceSection />
       <CoverageSection />
       <StrengthSection />
       <CTASection />

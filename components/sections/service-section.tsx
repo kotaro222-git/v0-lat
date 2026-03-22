@@ -21,7 +21,7 @@ const serviceItems = [
     number: "03",
     title: "AI社員派遣",
     titleEn: "AI Staff Dispatch",
-    description: "AI agents deployed as continuous digital workforce",
+    description: "マーケティング、セールス、カスタマーサポート、バックオフィスなど、特定の業務領域に特化して学習させたAIを「社員」として提供します。",
   },
   {
     id: "product-dev",
@@ -32,7 +32,7 @@ const serviceItems = [
   },
 ] as const
 
-export function ServicesSection(): JSX.Element {
+export function ServiceSection(): JSX.Element {
   return (
     <section id="services" className="relative bg-neutral-50 py-32 md:py-40 px-6 md:px-12">
       <div className="max-w-6xl mx-auto">
