@@ -28,10 +28,10 @@ export function MissionSection() {
           </span>
         </div>
 
-        {/* Main Content - Single Column Layout */}
-        <div className="flex flex-col">
-          {/* Main Title */}
-          <div className="w-full text-left">
+        {/* Main Content - Two Column Layout */}
+        <div className="grid lg:grid-cols-12 gap-16 items-start">
+          {/* Left - Main Title */}
+          <div className="lg:col-span-7">
             <h2 className="text-[clamp(32px,5vw,56px)] font-bold leading-[1.15] text-neutral-900 tracking-tight">
               <span className="text-[#999]">すべての人と企業に</span>デジタルレイバーを。
               <br />
@@ -39,18 +39,22 @@ export function MissionSection() {
             </h2>
           </div>
 
-          {/* Description */}
-          <div className="mt-12 max-w-[560px] text-left">
-            <p className="text-[16px] leading-[1.9] text-[#555]">
+          {/* Right - Description */}
+          <div className="lg:col-span-5 lg:pt-8">
+            <p className="text-base md:text-lg leading-[2] text-neutral-600 mb-10">
               AIが99%を引き受ける時代に、
+              <br className="hidden md:block" />
               人に残るのは1%の意志と創造だけになる。
+            </p>
+            <p className="text-base md:text-lg leading-[2] text-neutral-600 mb-12">
               何を美しいと感じるか。何を選ぶか。何を創るか。
+              <br className="hidden md:block" />
               その1%を応援する会社です。
             </p>
 
             <Link
               href="/philosophy"
-              className="inline-flex items-center gap-4 text-sm font-medium text-neutral-900 hover:text-neutral-600 transition-colors group mt-6"
+              className="inline-flex items-center gap-4 text-sm font-medium text-neutral-900 hover:text-neutral-600 transition-colors group"
             >
               <span className="tracking-wide">理念を見る</span>
               <span className="flex items-center justify-center w-10 h-10 rounded-full border border-neutral-200 group-hover:border-neutral-900 group-hover:bg-neutral-900 group-hover:text-white transition-all">
