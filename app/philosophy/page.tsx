@@ -60,7 +60,7 @@ export default function PhilosophyPage() {
             <div className="lg:sticky lg:top-32">
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden bg-neutral-200">
                 <Image
-                  src="/images/ceo-portrait.jpg"
+                  src="/images/ceo-photo.png"
                   alt="代表取締役 稲葉幸太郎"
                   fill
                   className="object-cover"
