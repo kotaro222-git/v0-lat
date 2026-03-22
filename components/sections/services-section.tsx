@@ -8,7 +8,7 @@ const services = [
     number: "01",
     title: "DXソリューション",
     titleEn: "DX Solution",
-    description: "Digital Transformation戦略から実行まで、企業変革を支援します。",
+    description: "企業のDX戦略から実行までをトータルで支援します。",
   },
   {
     number: "02",
