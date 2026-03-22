@@ -67,17 +67,23 @@ export function Hero() {
 
       {/* Navigation */}
       <nav className="absolute top-0 left-0 right-0 z-[3] py-[3vh] px-[5vw] flex justify-between items-center">
-        <div className="font-mono text-[clamp(16px,2vw,22px)] font-bold tracking-[0.1em] opacity-0 animate-fade-in animation-delay-500">
-          lat91
-        </div>
-        <ul className="flex gap-[3vw] list-none opacity-0 animate-fade-in animation-delay-700">
-          {['About', 'Services', 'Work', 'Contact'].map((item) => (
-            <li key={item}>
+        <Link href="/" className="font-mono text-[clamp(16px,2vw,22px)] font-bold tracking-[0.1em] opacity-0 animate-fade-in animation-delay-500 text-[var(--off-white)]">
+          Lat91
+        </Link>
+        <ul className="hidden md:flex gap-[3vw] list-none opacity-0 animate-fade-in animation-delay-700">
+          {[
+            { label: 'Philosophy', href: '/philosophy' },
+            { label: 'Service', href: '/service' },
+            { label: 'Media', href: '/media' },
+            { label: 'Company', href: '/company' },
+            { label: 'Contact', href: '/contact' },
+          ].map((item) => (
+            <li key={item.label}>
               <Link
-                href="#"
+                href={item.href}
                 className="font-mono text-[clamp(10px,1vw,13px)] tracking-[0.15em] uppercase text-[rgba(232,237,233,0.5)] hover:text-[var(--off-white)] transition-colors duration-300"
               >
-                {item}
+                {item.label}
               </Link>
             </li>
           ))}
