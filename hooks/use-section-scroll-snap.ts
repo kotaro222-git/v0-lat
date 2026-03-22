@@ -10,6 +10,7 @@ export function useSectionScrollSnap() {
 
   const scrollToSection = useCallback((sectionId: string) => {
     const element = document.getElementById(sectionId)
+    console.log("[v0] Scrolling to section:", sectionId, "element:", element)
     if (element) {
       isScrollingRef.current = true
       element.scrollIntoView({ behavior: "smooth", block: "start" })
@@ -61,6 +62,7 @@ export function useSectionScrollSnap() {
     if (Math.abs(e.deltaY) < 10) return
 
     const currentSection = getCurrentSection()
+    console.log("[v0] Current section:", currentSection, "deltaY:", e.deltaY)
     if (!currentSection) return
 
     const isScrollingDown = e.deltaY > 0
