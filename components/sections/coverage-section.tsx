@@ -62,7 +62,7 @@ export function CoverageSection() {
           <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-[#999]">
             Coverage
           </span>
-          <h2 className="text-[32px] font-bold text-neutral-900 tracking-tight mt-2">
+          <h2 className="text-[clamp(28px,4vw,44px)] font-bold text-neutral-900 tracking-tight mt-2">
             対応領域
           </h2>
           <p className="text-[16px] text-[#666] leading-relaxed mt-4 max-w-[560px]">
