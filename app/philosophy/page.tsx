@@ -34,12 +34,15 @@ export default function PhilosophyPage() {
       <Header variant="light" />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-6 md:px-12">
+      <section className="pt-32 pb-20 px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
-          <span className="font-mono text-[0.875rem] tracking-[0.3em] uppercase text-[#999]">
-            Philosophy
+          <span className="inline-flex items-center gap-3 mb-8">
+            <span className="w-12 h-px bg-neutral-900" />
+            <span className="font-mono text-xs tracking-[0.3em] uppercase text-neutral-400">
+              Philosophy
+            </span>
           </span>
-          <h1 className="text-[2.5rem] md:text-[3rem] font-bold text-neutral-900 leading-[1.2] tracking-tight mt-4">
+          <h1 className="text-[clamp(36px,6vw,64px)] font-bold text-neutral-900 leading-[1.1] tracking-tight">
             AI時代に、
             <br />
             人間の意志と創造が輝く世界を創る
@@ -48,12 +51,12 @@ export default function PhilosophyPage() {
       </section>
 
       {/* CEO Message Section */}
-      <section className="py-20 px-6 md:px-12">
+      <section className="py-24 px-6 md:px-12 bg-neutral-50">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col lg:flex-row gap-12">
-            {/* CEO Photo - 30% width */}
-            <div className="lg:flex-[0_0_30%]">
-              <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-neutral-200">
+          <div className="grid lg:grid-cols-[380px_1fr] gap-16 items-start">
+            {/* CEO Photo */}
+            <div className="lg:sticky lg:top-32">
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden bg-neutral-200">
                 <Image
                   src="/images/ceo-photo.png"
                   alt="代表取締役 稲葉幸太郎"
@@ -61,86 +64,118 @@ export default function PhilosophyPage() {
                   className="object-cover"
                 />
               </div>
-              <div className="mt-4">
-                <p className="text-[0.875rem] text-[#999]">
-                  CEO & FOUNDER
+              <div className="mt-8">
+                <p className="font-mono text-xs tracking-wider text-neutral-400 uppercase">
+                  CEO & Founder
                 </p>
-                <p className="mt-1 text-[1.25rem] font-bold text-neutral-900">
+                <p className="mt-2 text-xl font-bold text-neutral-900">
                   稲葉 幸太郎
+                </p>
+                <p className="text-sm text-neutral-500">
+                  Kotaro Inaba
                 </p>
               </div>
             </div>
 
-            {/* Message Content - flex 1 */}
-            <div className="lg:flex-1 text-[1.125rem] leading-[1.8] text-[#555]">
-              <p className="mb-8">
-                人類にとって、かつてない時代がやってきました。
-                <br />
-                誰もが創れる。届けられる。届かなかった知識に手が届く。
-              </p>
+            {/* Message Content */}
+            <div className="space-y-8 max-w-2xl">
+              <div className="space-y-6 text-base md:text-lg leading-[2] text-neutral-600">
+                <p>
+                  人類にとって、かつてない時代がやってきました。
+                  <br />
+                  誰もが創れる。届けられる。届かなかった知識に手が届く。
+                </p>
 
-              <p className="mb-8">
-                そして、従来のチャットボットではなく、一度セットアップすれば、
-                <br />
-                24時間自律的に業務と改善を繰り返す<span className="font-bold text-neutral-900">AIエージェント</span>が誕生しました。
-              </p>
+                <p>
+                  そして、従来のチャットボットではなく、一度セットアップすれば、
+                  <br />
+                  24時間自律的に業務と改善を繰り返すAIエージェントが誕生しました。
+                </p>
 
-              <p className="mb-8">
-                これから築くべき未来は、AIファーストの時代ではなく、
-                <br />
-                <span className="font-bold text-neutral-900">ヒューマンファーストの時代</span>だと、僕たちは信じています。
-              </p>
+                <p>
+                  これから築くべき未来は、AIファーストの時代ではなく、
+                  <br />
+                  <span className="text-neutral-900 font-medium">
+                    ヒューマンファーストの時代
+                  </span>
+                  だと、僕たちは信じています。
+                </p>
 
-              <p className="mb-8">
-                生産のために自分らしさを消耗させる必要がなくなり、
-                <br />
-                何かを生み出すことと、自分らしくいることが、両立する。
-              </p>
+                <p>
+                  生産のために自分らしさを消耗させる必要がなくなり、
+                  <br />
+                  何かを生み出すことと、自分らしくいることが、両立する。
+                </p>
 
-              <p className="mb-8">
-                <span className="font-bold text-neutral-900">AIが99%を引き受ける時代。</span>
-                <br />
-                残されるのは、人間のみが持つ1%の<span className="font-bold text-neutral-900">意志と創造</span>だけになる。
-                <br />
-                何を美しいと感じるか。何に怒り、何を選ぶか。
-              </p>
+                <p>
+                  AIが99%を引き受ける時代。
+                  <br />
+                  残されるのは、人間のみが持つ1%の意志と創造だけになる。
+                </p>
 
-              {/* Pull Quote */}
-              <blockquote className="text-[1.5rem] font-bold text-neutral-900 my-12 pl-8 border-l-4 border-neutral-900">
-                もし今、僕たちの仕事のほとんどがなくなったとして、何に集中するか。
-                <br />
-                僕たちにしかできないことはなんだろうか。
-              </blockquote>
+                <p>
+                  何を美しいと感じるか。何に怒るか。何を選ぶか。
+                </p>
 
-              <p className="mb-8">
-                その純粋な決定から生まれるものこそが、人にしか生み出せない価値です。
-                <br />
-                僕たちはその瞬間を創り、純度の高い創造で世界を前へ進めたいと考えています。
-              </p>
+                <p>
+                  もし今、僕たちの仕事のほとんどがなくなったとして、何に集中するか。
+                  <br />
+                  僕たちにしかできないことはなんだろうか。
+                </p>
 
-              {/* Company Name Origin - subtle, at the end */}
-              <p className="text-[0.875rem] text-[#999] mt-12 leading-[1.9]">
-                Lat91（ラット・ナインティワン）という社名は、緯度91度（Lat91）という意味。
-                <br />
-                90度が北極点であり、緯度91度はこの地球上に存在しない場所。
-                <br />
-                まだ誰も見たことがない、到達したことがない場所を、僕たちは創り、世界を前へ進める。
-                <br />
-                その想いを、社名に込めました。
-              </p>
+                <p>
+                  その純粋な決定から生まれるものこそが、人にしか生み出せない価値です。
+                  <br />
+                  僕たちはその瞬間を創り、純度の高い創造で世界を前へ進めたいと考えています。
+                </p>
+              </div>
+
+              <div className="mt-12 p-8 bg-white rounded-2xl border border-neutral-100">
+                <p className="text-base leading-[2] text-neutral-600">
+                  <span className="text-neutral-900 font-bold">Lat91</span>
+                  という社名は、地球の緯度が90度で終わることに由来しています。
+                  91度目は、地図上に存在しない。まだ誰も見たことのない景色。
+                </p>
+                <p className="text-base leading-[2] text-neutral-600 mt-4">
+                  90度までをAIに正しく担わせ、みんなで91度目に立つ。
+                  私は、その景色を見たいしつくりたい。だからこの会社を創りました。
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Values Section - directly after CEO message */}
-      <section className="py-20 px-6 md:px-12 border-t border-neutral-100">
+      {/* Mission Section */}
+      <section className="py-32 px-6 md:px-12 bg-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <span className="inline-flex items-center gap-3 mb-8 mx-auto">
+            <span className="w-12 h-px bg-neutral-900" />
+            <span className="font-mono text-xs tracking-[0.3em] uppercase text-neutral-400">
+              Mission
+            </span>
+            <span className="w-12 h-px bg-neutral-900" />
+          </span>
+          <h2 className="text-[clamp(32px,5vw,56px)] font-bold text-neutral-900 leading-tight">
+            人間の意志と創造が輝く
+            <br />
+            世界を築く
+          </h2>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="py-32 px-6 md:px-12 bg-neutral-900">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <p className="text-[#999] uppercase tracking-[0.3em] text-sm">
-              Value
-            </p>
-            <h2 className="text-[2rem] font-bold text-neutral-900 mt-2">
+          <div className="text-center mb-20">
+            <span className="inline-flex items-center gap-3 mb-6 mx-auto">
+              <span className="w-12 h-px bg-white/20" />
+              <span className="font-mono text-xs tracking-[0.3em] uppercase text-neutral-500">
+                Value
+              </span>
+              <span className="w-12 h-px bg-white/20" />
+            </span>
+            <h2 className="text-[clamp(28px,4vw,40px)] font-bold text-white">
               私たちの価値観
             </h2>
           </div>
@@ -149,18 +184,18 @@ export default function PhilosophyPage() {
             {values.map((value, index) => (
               <div
                 key={value.title}
-                className="relative bg-neutral-50 rounded-2xl p-10 group hover:shadow-lg transition-shadow duration-300"
+                className="relative bg-white rounded-2xl p-10 group hover:shadow-2xl transition-shadow duration-500"
               >
                 {/* Number */}
-                <span className="absolute top-8 right-8 font-mono text-6xl font-bold text-neutral-200 leading-none">
+                <span className="absolute top-8 right-8 font-mono text-7xl font-bold text-neutral-100 leading-none">
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
                 <div className="relative">
-                  <h3 className="text-xl font-bold text-neutral-900 mb-2">
+                  <h3 className="text-2xl font-bold text-neutral-900 mb-2">
                     {value.title}
                   </h3>
-                  <p className="text-sm text-neutral-400 mb-6">
+                  <p className="text-sm text-neutral-400 mb-8">
                     {value.subtitle}
                   </p>
                   <p className="text-base leading-relaxed text-neutral-600">
