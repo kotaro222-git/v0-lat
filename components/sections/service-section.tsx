@@ -14,7 +14,7 @@ const serviceItems = [
     number: "02",
     title: "AIエージェント構築・運用",
     titleEn: "AI Agent Development",
-    description: "Custom AI agent design, development, and operations",
+    description: "企業様ごとの業務要件に特化した、自律型AIエージェントの要件定義・設計・導入・保守運用までを実施します。",
   },
   {
     id: "ai-staff",

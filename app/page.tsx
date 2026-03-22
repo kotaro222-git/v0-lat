@@ -1,7 +1,7 @@
 "use client"
 
 import { FixedSectionsContainer } from "@/components/fixed-sections-container"
-import { ServicesSection } from "@/components/sections/services-section"
+import { ServicesSection } from "@/components/sections/service-section"
 import { CoverageSection } from "@/components/sections/coverage-section"
 import { StrengthSection } from "@/components/sections/strength-section"
 import { CTASection } from "@/components/sections/cta-section"
