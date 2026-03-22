@@ -45,9 +45,7 @@ export default function PhilosophyPage() {
           <h1 className="text-[clamp(36px,6vw,64px)] font-bold text-neutral-900 leading-[1.1] tracking-tight">
             AI時代に、
             <br />
-            <span className="text-neutral-400">人間の意志と創造が</span>
-            <br />
-            輝く世界を創る
+            人間の意志と創造が輝く世界を創る
           </h1>
         </div>
       </section>
