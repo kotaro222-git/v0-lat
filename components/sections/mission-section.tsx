@@ -43,7 +43,9 @@ export function MissionSection() {
           {/* Right - Description */}
           <div className="lg:col-span-5 max-w-[420px]">
             <p className="text-base md:text-lg leading-[1.9] text-neutral-500 mb-6">
-              産業革命から続く、人が労働力になる時代は、まもなく歴史の転換点を迎えます。
+              産業革命から続く、人が労働力になる時代は、
+              <br />
+              まもなく歴史の転換点を迎えます。
             </p>
             <p className="text-base md:text-lg leading-[1.9] text-neutral-500 mb-6">
               私たちが提供するのは、自律して実務を完遂するAI、デジタルレイバーという新しい労働力の実装。
