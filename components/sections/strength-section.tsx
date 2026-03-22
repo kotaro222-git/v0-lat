@@ -1,6 +1,6 @@
 "use client"
 
-import { X, Check } from "lucide-react"
+import { X, Check, ArrowRight } from "lucide-react"
 
 const lat91Steps = [
   { num: "01", text: "経営目標から、解決すべき課題を特定し、戦略を立案" },
@@ -35,91 +35,84 @@ export function StrengthSection() {
           <h2 className="text-[clamp(24px,4vw,40px)] font-bold text-white leading-tight">
             AIから考えない。
             <br />
-            経営目標から逆算する。
+            経営課題から考え、戦略を設計し、実装する。
           </h2>
         </div>
 
         {/* Comparison Cards */}
-        <div className="grid lg:grid-cols-[40%_55%] gap-8 lg:gap-[5%]">
+        <div className="grid lg:grid-cols-2 gap-8">
           {/* Wrong Approach */}
-          <div className="relative">
-            {/* External Label */}
-            <span className="block font-mono text-[12px] tracking-[0.2em] uppercase text-neutral-500 mb-3">
-              AI起点
-            </span>
-            <div className="bg-[#1e1e1e] rounded-3xl p-10 border border-neutral-700/50 h-full">
-              <div className="flex items-center gap-3 mb-10">
-                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-red-500/10 border border-red-500/20">
-                  <X size={18} className="text-red-400" />
-                </span>
-                <span className="text-sm font-medium text-neutral-400">
-                  よくあるアプローチ
-                </span>
-              </div>
+          <div className="relative bg-neutral-800/50 rounded-3xl p-10 border border-neutral-700/50">
+            <div className="flex items-center gap-3 mb-10">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-red-500/10 border border-red-500/20">
+                <X size={14} className="text-red-400" />
+              </span>
+              <span className="text-sm font-medium text-neutral-400">
+                他社のアプローチ
+              </span>
+              <span className="text-xs font-mono text-neutral-600 ml-auto">
+                AI起点
+              </span>
+            </div>
 
-              <div className="space-y-5">
-                {[
-                  "AIでできることから考える",
-                  "既存業務にアドオンする",
-                  "現場にハマらない、成果が出ない。",
-                ].map((step) => (
-                  <div key={step} className="flex items-start gap-4">
-                    <span className="text-neutral-600 text-lg leading-none">—</span>
-                    <p className="text-neutral-400 text-[15px] leading-relaxed">{step}</p>
+            <div className="space-y-6">
+              {[
+                "AIでできることから考える",
+                "既存業務にアドオンする",
+                "現場にハマらない、成果が出ない。",
+              ].map((step, index) => (
+                <div key={step} className="flex items-start gap-5">
+                  <span className="flex-shrink-0 w-8 h-8 rounded-full bg-red-500/5 border border-red-500/10 flex items-center justify-center text-xs text-red-400/60 font-mono">
+                    {index + 1}
+                  </span>
+                  <div className="pt-1.5">
+                    <p className="text-neutral-400">{step}</p>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
+            </div>
 
-              {/* Result indicator */}
-              <div className="mt-10 pt-8 border-t border-neutral-700/50">
-                <p className="text-sm text-red-400/70">
-                  → 半年後、誰も使っていないAIが残る
-                </p>
-              </div>
+            {/* Result indicator */}
+            <div className="mt-10 pt-8 border-t border-neutral-700/50">
+              <p className="text-sm text-red-400/60">
+                → 局所最適、定着しない、ROI不明
+              </p>
             </div>
           </div>
 
           {/* Right Approach */}
-          <div className="relative">
-            {/* External Label */}
-            <span className="block font-mono text-[12px] tracking-[0.2em] uppercase text-neutral-400 mb-3">
-              経営課題起点
-            </span>
-            <div 
-              className="bg-white rounded-3xl p-10 h-full"
-              style={{
-                boxShadow: "0 8px 32px rgba(0,0,0,0.25), 0 2px 8px rgba(0,0,0,0.15)",
-              }}
-            >
-              <div className="flex items-center gap-3 mb-10">
-                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-neutral-900">
-                  <Check size={18} className="text-white" />
-                </span>
-                <span className="text-sm font-medium text-neutral-900">
-                  Lat91のアプローチ
-                </span>
-              </div>
+          <div className="relative bg-white rounded-3xl p-10">
+            <div className="flex items-center gap-3 mb-10">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-neutral-900">
+                <Check size={14} className="text-white" />
+              </span>
+              <span className="text-sm font-medium text-neutral-900">
+                Lat91のアプローチ
+              </span>
+              <span className="text-xs font-mono text-neutral-400 ml-auto">
+                経営課題起点
+              </span>
+            </div>
 
-              <div className="space-y-4">
-                {lat91Steps.map((step) => (
-                  <div
-                    key={step.num}
-                    className="flex items-start gap-4 p-4 rounded-xl bg-neutral-50 hover:bg-neutral-100 transition-colors"
-                  >
-                    <span className="font-mono text-xs text-neutral-300 pt-0.5">
-                      {step.num}
-                    </span>
-                    <p className="text-sm text-neutral-700 leading-relaxed">{step.text}</p>
-                  </div>
-                ))}
-              </div>
+            <div className="space-y-4">
+              {lat91Steps.map((step, index) => (
+                <div
+                  key={step.num}
+                  className="flex items-start gap-4 p-4 rounded-xl bg-neutral-50 hover:bg-neutral-100 transition-colors"
+                >
+                  <span className="font-mono text-xs text-neutral-300 pt-0.5">
+                    {step.num}
+                  </span>
+                  <p className="text-sm text-neutral-700 leading-relaxed">{step.text}</p>
+                </div>
+              ))}
+            </div>
 
-              {/* Result indicator */}
-              <div className="mt-10 pt-8 border-t border-neutral-100">
-                <p className="text-sm text-neutral-600 font-medium">
-                  → 半年後、AIが経営数値を動かしている
-                </p>
-              </div>
+            {/* Result indicator */}
+            <div className="mt-10 pt-8 border-t border-neutral-100">
+              <p className="text-sm text-neutral-500">
+                → 全体最適、現場に定着、明確なROI
+              </p>
             </div>
           </div>
         </div>
