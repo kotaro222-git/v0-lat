@@ -36,7 +36,7 @@ export function CTASection() {
           href="/contact"
           className="inline-flex items-center gap-4 px-10 py-5 bg-neutral-900 text-white rounded-full font-medium text-base hover:bg-neutral-800 transition-all duration-300 group"
         >
-          <span>お問い合わせ</span>
+          <span>無料で相談する</span>
           <span className="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 group-hover:bg-white/20 transition-colors">
             <ArrowRight size={16} />
           </span>
