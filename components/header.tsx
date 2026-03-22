@@ -1,57 +1,88 @@
 "use client"
 
 import Link from "next/link"
-import { useState } from "react"
-import { Menu, X } from "lucide-react"
+import { useState, useEffect } from "react"
+import { Menu, X, ArrowRight } from "lucide-react"
 
 const navItems = [
   { label: "Philosophy", href: "/philosophy" },
   { label: "Service", href: "/service" },
   { label: "Media", href: "/media" },
   { label: "Company", href: "/company" },
-  { label: "Contact", href: "/contact" },
 ]
 
 interface HeaderProps {
-  variant?: "transparent" | "solid"
+  variant?: "transparent" | "light"
 }
 
 export function Header({ variant = "transparent" }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  const isLight = variant === "light" || isScrolled
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        variant === "solid"
-          ? "bg-[var(--background)]/95 backdrop-blur-sm border-b border-[var(--off-white)]/10"
-          : ""
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isLight || isScrolled
+          ? "bg-white/95 backdrop-blur-xl border-b border-neutral-100"
+          : "bg-transparent"
       }`}
     >
-      <nav className="flex justify-between items-center py-6 px-[5vw] max-w-[1800px] mx-auto">
+      <nav className="flex justify-between items-center py-5 px-6 md:px-12 max-w-7xl mx-auto">
         <Link
           href="/"
-          className="font-mono text-[clamp(18px,2vw,24px)] font-bold tracking-[0.1em] text-[var(--off-white)] hover:opacity-80 transition-opacity"
+          className={`font-mono text-xl font-bold tracking-[0.1em] transition-colors ${
+            isLight ? "text-neutral-900" : "text-white"
+          }`}
         >
           Lat91
         </Link>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex gap-8 list-none">
-          {navItems.map((item) => (
-            <li key={item.label}>
-              <Link
-                href={item.href}
-                className="font-mono text-[12px] tracking-[0.15em] uppercase text-[rgba(232,237,233,0.6)] hover:text-[var(--off-white)] transition-colors duration-300"
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="hidden md:flex items-center gap-10">
+          <ul className="flex gap-8 list-none">
+            {navItems.map((item) => (
+              <li key={item.label}>
+                <Link
+                  href={item.href}
+                  className={`text-sm tracking-wide transition-colors duration-300 ${
+                    isLight
+                      ? "text-neutral-500 hover:text-neutral-900"
+                      : "text-white/60 hover:text-white"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <Link
+            href="/contact"
+            className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
+              isLight
+                ? "bg-neutral-900 text-white hover:bg-neutral-800"
+                : "bg-white text-neutral-900 hover:bg-neutral-100"
+            }`}
+          >
+            Contact
+            <ArrowRight size={14} />
+          </Link>
+        </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-[var(--off-white)] p-2"
+          className={`md:hidden p-2 transition-colors ${
+            isLight ? "text-neutral-900" : "text-white"
+          }`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
@@ -61,20 +92,33 @@ export function Header({ variant = "transparent" }: HeaderProps) {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-[var(--background)]/98 backdrop-blur-md border-b border-[var(--off-white)]/10">
-          <ul className="flex flex-col py-6 px-[5vw]">
-            {navItems.map((item) => (
-              <li key={item.label}>
-                <Link
-                  href={item.href}
-                  className="block py-4 font-mono text-[14px] tracking-[0.15em] uppercase text-[rgba(232,237,233,0.6)] hover:text-[var(--off-white)] transition-colors duration-300 border-b border-[var(--off-white)]/5"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <div className="md:hidden fixed inset-0 top-[72px] bg-white z-40">
+          <div className="flex flex-col h-full">
+            <ul className="flex flex-col py-8 px-6">
+              {navItems.map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="flex items-center justify-between py-5 text-xl font-medium text-neutral-900 border-b border-neutral-100"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                    <ArrowRight size={18} className="text-neutral-400" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className="px-6 mt-auto pb-8">
+              <Link
+                href="/contact"
+                className="flex items-center justify-center gap-2 w-full px-6 py-4 bg-neutral-900 text-white rounded-full text-base font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contact
+                <ArrowRight size={16} />
+              </Link>
+            </div>
+          </div>
         </div>
       )}
     </header>

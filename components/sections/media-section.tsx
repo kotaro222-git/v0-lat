@@ -1,8 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, ArrowUpRight } from "lucide-react"
 
 const articles = [
   {
@@ -10,100 +9,89 @@ const articles = [
     title: "AIエージェント導入で営業効率が3倍に - 製造業A社の事例",
     category: "Case Study",
     date: "2026.03.15",
-    image: "/images/article-1.jpg",
   },
   {
     id: 2,
     title: "2026年のAIトレンド：エージェント型AIが変える企業の働き方",
     category: "Insight",
     date: "2026.03.10",
-    image: "/images/article-2.jpg",
   },
   {
     id: 3,
     title: "DX推進における経営課題起点のアプローチとは",
     category: "Column",
     date: "2026.03.05",
-    image: "/images/article-3.jpg",
   },
 ]
 
 export function MediaSection() {
   return (
-    <section className="relative bg-[var(--dark-teal)]/30 py-32 px-[5vw]">
-      <div className="max-w-[1200px] mx-auto">
+    <section className="relative bg-neutral-50 py-32 md:py-40 px-6 md:px-12">
+      <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="flex items-end justify-between mb-12">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
           <div>
-            <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-[var(--light-sage)]/60">
-              Media
+            <span className="inline-flex items-center gap-3 mb-6">
+              <span className="w-12 h-px bg-neutral-900" />
+              <span className="font-mono text-xs tracking-[0.3em] uppercase text-neutral-400">
+                Media
+              </span>
             </span>
-            <h2 className="mt-4 text-[clamp(24px,3.5vw,36px)] font-bold text-[var(--off-white)]">
+            <h2 className="text-[clamp(28px,4vw,44px)] font-bold text-neutral-900 tracking-tight">
               最新記事
             </h2>
           </div>
           <Link
             href="/media"
-            className="hidden sm:inline-flex items-center gap-2 font-mono text-[13px] tracking-[0.1em] text-[var(--light-sage)] hover:text-[var(--off-white)] transition-colors group"
+            className="inline-flex items-center gap-4 text-sm font-medium text-neutral-900 hover:text-neutral-600 transition-colors group"
           >
-            View all
-            <ArrowRight
-              size={14}
-              className="transition-transform group-hover:translate-x-1"
-            />
+            <span className="tracking-wide">すべての記事を見る</span>
+            <span className="flex items-center justify-center w-10 h-10 rounded-full border border-neutral-200 group-hover:border-neutral-900 group-hover:bg-neutral-900 group-hover:text-white transition-all">
+              <ArrowRight size={16} />
+            </span>
           </Link>
         </div>
 
         {/* Articles Grid */}
         <div className="grid md:grid-cols-3 gap-6">
-          {articles.map((article) => (
+          {articles.map((article, index) => (
             <Link
               key={article.id}
               href={`/media/${article.id}`}
               className="group block"
             >
-              <article className="bg-[var(--background)]/60 rounded-lg overflow-hidden border border-[var(--off-white)]/5 hover:border-[var(--light-sage)]/20 transition-all duration-300">
-                {/* Image */}
-                <div className="relative aspect-[16/10] bg-[var(--dark-teal)] overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[var(--mid-teal)]/30 to-[var(--dark-teal)]/60" />
+              <article className="bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500">
+                {/* Image placeholder */}
+                <div className="relative aspect-[16/10] bg-gradient-to-br from-neutral-100 to-neutral-200 overflow-hidden">
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-mono text-[11px] tracking-widest text-[var(--off-white)]/30 uppercase">
+                    <span className="font-mono text-6xl font-bold text-neutral-300/50">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1.5 bg-white rounded-full text-xs font-medium text-neutral-600">
                       {article.category}
+                    </span>
+                  </div>
+                  <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="flex items-center justify-center w-10 h-10 rounded-full bg-neutral-900 text-white">
+                      <ArrowUpRight size={16} />
                     </span>
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="p-6">
-                  <div className="flex items-center gap-4 mb-3">
-                    <span className="font-mono text-[10px] tracking-wider text-[var(--light-sage)]">
-                      {article.category}
-                    </span>
-                    <span className="font-mono text-[10px] text-[var(--off-white)]/40">
-                      {article.date}
-                    </span>
-                  </div>
-                  <h3 className="text-[15px] font-bold text-[var(--off-white)] leading-relaxed group-hover:text-[var(--light-sage)] transition-colors line-clamp-2">
+                  <span className="font-mono text-xs text-neutral-400 mb-3 block">
+                    {article.date}
+                  </span>
+                  <h3 className="text-base font-bold text-neutral-900 leading-relaxed group-hover:text-neutral-600 transition-colors">
                     {article.title}
                   </h3>
                 </div>
               </article>
             </Link>
           ))}
-        </div>
-
-        {/* Mobile View All Link */}
-        <div className="mt-8 text-center sm:hidden">
-          <Link
-            href="/media"
-            className="inline-flex items-center gap-2 font-mono text-[13px] tracking-[0.1em] text-[var(--light-sage)] hover:text-[var(--off-white)] transition-colors group"
-          >
-            View all
-            <ArrowRight
-              size={14}
-              className="transition-transform group-hover:translate-x-1"
-            />
-          </Link>
         </div>
       </div>
     </section>

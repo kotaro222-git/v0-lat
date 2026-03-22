@@ -57,33 +57,33 @@ export default async function ArticlePage({
   const article = articles[id] || articles["1"]
 
   return (
-    <main className="bg-[var(--background)] min-h-screen">
-      <Header variant="solid" />
+    <main className="bg-white min-h-screen">
+      <Header variant="light" />
 
       {/* Article Header */}
-      <section className="pt-32 pb-12 px-[5vw]">
-        <div className="max-w-[800px] mx-auto">
+      <section className="pt-32 pb-12 px-6 md:px-12">
+        <div className="max-w-3xl mx-auto">
           {/* Back Link */}
           <Link
             href="/media"
-            className="inline-flex items-center gap-2 text-[13px] text-[var(--off-white)]/60 hover:text-[var(--off-white)] transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-neutral-900 transition-colors mb-10"
           >
             <ArrowLeft size={16} />
             Back to Media
           </Link>
 
           {/* Category */}
-          <span className="inline-block px-4 py-1.5 bg-[var(--light-sage)]/10 rounded text-[11px] font-mono tracking-wider text-[var(--light-sage)] mb-6">
+          <span className="inline-block px-4 py-2 bg-neutral-100 rounded-full text-xs font-medium text-neutral-600 mb-6">
             {article.category}
           </span>
 
           {/* Title */}
-          <h1 className="text-[clamp(28px,4vw,44px)] font-bold text-[var(--off-white)] leading-tight mb-6">
+          <h1 className="text-[clamp(32px,5vw,48px)] font-bold text-neutral-900 leading-[1.2] mb-8">
             {article.title}
           </h1>
 
           {/* Meta */}
-          <div className="flex flex-wrap items-center gap-6 text-[13px] text-[var(--off-white)]/50">
+          <div className="flex flex-wrap items-center gap-6 text-sm text-neutral-400">
             <span className="flex items-center gap-2">
               <Calendar size={14} />
               {article.date}
@@ -97,12 +97,11 @@ export default async function ArticlePage({
       </section>
 
       {/* Featured Image */}
-      <section className="px-[5vw] pb-12">
-        <div className="max-w-[1000px] mx-auto">
-          <div className="relative aspect-[16/8] bg-[var(--dark-teal)] rounded-xl overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[var(--mid-teal)]/30 to-[var(--dark-teal)]/60" />
+      <section className="px-6 md:px-12 pb-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="relative aspect-[16/8] bg-gradient-to-br from-neutral-100 to-neutral-200 rounded-2xl overflow-hidden">
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="font-mono text-[14px] tracking-widest text-[var(--off-white)]/20 uppercase">
+              <span className="font-mono text-sm tracking-widest text-neutral-300 uppercase">
                 {article.category}
               </span>
             </div>
@@ -111,13 +110,13 @@ export default async function ArticlePage({
       </section>
 
       {/* Article Content */}
-      <section className="px-[5vw] pb-24">
-        <div className="max-w-[800px] mx-auto">
-          <div className="prose prose-invert max-w-none">
+      <section className="px-6 md:px-12 pb-24">
+        <div className="max-w-3xl mx-auto">
+          <div className="prose prose-lg max-w-none">
             {article.content.map((paragraph, index) => (
               <p
                 key={index}
-                className="text-[16px] leading-[2.2] text-[var(--off-white)]/80 mb-8"
+                className="text-lg leading-[2] text-neutral-600 mb-8"
               >
                 {paragraph}
               </p>
@@ -125,17 +124,17 @@ export default async function ArticlePage({
           </div>
 
           {/* Share */}
-          <div className="mt-16 pt-8 border-t border-[var(--off-white)]/10">
+          <div className="mt-16 pt-8 border-t border-neutral-100">
             <div className="flex items-center gap-6">
-              <span className="flex items-center gap-2 text-[13px] text-[var(--off-white)]/50">
+              <span className="flex items-center gap-2 text-sm text-neutral-400">
                 <Share2 size={14} />
                 Share
               </span>
               <div className="flex gap-3">
-                <button className="w-10 h-10 rounded-full bg-[var(--dark-teal)]/50 flex items-center justify-center text-[var(--off-white)]/60 hover:bg-[var(--dark-teal)] hover:text-[var(--off-white)] transition-colors">
+                <button className="w-10 h-10 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-500 hover:bg-neutral-900 hover:text-white transition-colors">
                   <Twitter size={16} />
                 </button>
-                <button className="w-10 h-10 rounded-full bg-[var(--dark-teal)]/50 flex items-center justify-center text-[var(--off-white)]/60 hover:bg-[var(--dark-teal)] hover:text-[var(--off-white)] transition-colors">
+                <button className="w-10 h-10 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-500 hover:bg-neutral-900 hover:text-white transition-colors">
                   <Linkedin size={16} />
                 </button>
               </div>
@@ -145,9 +144,9 @@ export default async function ArticlePage({
       </section>
 
       {/* Related Articles */}
-      <section className="px-[5vw] pb-32 bg-[var(--dark-teal)]/20">
-        <div className="max-w-[1200px] mx-auto pt-24">
-          <h2 className="font-mono text-[11px] tracking-[0.2em] uppercase text-[var(--light-sage)]/60 mb-8">
+      <section className="px-6 md:px-12 pb-32 bg-neutral-50">
+        <div className="max-w-6xl mx-auto pt-24">
+          <h2 className="font-mono text-xs tracking-[0.2em] uppercase text-neutral-400 mb-10">
             Related Articles
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
@@ -156,11 +155,11 @@ export default async function ArticlePage({
               .slice(0, 2)
               .map(([key, related]) => (
                 <Link key={key} href={`/media/${key}`}>
-                  <article className="group h-full bg-[var(--background)]/60 rounded-lg p-6 border border-[var(--off-white)]/5 hover:border-[var(--light-sage)]/20 transition-all duration-300">
-                    <span className="font-mono text-[10px] tracking-wider text-[var(--light-sage)]">
+                  <article className="group h-full bg-white rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
+                    <span className="text-xs font-medium text-neutral-400">
                       {related.category}
                     </span>
-                    <h3 className="mt-3 text-[16px] font-bold text-[var(--off-white)] leading-relaxed group-hover:text-[var(--light-sage)] transition-colors">
+                    <h3 className="mt-4 text-lg font-bold text-neutral-900 leading-relaxed group-hover:text-neutral-600 transition-colors">
                       {related.title}
                     </h3>
                   </article>

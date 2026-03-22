@@ -9,6 +9,7 @@ import {
   X,
   Check,
   ArrowRight,
+  ArrowUpRight,
 } from "lucide-react"
 
 export const metadata = {
@@ -134,73 +135,73 @@ const processSteps = [
   },
   {
     number: "04",
-    title: "本格稼働・継続改善",
-    description: "保守運用 リテラシー支援",
+    title: "本格稼働",
+    description: "保守運用・継続改善",
     duration: "ongoing",
   },
 ]
 
 export default function ServicePage() {
   return (
-    <main className="bg-[var(--background)] min-h-screen">
-      <Header variant="solid" />
+    <main className="bg-white min-h-screen">
+      <Header variant="light" />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-24 px-[5vw]">
-        <div className="max-w-[1200px] mx-auto">
-          <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-[var(--mid-teal)]">
-            Service
+      <section className="pt-32 pb-20 px-6 md:px-12">
+        <div className="max-w-6xl mx-auto">
+          <span className="inline-flex items-center gap-3 mb-8">
+            <span className="w-12 h-px bg-neutral-900" />
+            <span className="font-mono text-xs tracking-[0.3em] uppercase text-neutral-400">
+              Service
+            </span>
           </span>
-          <h1 className="mt-4 text-[clamp(32px,5vw,56px)] font-bold text-[var(--off-white)] leading-tight">
+          <h1 className="text-[clamp(36px,6vw,64px)] font-bold text-neutral-900 leading-[1.1] tracking-tight">
             DXソリューション事業
           </h1>
-          <p className="mt-6 text-[18px] text-[var(--off-white)]/70">
+          <p className="mt-6 text-lg md:text-xl text-neutral-500">
             経営課題を、AIエージェントで解決する
           </p>
         </div>
       </section>
 
       {/* Services Detail Section */}
-      <section className="py-16 px-[5vw]">
-        <div className="max-w-[1200px] mx-auto space-y-24">
+      <section className="py-20 px-6 md:px-12 bg-neutral-50">
+        <div className="max-w-6xl mx-auto space-y-32">
           {services.map((service, index) => (
             <div
               key={service.titleEn}
-              className="grid lg:grid-cols-[1fr_1.5fr] gap-12 items-start"
+              className="grid lg:grid-cols-2 gap-12 items-start"
             >
               {/* Left - Service Info */}
               <div className="lg:sticky lg:top-32">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-lg bg-[var(--light-sage)]/10 flex items-center justify-center">
-                    <service.icon
-                      size={24}
-                      className="text-[var(--light-sage)]"
-                    />
+                <div className="flex items-center gap-5 mb-8">
+                  <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center shadow-sm">
+                    <service.icon size={28} className="text-neutral-900" />
                   </div>
                   <div>
-                    <h2 className="text-[24px] font-bold text-[var(--off-white)]">
+                    <h2 className="text-3xl font-bold text-neutral-900">
                       {service.titleEn}
                     </h2>
-                    <p className="text-[13px] text-[var(--off-white)]/50">
+                    <p className="text-sm text-neutral-400">
                       {service.titleJa}
                     </p>
                   </div>
                 </div>
 
-                <p className="text-[15px] leading-[1.8] text-[var(--off-white)]/70 mb-6">
+                <p className="text-lg leading-relaxed text-neutral-600 mb-8">
                   {service.description}
                 </p>
 
                 {/* Capabilities */}
-                <div className="mb-6">
-                  <p className="font-mono text-[10px] tracking-wider text-[var(--light-sage)]/60 uppercase mb-3">
+                <div>
+                  <p className="font-mono text-xs tracking-wider text-neutral-400 uppercase mb-4">
                     Capabilities
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {service.capabilities.map((cap) => (
                       <span
                         key={cap}
-                        className="px-3 py-1.5 bg-[var(--dark-teal)]/50 rounded text-[12px] text-[var(--off-white)]/70"
+                        className="px-4 py-2 bg-white rounded-full text-sm text-neutral-600 border border-neutral-100"
                       >
                         {cap}
                       </span>
@@ -210,36 +211,29 @@ export default function ServicePage() {
               </div>
 
               {/* Right - Workflow */}
-              <div className="bg-[var(--dark-teal)]/30 rounded-xl p-8 border border-[var(--off-white)]/5">
-                <p className="font-mono text-[10px] tracking-wider text-[var(--light-sage)] uppercase mb-6">
+              <div className="bg-white rounded-3xl p-8 md:p-10 shadow-sm">
+                <p className="font-mono text-xs tracking-wider text-neutral-400 uppercase mb-8">
                   Workflow Example
                 </p>
 
-                <div className="relative">
-                  {/* Connection Line */}
-                  <div className="absolute left-4 top-4 bottom-4 w-px bg-gradient-to-b from-[var(--light-sage)]/30 via-[var(--light-sage)]/10 to-transparent hidden md:block" />
-
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {service.workflow.map((step, stepIndex) => (
-                      <div key={step} className="relative">
-                        {/* Step number */}
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="w-8 h-8 rounded-full bg-[var(--light-sage)]/20 flex items-center justify-center text-[11px] font-mono text-[var(--light-sage)]">
-                            {stepIndex + 1}
-                          </span>
-                          {stepIndex < service.workflow.length - 1 && (
-                            <ArrowRight
-                              size={12}
-                              className="text-[var(--light-sage)]/30 hidden md:block absolute -right-2 top-2"
-                            />
-                          )}
-                        </div>
-                        <p className="text-[13px] text-[var(--off-white)]/80 pl-11 md:pl-0">
-                          {step}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
+                <div className="space-y-4">
+                  {service.workflow.map((step, stepIndex) => (
+                    <div
+                      key={step}
+                      className="flex items-center gap-5 p-4 rounded-xl hover:bg-neutral-50 transition-colors"
+                    >
+                      <span className="flex-shrink-0 w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center text-sm font-mono text-white">
+                        {stepIndex + 1}
+                      </span>
+                      <p className="text-base text-neutral-700">{step}</p>
+                      {stepIndex < service.workflow.length - 1 && (
+                        <ArrowRight
+                          size={14}
+                          className="text-neutral-300 ml-auto hidden sm:block"
+                        />
+                      )}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -248,120 +242,94 @@ export default function ServicePage() {
       </section>
 
       {/* Comparison Section */}
-      <section className="py-32 px-[5vw] bg-[var(--dark-teal)]">
-        <div className="max-w-[1200px] mx-auto">
-          <div className="text-center mb-16">
-            <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-[var(--light-sage)]/60">
-              Our Approach
+      <section className="py-32 px-6 md:px-12 bg-neutral-900">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-20">
+            <span className="inline-flex items-center gap-3 mb-6 mx-auto">
+              <span className="w-12 h-px bg-white/20" />
+              <span className="font-mono text-xs tracking-[0.3em] uppercase text-neutral-500">
+                Approach
+              </span>
+              <span className="w-12 h-px bg-white/20" />
             </span>
-            <h2 className="mt-4 text-[clamp(22px,3vw,32px)] font-bold text-[var(--off-white)] leading-tight">
+            <h2 className="text-[clamp(28px,4vw,40px)] font-bold text-white leading-tight">
               DX・AI導入の失敗パターン
             </h2>
-            <p className="mt-4 text-[16px] text-[var(--off-white)]/60">
+            <p className="mt-4 text-lg text-neutral-400">
               「とりあえずAI」が、失敗を招く
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-2 gap-8">
             {/* Wrong Approach */}
-            <div className="relative bg-[var(--background)]/60 rounded-xl p-8 border border-red-500/20">
-              <div className="absolute -top-3 left-8">
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-red-500/10 border border-red-500/30 rounded-full">
-                  <X size={14} className="text-red-400" />
-                  <span className="font-mono text-[11px] tracking-wider text-red-400">
-                    失敗パターン（AI起点）
-                  </span>
+            <div className="relative bg-neutral-800/50 rounded-3xl p-10 border border-neutral-700/50">
+              <div className="flex items-center gap-3 mb-10">
+                <span className="flex items-center justify-center w-10 h-10 rounded-full bg-red-500/10 border border-red-500/20">
+                  <X size={16} className="text-red-400" />
+                </span>
+                <span className="text-base font-medium text-neutral-300">
+                  失敗パターン
+                </span>
+                <span className="text-xs font-mono text-neutral-600 ml-auto">
+                  AI起点
                 </span>
               </div>
 
-              <div className="mt-8 space-y-6">
-                <div className="flex items-start gap-4">
-                  <span className="flex-shrink-0 w-8 h-8 rounded-full bg-red-500/10 flex items-center justify-center text-[14px] text-red-400 font-mono font-bold">
-                    1
-                  </span>
-                  <div>
-                    <p className="text-[15px] font-medium text-[var(--off-white)]">
-                      AIで何ができるか考える
-                    </p>
+              <div className="space-y-6">
+                {[
+                  "AIで何ができるか考える",
+                  "業務プロセスに無理やり載せる",
+                  "なんとか運用する",
+                ].map((step, idx) => (
+                  <div key={step} className="flex items-start gap-5">
+                    <span className="flex-shrink-0 w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center text-base text-red-400 font-mono">
+                      {idx + 1}
+                    </span>
+                    <p className="text-neutral-300 pt-2">{step}</p>
                   </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <span className="flex-shrink-0 w-8 h-8 rounded-full bg-red-500/10 flex items-center justify-center text-[14px] text-red-400 font-mono font-bold">
-                    2
-                  </span>
-                  <div>
-                    <p className="text-[15px] font-medium text-[var(--off-white)]">
-                      業務プロセスに無理やり載せる
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <span className="flex-shrink-0 w-8 h-8 rounded-full bg-red-500/10 flex items-center justify-center text-[14px] text-red-400 font-mono font-bold">
-                    3
-                  </span>
-                  <div>
-                    <p className="text-[15px] font-medium text-[var(--off-white)]">
-                      なんとか運用する
-                    </p>
-                  </div>
-                </div>
+                ))}
+              </div>
 
-                <div className="pt-4 border-t border-red-500/10">
-                  <p className="text-[14px] text-red-400/80">
-                    現場に合わない。使われない。成果が出ない。
-                  </p>
-                </div>
+              <div className="mt-10 pt-8 border-t border-neutral-700/50">
+                <p className="text-red-400/80">
+                  → 現場に合わない。使われない。成果が出ない。
+                </p>
               </div>
             </div>
 
             {/* Right Approach */}
-            <div className="relative bg-gradient-to-br from-[var(--light-sage)]/10 to-[var(--mid-teal)]/10 rounded-xl p-8 border border-[var(--light-sage)]/30">
-              <div className="absolute -top-3 left-8">
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[var(--light-sage)]/10 border border-[var(--light-sage)]/30 rounded-full">
-                  <Check size={14} className="text-[var(--light-sage)]" />
-                  <span className="font-mono text-[11px] tracking-wider text-[var(--light-sage)]">
-                    Lat91のアプローチ（課題起点）
-                  </span>
+            <div className="relative bg-white rounded-3xl p-10">
+              <div className="flex items-center gap-3 mb-10">
+                <span className="flex items-center justify-center w-10 h-10 rounded-full bg-neutral-900">
+                  <Check size={16} className="text-white" />
+                </span>
+                <span className="text-base font-medium text-neutral-900">
+                  Lat91のアプローチ
+                </span>
+                <span className="text-xs font-mono text-neutral-400 ml-auto">
+                  課題起点
                 </span>
               </div>
 
-              <div className="mt-8 space-y-6">
-                <div className="flex items-start gap-4">
-                  <span className="flex-shrink-0 w-8 h-8 rounded-full bg-[var(--light-sage)]/20 flex items-center justify-center text-[14px] text-[var(--light-sage)] font-mono font-bold">
-                    1
-                  </span>
-                  <div>
-                    <p className="text-[15px] font-medium text-[var(--off-white)]">
-                      経営課題・現場課題をヒアリング
-                    </p>
+              <div className="space-y-6">
+                {[
+                  "経営課題・現場課題をヒアリング",
+                  "業務プロセスを分析・再設計",
+                  "最適なAIエージェントを構築・導入・運用",
+                ].map((step, idx) => (
+                  <div key={step} className="flex items-start gap-5">
+                    <span className="flex-shrink-0 w-10 h-10 rounded-full bg-neutral-100 flex items-center justify-center text-base text-neutral-900 font-mono">
+                      {idx + 1}
+                    </span>
+                    <p className="text-neutral-700 pt-2">{step}</p>
                   </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <span className="flex-shrink-0 w-8 h-8 rounded-full bg-[var(--light-sage)]/20 flex items-center justify-center text-[14px] text-[var(--light-sage)] font-mono font-bold">
-                    2
-                  </span>
-                  <div>
-                    <p className="text-[15px] font-medium text-[var(--off-white)]">
-                      業務プロセスを分析・再設計
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <span className="flex-shrink-0 w-8 h-8 rounded-full bg-[var(--light-sage)]/20 flex items-center justify-center text-[14px] text-[var(--light-sage)] font-mono font-bold">
-                    3
-                  </span>
-                  <div>
-                    <p className="text-[15px] font-medium text-[var(--off-white)]">
-                      最適なAIエージェントを構築・導入・運用
-                    </p>
-                  </div>
-                </div>
+                ))}
+              </div>
 
-                <div className="pt-4 border-t border-[var(--light-sage)]/20">
-                  <p className="text-[14px] text-[var(--light-sage)]">
-                    現場に浸透する。解決される。成果につながる。
-                  </p>
-                </div>
+              <div className="mt-10 pt-8 border-t border-neutral-100">
+                <p className="text-neutral-500">
+                  → 現場に浸透する。解決される。成果につながる。
+                </p>
               </div>
             </div>
           </div>
@@ -369,41 +337,42 @@ export default function ServicePage() {
       </section>
 
       {/* Process Section */}
-      <section className="py-32 px-[5vw] bg-[var(--background)]">
-        <div className="max-w-[1200px] mx-auto">
-          <div className="text-center mb-16">
-            <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-[var(--mid-teal)]">
-              Process
+      <section className="py-32 px-6 md:px-12 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-20">
+            <span className="inline-flex items-center gap-3 mb-6 mx-auto">
+              <span className="w-12 h-px bg-neutral-900" />
+              <span className="font-mono text-xs tracking-[0.3em] uppercase text-neutral-400">
+                Process
+              </span>
+              <span className="w-12 h-px bg-neutral-900" />
             </span>
-            <h2 className="mt-4 text-[clamp(24px,3.5vw,36px)] font-bold text-[var(--off-white)]">
+            <h2 className="text-[clamp(28px,4vw,40px)] font-bold text-neutral-900">
               支援実行プロセス
             </h2>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {processSteps.map((step, index) => (
-              <div key={step.number} className="relative">
+              <div key={step.number} className="relative group">
                 {/* Connection Arrow */}
                 {index < processSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-12 -right-3 z-10">
-                    <ArrowRight
-                      size={20}
-                      className="text-[var(--light-sage)]/30"
-                    />
+                  <div className="hidden lg:block absolute top-14 -right-3 z-10">
+                    <ArrowRight size={20} className="text-neutral-300" />
                   </div>
                 )}
 
-                <div className="h-full bg-[var(--dark-teal)]/30 rounded-xl p-8 border border-[var(--off-white)]/5 hover:border-[var(--light-sage)]/20 transition-colors">
-                  <span className="font-mono text-[48px] font-bold text-[var(--light-sage)]/20 leading-none">
+                <div className="h-full bg-neutral-50 rounded-2xl p-8 hover:bg-neutral-100 transition-colors">
+                  <span className="font-mono text-5xl font-bold text-neutral-200 leading-none">
                     {step.number}
                   </span>
-                  <h3 className="mt-4 text-[18px] font-bold text-[var(--off-white)]">
+                  <h3 className="mt-6 text-xl font-bold text-neutral-900">
                     {step.title}
                   </h3>
-                  <p className="mt-2 text-[13px] leading-[1.7] text-[var(--off-white)]/60">
+                  <p className="mt-3 text-sm text-neutral-500 leading-relaxed">
                     {step.description}
                   </p>
-                  <p className="mt-4 font-mono text-[11px] tracking-wider text-[var(--light-sage)]">
+                  <p className="mt-6 font-mono text-xs tracking-wider text-neutral-400">
                     {step.duration}
                   </p>
                 </div>
@@ -411,12 +380,10 @@ export default function ServicePage() {
             ))}
           </div>
 
-          {/* Closing Message */}
           <div className="mt-20 text-center">
-            <p className="text-[16px] leading-[2] text-[var(--off-white)]/70 max-w-2xl mx-auto">
+            <p className="text-lg text-neutral-500 leading-relaxed max-w-2xl mx-auto">
               私たちの役割は、AIを使っていただくことではなく、
-              <br />
-              <span className="text-[var(--off-white)] font-medium">
+              <span className="text-neutral-900 font-medium">
                 本当の課題を特定し、解決し、事業を成長させること
               </span>
               です。
@@ -426,23 +393,22 @@ export default function ServicePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-[5vw] bg-gradient-to-b from-[var(--dark-teal)]/30 to-[var(--background)]">
-        <div className="max-w-[800px] mx-auto text-center">
-          <h2 className="text-[clamp(24px,4vw,36px)] font-bold text-[var(--off-white)] mb-6">
+      <section className="py-32 px-6 md:px-12 bg-neutral-50">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-[clamp(28px,4vw,44px)] font-bold text-neutral-900 mb-6">
             まずはご相談ください
           </h2>
-          <p className="text-[15px] text-[var(--off-white)]/60 mb-10">
+          <p className="text-neutral-500 text-lg mb-10">
             貴社の課題に合わせた最適なソリューションをご提案します
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-4 px-10 py-5 bg-[var(--off-white)] text-[var(--background)] rounded-full font-bold text-[15px] tracking-wide hover:bg-[var(--light-sage)] transition-all duration-300 group"
+            className="inline-flex items-center gap-4 px-10 py-5 bg-neutral-900 text-white rounded-full font-medium text-base hover:bg-neutral-800 transition-all group"
           >
             お問い合わせ
-            <ArrowRight
-              size={18}
-              className="transition-transform group-hover:translate-x-1"
-            />
+            <span className="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 group-hover:bg-white/20 transition-colors">
+              <ArrowRight size={16} />
+            </span>
           </Link>
         </div>
       </section>

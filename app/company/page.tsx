@@ -23,45 +23,48 @@ const businessAreas = [
 
 export default function CompanyPage() {
   return (
-    <main className="bg-[var(--background)] min-h-screen">
-      <Header variant="solid" />
+    <main className="bg-white min-h-screen">
+      <Header variant="light" />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-24 px-[5vw]">
-        <div className="max-w-[1200px] mx-auto">
-          <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-[var(--mid-teal)]">
-            Company
+      <section className="pt-32 pb-20 px-6 md:px-12">
+        <div className="max-w-6xl mx-auto">
+          <span className="inline-flex items-center gap-3 mb-8">
+            <span className="w-12 h-px bg-neutral-900" />
+            <span className="font-mono text-xs tracking-[0.3em] uppercase text-neutral-400">
+              Company
+            </span>
           </span>
-          <h1 className="mt-4 text-[clamp(32px,5vw,56px)] font-bold text-[var(--off-white)] leading-tight">
+          <h1 className="text-[clamp(36px,6vw,64px)] font-bold text-neutral-900 leading-[1.1] tracking-tight">
             企業情報
           </h1>
         </div>
       </section>
 
       {/* Company Info Section */}
-      <section className="py-16 px-[5vw]">
-        <div className="max-w-[1200px] mx-auto">
+      <section className="py-20 px-6 md:px-12 bg-neutral-50">
+        <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Company Details */}
             <div>
-              <h2 className="font-mono text-[11px] tracking-[0.2em] uppercase text-[var(--light-sage)]/60 mb-8">
+              <h2 className="font-mono text-xs tracking-[0.2em] uppercase text-neutral-400 mb-10">
                 Company Information
               </h2>
 
-              <div className="space-y-0">
+              <div className="bg-white rounded-2xl overflow-hidden">
                 {companyInfo.map((item, index) => (
                   <div
                     key={item.label}
-                    className={`py-6 ${
+                    className={`flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8 py-6 px-8 ${
                       index !== companyInfo.length - 1
-                        ? "border-b border-[var(--off-white)]/10"
+                        ? "border-b border-neutral-100"
                         : ""
                     }`}
                   >
-                    <dt className="font-mono text-[11px] tracking-wider text-[var(--off-white)]/40 uppercase mb-2">
+                    <dt className="font-mono text-xs tracking-wider text-neutral-400 uppercase sm:w-28 flex-shrink-0">
                       {item.label}
                     </dt>
-                    <dd className="text-[16px] text-[var(--off-white)]">
+                    <dd className="text-base text-neutral-900">
                       {item.value}
                     </dd>
                   </div>
@@ -71,21 +74,21 @@ export default function CompanyPage() {
 
             {/* Business Areas */}
             <div>
-              <h2 className="font-mono text-[11px] tracking-[0.2em] uppercase text-[var(--light-sage)]/60 mb-8">
+              <h2 className="font-mono text-xs tracking-[0.2em] uppercase text-neutral-400 mb-10">
                 Business Areas
               </h2>
 
-              <div className="bg-[var(--dark-teal)]/30 rounded-xl p-8 border border-[var(--off-white)]/5">
-                <h3 className="text-[14px] font-medium text-[var(--off-white)]/60 mb-6">
+              <div className="bg-white rounded-2xl p-8">
+                <h3 className="text-lg font-bold text-neutral-900 mb-8">
                   事業概要
                 </h3>
                 <ul className="space-y-4">
                   {businessAreas.map((area, index) => (
-                    <li key={area} className="flex items-start gap-4">
-                      <span className="flex-shrink-0 w-6 h-6 rounded bg-[var(--light-sage)]/10 flex items-center justify-center text-[11px] font-mono text-[var(--light-sage)]">
+                    <li key={area} className="flex items-start gap-5">
+                      <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-neutral-100 flex items-center justify-center text-sm font-mono text-neutral-500">
                         {index + 1}
                       </span>
-                      <span className="text-[15px] text-[var(--off-white)]">
+                      <span className="text-base text-neutral-700 pt-1">
                         {area}
                       </span>
                     </li>
@@ -98,20 +101,20 @@ export default function CompanyPage() {
       </section>
 
       {/* Map Section */}
-      <section className="py-24 px-[5vw] bg-[var(--dark-teal)]/20">
-        <div className="max-w-[1200px] mx-auto">
-          <h2 className="font-mono text-[11px] tracking-[0.2em] uppercase text-[var(--light-sage)]/60 mb-8">
+      <section className="py-20 px-6 md:px-12 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="font-mono text-xs tracking-[0.2em] uppercase text-neutral-400 mb-10">
             Location
           </h2>
 
           <div className="grid lg:grid-cols-[1fr_400px] gap-8">
             {/* Map Embed */}
-            <div className="relative aspect-[16/9] lg:aspect-auto lg:min-h-[400px] bg-[var(--dark-teal)] rounded-xl overflow-hidden">
+            <div className="relative aspect-[16/9] lg:aspect-auto lg:min-h-[450px] bg-neutral-100 rounded-2xl overflow-hidden">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.0534366773847!2d139.7344!3d35.6726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b8f8ec8a2c5%3A0x5b2b6d5e8e6d5e5e!2z6LWk5Z2C44K744Oz44OI44Op44Or44OT44Or!5e0!3m2!1sja!2sjp!4v1234567890"
                 width="100%"
                 height="100%"
-                style={{ border: 0, minHeight: "400px" }}
+                style={{ border: 0, minHeight: "450px" }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -120,38 +123,48 @@ export default function CompanyPage() {
             </div>
 
             {/* Address Card */}
-            <div className="bg-[var(--background)] rounded-xl p-8 border border-[var(--off-white)]/5">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-10 h-10 rounded-lg bg-[var(--light-sage)]/10 flex items-center justify-center">
-                  <MapPin size={20} className="text-[var(--light-sage)]" />
+            <div className="bg-neutral-50 rounded-2xl p-8">
+              <div className="flex items-start gap-4 mb-8">
+                <div className="w-12 h-12 rounded-xl bg-neutral-900 flex items-center justify-center">
+                  <MapPin size={22} className="text-white" />
                 </div>
                 <div>
-                  <h3 className="text-[16px] font-bold text-[var(--off-white)] mb-1">
+                  <h3 className="text-lg font-bold text-neutral-900 mb-1">
                     本社オフィス
                   </h3>
-                  <p className="text-[13px] text-[var(--off-white)]/50">
+                  <p className="text-sm text-neutral-400">
                     Head Office
                   </p>
                 </div>
               </div>
 
-              <div className="space-y-4 text-[14px] text-[var(--off-white)]/70">
-                <p>
-                  〒107-0052
-                  <br />
-                  東京都港区赤坂3-13-3
-                  <br />
-                  赤坂セントラルビル6F
-                </p>
+              <div className="space-y-6 text-base text-neutral-600">
+                <div>
+                  <p className="font-mono text-xs text-neutral-400 uppercase mb-2">
+                    Address
+                  </p>
+                  <p>
+                    〒107-0052
+                    <br />
+                    東京都港区赤坂3-13-3
+                    <br />
+                    赤坂セントラルビル6F
+                  </p>
+                </div>
 
-                <div className="pt-4 border-t border-[var(--off-white)]/10">
-                  <p className="font-mono text-[11px] tracking-wider text-[var(--off-white)]/40 uppercase mb-2">
+                <div className="pt-6 border-t border-neutral-200">
+                  <p className="font-mono text-xs text-neutral-400 uppercase mb-2">
                     Access
                   </p>
-                  <p className="text-[13px] leading-relaxed">
-                    東京メトロ 銀座線・丸ノ内線「赤坂見附駅」徒歩3分
+                  <p className="text-sm leading-relaxed">
+                    東京メトロ 銀座線・丸ノ内線
                     <br />
-                    東京メトロ 千代田線「赤坂駅」徒歩5分
+                    「赤坂見附駅」徒歩3分
+                    <br />
+                    <br />
+                    東京メトロ 千代田線
+                    <br />
+                    「赤坂駅」徒歩5分
                   </p>
                 </div>
               </div>

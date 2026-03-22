@@ -1,6 +1,7 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import Link from "next/link"
+import { ArrowUpRight } from "lucide-react"
 
 export const metadata = {
   title: "Media | Lat91",
@@ -76,26 +77,6 @@ const articles = [
     readTime: "2 min",
     featured: false,
   },
-  {
-    id: "7",
-    title: "マーケティング自動化の新潮流：AIエージェントによるコンテンツ制作",
-    excerpt:
-      "AIエージェントを活用したコンテンツマーケティングの自動化について、最新の事例と今後のトレンドを解説します。",
-    category: "Insight",
-    date: "2026.02.10",
-    readTime: "5 min",
-    featured: false,
-  },
-  {
-    id: "8",
-    title: "セールスDXの本質：人とAIの最適な役割分担とは",
-    excerpt:
-      "営業活動におけるAI活用の本質は、人とAIの役割分担にあります。どの業務をAIに任せ、どの業務に人が集中すべきか、具体的な指針を提示します。",
-    category: "Column",
-    date: "2026.02.05",
-    readTime: "7 min",
-    featured: false,
-  },
 ]
 
 export default function MediaPage() {
@@ -103,35 +84,38 @@ export default function MediaPage() {
   const regularArticles = articles.filter((a) => !a.featured)
 
   return (
-    <main className="bg-[var(--background)] min-h-screen">
-      <Header variant="solid" />
+    <main className="bg-white min-h-screen">
+      <Header variant="light" />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-[5vw]">
-        <div className="max-w-[1200px] mx-auto">
-          <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-[var(--mid-teal)]">
-            Media
+      <section className="pt-32 pb-16 px-6 md:px-12">
+        <div className="max-w-6xl mx-auto">
+          <span className="inline-flex items-center gap-3 mb-8">
+            <span className="w-12 h-px bg-neutral-900" />
+            <span className="font-mono text-xs tracking-[0.3em] uppercase text-neutral-400">
+              Media
+            </span>
           </span>
-          <h1 className="mt-4 text-[clamp(32px,5vw,56px)] font-bold text-[var(--off-white)] leading-tight">
+          <h1 className="text-[clamp(36px,6vw,64px)] font-bold text-neutral-900 leading-[1.1] tracking-tight">
             Insights & Updates
           </h1>
-          <p className="mt-6 text-[16px] text-[var(--off-white)]/60 max-w-xl">
+          <p className="mt-6 text-lg text-neutral-500 max-w-xl">
             AI時代のビジネス変革に関する知見と、Lat91の最新情報をお届けします。
           </p>
         </div>
       </section>
 
       {/* Category Filter */}
-      <section className="px-[5vw] pb-12">
-        <div className="max-w-[1200px] mx-auto">
+      <section className="px-6 md:px-12 pb-16">
+        <div className="max-w-6xl mx-auto">
           <div className="flex flex-wrap gap-3">
             {categories.map((cat) => (
               <button
                 key={cat.id}
-                className={`px-5 py-2.5 rounded-full font-mono text-[11px] tracking-wider transition-all ${
+                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
                   cat.id === "all"
-                    ? "bg-[var(--off-white)] text-[var(--background)]"
-                    : "bg-[var(--dark-teal)]/50 text-[var(--off-white)]/70 hover:bg-[var(--dark-teal)] hover:text-[var(--off-white)]"
+                    ? "bg-neutral-900 text-white"
+                    : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200"
                 }`}
               >
                 {cat.label}
@@ -142,21 +126,30 @@ export default function MediaPage() {
       </section>
 
       {/* Featured Articles */}
-      <section className="px-[5vw] pb-16">
-        <div className="max-w-[1200px] mx-auto">
-          <h2 className="font-mono text-[11px] tracking-[0.2em] uppercase text-[var(--light-sage)]/60 mb-8">
+      <section className="px-6 md:px-12 pb-20">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="font-mono text-xs tracking-[0.2em] uppercase text-neutral-400 mb-8">
             Featured
           </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {featuredArticles.map((article) => (
+          <div className="grid md:grid-cols-2 gap-8">
+            {featuredArticles.map((article, idx) => (
               <Link key={article.id} href={`/media/${article.id}`}>
-                <article className="group h-full bg-gradient-to-br from-[var(--dark-teal)]/50 to-[var(--dark-teal)]/20 rounded-xl overflow-hidden border border-[var(--off-white)]/5 hover:border-[var(--light-sage)]/30 transition-all duration-300">
+                <article className="group h-full bg-neutral-50 rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-500">
                   {/* Image Placeholder */}
-                  <div className="relative aspect-[16/9] bg-[var(--dark-teal)]">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[var(--mid-teal)]/30 to-[var(--dark-teal)]/60" />
+                  <div className="relative aspect-[16/9] bg-gradient-to-br from-neutral-200 to-neutral-100">
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="font-mono text-[13px] tracking-widest text-[var(--off-white)]/20 uppercase">
+                      <span className="font-mono text-8xl font-bold text-neutral-300/50">
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                    <div className="absolute top-6 left-6">
+                      <span className="px-4 py-2 bg-white rounded-full text-xs font-medium text-neutral-600">
                         {article.category}
+                      </span>
+                    </div>
+                    <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-0 translate-x-4">
+                      <span className="flex items-center justify-center w-12 h-12 rounded-full bg-neutral-900 text-white">
+                        <ArrowUpRight size={20} />
                       </span>
                     </div>
                   </div>
@@ -164,20 +157,17 @@ export default function MediaPage() {
                   {/* Content */}
                   <div className="p-8">
                     <div className="flex items-center gap-4 mb-4">
-                      <span className="px-3 py-1 bg-[var(--light-sage)]/10 rounded text-[10px] font-mono tracking-wider text-[var(--light-sage)]">
-                        {article.category}
-                      </span>
-                      <span className="font-mono text-[10px] text-[var(--off-white)]/40">
+                      <span className="font-mono text-xs text-neutral-400">
                         {article.date}
                       </span>
-                      <span className="font-mono text-[10px] text-[var(--off-white)]/40">
+                      <span className="font-mono text-xs text-neutral-400">
                         {article.readTime}
                       </span>
                     </div>
-                    <h3 className="text-[20px] font-bold text-[var(--off-white)] leading-relaxed mb-4 group-hover:text-[var(--light-sage)] transition-colors">
+                    <h3 className="text-xl font-bold text-neutral-900 leading-relaxed group-hover:text-neutral-600 transition-colors">
                       {article.title}
                     </h3>
-                    <p className="text-[14px] leading-[1.8] text-[var(--off-white)]/60 line-clamp-3">
+                    <p className="mt-4 text-sm text-neutral-500 leading-relaxed line-clamp-2">
                       {article.excerpt}
                     </p>
                   </div>
@@ -189,20 +179,24 @@ export default function MediaPage() {
       </section>
 
       {/* All Articles */}
-      <section className="px-[5vw] pb-32">
-        <div className="max-w-[1200px] mx-auto">
-          <h2 className="font-mono text-[11px] tracking-[0.2em] uppercase text-[var(--light-sage)]/60 mb-8">
+      <section className="px-6 md:px-12 pb-32 bg-neutral-50 py-20">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="font-mono text-xs tracking-[0.2em] uppercase text-neutral-400 mb-8">
             All Articles
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {regularArticles.map((article) => (
+            {regularArticles.map((article, idx) => (
               <Link key={article.id} href={`/media/${article.id}`}>
-                <article className="group h-full bg-[var(--dark-teal)]/20 rounded-lg overflow-hidden border border-[var(--off-white)]/5 hover:border-[var(--light-sage)]/20 transition-all duration-300">
+                <article className="group h-full bg-white rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300">
                   {/* Image Placeholder */}
-                  <div className="relative aspect-[16/10] bg-[var(--dark-teal)]">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[var(--mid-teal)]/20 to-[var(--dark-teal)]/40" />
+                  <div className="relative aspect-[16/10] bg-gradient-to-br from-neutral-100 to-neutral-50">
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="font-mono text-[11px] tracking-widest text-[var(--off-white)]/15 uppercase">
+                      <span className="font-mono text-5xl font-bold text-neutral-200">
+                        {String(idx + 3).padStart(2, "0")}
+                      </span>
+                    </div>
+                    <div className="absolute top-4 left-4">
+                      <span className="px-3 py-1.5 bg-white rounded-full text-xs font-medium text-neutral-600">
                         {article.category}
                       </span>
                     </div>
@@ -210,15 +204,10 @@ export default function MediaPage() {
 
                   {/* Content */}
                   <div className="p-6">
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="font-mono text-[10px] tracking-wider text-[var(--light-sage)]">
-                        {article.category}
-                      </span>
-                      <span className="font-mono text-[10px] text-[var(--off-white)]/40">
-                        {article.date}
-                      </span>
-                    </div>
-                    <h3 className="text-[15px] font-bold text-[var(--off-white)] leading-relaxed group-hover:text-[var(--light-sage)] transition-colors line-clamp-2">
+                    <span className="font-mono text-xs text-neutral-400">
+                      {article.date}
+                    </span>
+                    <h3 className="mt-3 text-base font-bold text-neutral-900 leading-relaxed group-hover:text-neutral-600 transition-colors line-clamp-2">
                       {article.title}
                     </h3>
                   </div>

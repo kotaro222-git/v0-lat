@@ -54,26 +54,28 @@ const domains = [
 
 export function CoverageSection() {
   return (
-    <section className="relative bg-[var(--background)] py-32 px-[5vw]">
-      <div className="max-w-[1200px] mx-auto">
+    <section className="relative bg-white py-32 md:py-40 px-6 md:px-12">
+      <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="mb-16">
-          <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-[var(--mid-teal)]">
-            Coverage
+        <div className="mb-20">
+          <span className="inline-flex items-center gap-3 mb-6">
+            <span className="w-12 h-px bg-neutral-900" />
+            <span className="font-mono text-xs tracking-[0.3em] uppercase text-neutral-400">
+              Coverage
+            </span>
           </span>
-          <div className="mt-4">
-            <p className="font-mono text-[13px] tracking-[0.1em] text-[var(--off-white)]/50 mb-2">
-              Domains
-            </p>
-            <h2 className="text-[clamp(24px,3.5vw,36px)] font-bold text-[var(--off-white)]">
+          <div className="grid lg:grid-cols-2 gap-8">
+            <h2 className="text-[clamp(28px,4vw,44px)] font-bold text-neutral-900 tracking-tight">
               対応領域
             </h2>
+            <p className="text-neutral-500 text-base leading-relaxed lg:pt-3">
+              ビジネスの成長ドライバーとして重点領域を横断的に網羅。
+              <br className="hidden md:block" />
+              各社ごとのカスタマイズに対応し、AIエージェントを活用した
+              <br className="hidden md:block" />
+              自動化・効率化・高品質化を実現します。
+            </p>
           </div>
-          <p className="mt-6 text-[15px] leading-[1.8] text-[var(--off-white)]/60 max-w-3xl">
-            ビジネスの成長ドライバーとして重点領域を横断的に網羅。各社ごとのカスタマイズに対応。
-            <br />
-            AIエージェントを活用し、自動化・効率化・高品質化を実現します。
-          </p>
         </div>
 
         {/* Domains Grid */}
@@ -81,32 +83,34 @@ export function CoverageSection() {
           {domains.map((domain) => (
             <div
               key={domain.titleEn}
-              className="group relative bg-gradient-to-b from-[var(--dark-teal)]/50 to-[var(--dark-teal)]/20 rounded-lg p-6 border border-[var(--off-white)]/5 hover:border-[var(--light-sage)]/20 transition-all duration-300"
+              className="group relative bg-neutral-50 rounded-2xl p-8 hover:bg-neutral-900 transition-all duration-500"
             >
               {/* Icon */}
-              <domain.icon
-                size={28}
-                className="text-[var(--light-sage)] mb-4"
-              />
+              <div className="w-14 h-14 rounded-xl bg-white flex items-center justify-center mb-8 group-hover:bg-neutral-800 transition-colors">
+                <domain.icon
+                  size={24}
+                  className="text-neutral-900 group-hover:text-white transition-colors"
+                />
+              </div>
 
               {/* Title */}
-              <div className="mb-4">
-                <h3 className="font-mono text-[14px] font-bold text-[var(--off-white)] tracking-wide">
+              <div className="mb-6">
+                <h3 className="text-lg font-bold text-neutral-900 group-hover:text-white transition-colors mb-1">
                   {domain.titleEn}
                 </h3>
-                <p className="text-[12px] text-[var(--off-white)]/50 mt-1">
+                <p className="text-xs text-neutral-400 group-hover:text-neutral-500 transition-colors">
                   {domain.titleJa}
                 </p>
               </div>
 
               {/* Items */}
-              <ul className="space-y-2">
+              <ul className="space-y-3">
                 {domain.items.map((item) => (
                   <li
                     key={item}
-                    className="text-[13px] text-[var(--off-white)]/60 flex items-center gap-2"
+                    className="text-sm text-neutral-500 group-hover:text-neutral-400 transition-colors flex items-center gap-3"
                   >
-                    <span className="w-1 h-1 rounded-full bg-[var(--light-sage)]/40" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-neutral-300 group-hover:bg-neutral-600 transition-colors" />
                     {item}
                   </li>
                 ))}

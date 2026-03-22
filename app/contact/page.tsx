@@ -3,7 +3,7 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { useState } from "react"
-import { Send, CheckCircle } from "lucide-react"
+import { Send, CheckCircle, ArrowRight } from "lucide-react"
 
 export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -17,7 +17,6 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // In a real app, you would send this to your backend
     setIsSubmitted(true)
   }
 
@@ -31,37 +30,41 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="bg-[var(--background)] min-h-screen">
-      <Header variant="solid" />
+    <main className="bg-white min-h-screen">
+      <Header variant="light" />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-[5vw]">
-        <div className="max-w-[800px] mx-auto text-center">
-          <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-[var(--mid-teal)]">
-            Contact
+      <section className="pt-32 pb-16 px-6 md:px-12">
+        <div className="max-w-3xl mx-auto text-center">
+          <span className="inline-flex items-center gap-3 mb-8 mx-auto">
+            <span className="w-12 h-px bg-neutral-900" />
+            <span className="font-mono text-xs tracking-[0.3em] uppercase text-neutral-400">
+              Contact
+            </span>
+            <span className="w-12 h-px bg-neutral-900" />
           </span>
-          <h1 className="mt-4 text-[clamp(32px,5vw,56px)] font-bold text-[var(--off-white)] leading-tight">
+          <h1 className="text-[clamp(36px,6vw,64px)] font-bold text-neutral-900 leading-[1.1] tracking-tight">
             お問い合わせ
           </h1>
-          <p className="mt-6 text-[16px] text-[var(--off-white)]/60">
+          <p className="mt-6 text-lg text-neutral-500">
             AIエージェント導入やDXに関するご相談、お気軽にお問い合わせください。
           </p>
         </div>
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-16 px-[5vw] pb-32">
-        <div className="max-w-[600px] mx-auto">
+      <section className="py-16 px-6 md:px-12 pb-32">
+        <div className="max-w-xl mx-auto">
           {isSubmitted ? (
             /* Success Message */
-            <div className="text-center py-16">
-              <div className="w-16 h-16 rounded-full bg-[var(--light-sage)]/20 flex items-center justify-center mx-auto mb-6">
-                <CheckCircle size={32} className="text-[var(--light-sage)]" />
+            <div className="text-center py-20 bg-neutral-50 rounded-3xl">
+              <div className="w-20 h-20 rounded-full bg-neutral-900 flex items-center justify-center mx-auto mb-8">
+                <CheckCircle size={36} className="text-white" />
               </div>
-              <h2 className="text-[24px] font-bold text-[var(--off-white)] mb-4">
+              <h2 className="text-2xl font-bold text-neutral-900 mb-4">
                 送信完了
               </h2>
-              <p className="text-[15px] text-[var(--off-white)]/60 leading-relaxed">
+              <p className="text-base text-neutral-500 leading-relaxed">
                 お問い合わせありがとうございます。
                 <br />
                 内容を確認の上、担当者より2営業日以内にご連絡いたします。
@@ -72,8 +75,8 @@ export default function ContactPage() {
             <form onSubmit={handleSubmit} className="space-y-8">
               {/* Email */}
               <div>
-                <label className="block font-mono text-[11px] tracking-wider text-[var(--off-white)]/60 uppercase mb-3">
-                  メールアドレス <span className="text-red-400">*</span>
+                <label className="block text-sm font-medium text-neutral-900 mb-3">
+                  メールアドレス <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="email"
@@ -81,15 +84,15 @@ export default function ContactPage() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-5 py-4 bg-[var(--dark-teal)]/30 border border-[var(--off-white)]/10 rounded-lg text-[var(--off-white)] placeholder-[var(--off-white)]/30 focus:outline-none focus:border-[var(--light-sage)]/50 transition-colors"
+                  className="w-full px-5 py-4 bg-neutral-50 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent transition-all"
                   placeholder="example@company.com"
                 />
               </div>
 
               {/* Company */}
               <div>
-                <label className="block font-mono text-[11px] tracking-wider text-[var(--off-white)]/60 uppercase mb-3">
-                  貴社の企業名 <span className="text-red-400">*</span>
+                <label className="block text-sm font-medium text-neutral-900 mb-3">
+                  貴社の企業名 <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -97,49 +100,51 @@ export default function ContactPage() {
                   required
                   value={formData.company}
                   onChange={handleChange}
-                  className="w-full px-5 py-4 bg-[var(--dark-teal)]/30 border border-[var(--off-white)]/10 rounded-lg text-[var(--off-white)] placeholder-[var(--off-white)]/30 focus:outline-none focus:border-[var(--light-sage)]/50 transition-colors"
+                  className="w-full px-5 py-4 bg-neutral-50 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent transition-all"
                   placeholder="株式会社○○"
                 />
               </div>
 
-              {/* Position */}
-              <div>
-                <label className="block font-mono text-[11px] tracking-wider text-[var(--off-white)]/60 uppercase mb-3">
-                  役職
-                  <span className="text-[var(--off-white)]/40 ml-2 normal-case">
-                    （任意）
-                  </span>
-                </label>
-                <input
-                  type="text"
-                  name="position"
-                  value={formData.position}
-                  onChange={handleChange}
-                  className="w-full px-5 py-4 bg-[var(--dark-teal)]/30 border border-[var(--off-white)]/10 rounded-lg text-[var(--off-white)] placeholder-[var(--off-white)]/30 focus:outline-none focus:border-[var(--light-sage)]/50 transition-colors"
-                  placeholder="営業部長"
-                />
-              </div>
+              <div className="grid sm:grid-cols-2 gap-6">
+                {/* Position */}
+                <div>
+                  <label className="block text-sm font-medium text-neutral-900 mb-3">
+                    役職
+                    <span className="text-neutral-400 font-normal ml-2">
+                      （任意）
+                    </span>
+                  </label>
+                  <input
+                    type="text"
+                    name="position"
+                    value={formData.position}
+                    onChange={handleChange}
+                    className="w-full px-5 py-4 bg-neutral-50 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent transition-all"
+                    placeholder="営業部長"
+                  />
+                </div>
 
-              {/* Name */}
-              <div>
-                <label className="block font-mono text-[11px] tracking-wider text-[var(--off-white)]/60 uppercase mb-3">
-                  お名前 <span className="text-red-400">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-5 py-4 bg-[var(--dark-teal)]/30 border border-[var(--off-white)]/10 rounded-lg text-[var(--off-white)] placeholder-[var(--off-white)]/30 focus:outline-none focus:border-[var(--light-sage)]/50 transition-colors"
-                  placeholder="山田 太郎"
-                />
+                {/* Name */}
+                <div>
+                  <label className="block text-sm font-medium text-neutral-900 mb-3">
+                    お名前 <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full px-5 py-4 bg-neutral-50 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent transition-all"
+                    placeholder="山田 太郎"
+                  />
+                </div>
               </div>
 
               {/* Message */}
               <div>
-                <label className="block font-mono text-[11px] tracking-wider text-[var(--off-white)]/60 uppercase mb-3">
-                  お問い合わせの内容 <span className="text-red-400">*</span>
+                <label className="block text-sm font-medium text-neutral-900 mb-3">
+                  お問い合わせの内容 <span className="text-red-500">*</span>
                 </label>
                 <textarea
                   name="message"
@@ -147,7 +152,7 @@ export default function ContactPage() {
                   rows={6}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-5 py-4 bg-[var(--dark-teal)]/30 border border-[var(--off-white)]/10 rounded-lg text-[var(--off-white)] placeholder-[var(--off-white)]/30 focus:outline-none focus:border-[var(--light-sage)]/50 transition-colors resize-none"
+                  className="w-full px-5 py-4 bg-neutral-50 border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent transition-all resize-none"
                   placeholder="ご相談内容をご記入ください"
                 />
               </div>
@@ -156,20 +161,19 @@ export default function ContactPage() {
               <div className="pt-4">
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-3 px-8 py-5 bg-[var(--off-white)] text-[var(--background)] rounded-full font-bold text-[15px] tracking-wide hover:bg-[var(--light-sage)] transition-all duration-300 group"
+                  className="w-full flex items-center justify-center gap-3 px-8 py-5 bg-neutral-900 text-white rounded-full font-medium text-base hover:bg-neutral-800 transition-all group"
                 >
                   送信する
-                  <Send
-                    size={18}
-                    className="transition-transform group-hover:translate-x-1"
-                  />
+                  <span className="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 group-hover:bg-white/20 transition-colors">
+                    <ArrowRight size={16} />
+                  </span>
                 </button>
               </div>
 
               {/* Privacy Note */}
-              <p className="text-center text-[12px] text-[var(--off-white)]/40 leading-relaxed">
+              <p className="text-center text-sm text-neutral-400 leading-relaxed">
                 送信いただいた情報は、お問い合わせへの回答のみに使用し、
-                <br />
+                <br className="hidden sm:block" />
                 第三者への提供は行いません。
               </p>
             </form>

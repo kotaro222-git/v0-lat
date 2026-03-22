@@ -30,30 +30,35 @@ const values = [
 
 export default function PhilosophyPage() {
   return (
-    <main className="bg-[var(--background)] min-h-screen">
-      <Header variant="solid" />
+    <main className="bg-white min-h-screen">
+      <Header variant="light" />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-24 px-[5vw]">
-        <div className="max-w-[1200px] mx-auto">
-          <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-[var(--mid-teal)]">
-            Philosophy
+      <section className="pt-32 pb-20 px-6 md:px-12">
+        <div className="max-w-6xl mx-auto">
+          <span className="inline-flex items-center gap-3 mb-8">
+            <span className="w-12 h-px bg-neutral-900" />
+            <span className="font-mono text-xs tracking-[0.3em] uppercase text-neutral-400">
+              Philosophy
+            </span>
           </span>
-          <h1 className="mt-4 text-[clamp(32px,5vw,56px)] font-bold text-[var(--off-white)] leading-tight">
+          <h1 className="text-[clamp(36px,6vw,64px)] font-bold text-neutral-900 leading-[1.1] tracking-tight">
             AI時代に、
             <br />
-            人間の意志と創造が輝く世界を創る
+            <span className="text-neutral-400">人間の意志と創造が</span>
+            <br />
+            輝く世界を創る
           </h1>
         </div>
       </section>
 
       {/* CEO Message Section */}
-      <section className="py-24 px-[5vw] bg-[var(--dark-teal)]/30">
-        <div className="max-w-[1200px] mx-auto">
-          <div className="grid lg:grid-cols-[400px_1fr] gap-16 items-start">
+      <section className="py-24 px-6 md:px-12 bg-neutral-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-[380px_1fr] gap-16 items-start">
             {/* CEO Photo */}
-            <div className="relative">
-              <div className="aspect-[3/4] rounded-lg overflow-hidden bg-[var(--dark-teal)]">
+            <div className="lg:sticky lg:top-32">
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden bg-neutral-200">
                 <Image
                   src="/images/ceo-portrait.jpg"
                   alt="代表取締役 稲葉幸太郎"
@@ -61,87 +66,83 @@ export default function PhilosophyPage() {
                   className="object-cover"
                 />
               </div>
-              <div className="mt-6">
-                <p className="font-mono text-[12px] tracking-wider text-[var(--light-sage)]">
+              <div className="mt-8">
+                <p className="font-mono text-xs tracking-wider text-neutral-400 uppercase">
                   CEO & Founder
                 </p>
-                <p className="mt-1 text-[18px] font-bold text-[var(--off-white)]">
+                <p className="mt-2 text-xl font-bold text-neutral-900">
                   稲葉 幸太郎
                 </p>
-                <p className="text-[14px] text-[var(--off-white)]/60">
+                <p className="text-sm text-neutral-500">
                   Kotaro Inaba
                 </p>
               </div>
             </div>
 
             {/* Message Content */}
-            <div className="space-y-8">
-              <div className="prose prose-invert max-w-none">
-                <p className="text-[16px] leading-[2.2] text-[var(--off-white)]/80">
+            <div className="space-y-8 max-w-2xl">
+              <div className="space-y-6 text-base md:text-lg leading-[2] text-neutral-600">
+                <p>
                   人類にとって、かつてない時代がやってきた。
                   <br />
                   誰もが創れる。届けられる。届かなかった知識に手が届く。
                 </p>
 
-                <p className="text-[16px] leading-[2.2] text-[var(--off-white)]/80 mt-6">
+                <p>
                   学び方が変わり、働き方が変わり、
                   <br />
                   プロフェッショナルの定義そのものが書き換えられている。
                 </p>
 
-                <p className="text-[16px] leading-[2.2] text-[var(--off-white)]/80 mt-6">
+                <p>
                   これはAIファーストの時代ではなくて、
                   <br />
                   かつてないほどの、
-                  <span className="text-[var(--light-sage)] font-medium">
+                  <span className="text-neutral-900 font-medium">
                     ヒューマンファーストの時代
                   </span>
                   だと思います。
                 </p>
 
-                <p className="text-[16px] leading-[2.2] text-[var(--off-white)]/80 mt-6">
+                <p>
                   生産のために自分らしさを消耗させる必要がなくなり、
                   <br />
                   結果を出すことと、自分らしくいることが、初めて矛盾しなくなる。
                 </p>
 
-                <p className="text-[16px] leading-[2.2] text-[var(--off-white)]/80 mt-6">
+                <p>
                   AIが99%を引き受ける時代に、人に残るのは1%の意志と創造だけになる。
                   <br />
                   何を美しいと感じるか。何に怒るか。何を選ぶか。
                   <br />
-                  <span className="text-[var(--off-white)] font-medium">
+                  <span className="text-neutral-900 font-medium">
                     その1%は、あなたにしか持てない。
                   </span>
                 </p>
 
-                <p className="text-[16px] leading-[2.2] text-[var(--off-white)]/80 mt-6">
+                <p>
                   今、この瞬間に、あなたの仕事が全部なくなったとする。
                   <br />
                   そのとき何をするかも、何もしないことも、あなたにしかできない決定だ。
                 </p>
 
-                <p className="text-[16px] leading-[2.2] text-[var(--off-white)]/80 mt-6">
+                <p>
                   そこから生まれるものは、あなたにしか生めない。
                   <br />
                   私たちは、その瞬間を作り、純度の高い創造で世界を前に進めたい。
                 </p>
+              </div>
 
-                <div className="mt-12 p-8 bg-[var(--background)]/50 rounded-lg border-l-2 border-[var(--light-sage)]">
-                  <p className="text-[15px] leading-[2] text-[var(--off-white)]/70">
-                    <span className="text-[var(--light-sage)] font-bold">
-                      Lat91
-                    </span>
-                    という社名は、地球の緯度が90度で終わることに由来しています。
-                    <br />
-                    91度目は、地図上に存在しない。まだ誰も見たことのない景色。
-                  </p>
-                  <p className="text-[15px] leading-[2] text-[var(--off-white)]/70 mt-4">
-                    90度までをAIに正しく担わせ、みんなで91度目に立つ。
-                    <br />
-                    私は、その景色を見たいしつくりたい。だからこの会社を創りました。
-                  </p>
-                </div>
+              <div className="mt-12 p-8 bg-white rounded-2xl border border-neutral-100">
+                <p className="text-base leading-[2] text-neutral-600">
+                  <span className="text-neutral-900 font-bold">Lat91</span>
+                  という社名は、地球の緯度が90度で終わることに由来しています。
+                  91度目は、地図上に存在しない。まだ誰も見たことのない景色。
+                </p>
+                <p className="text-base leading-[2] text-neutral-600 mt-4">
+                  90度までをAIに正しく担わせ、みんなで91度目に立つ。
+                  私は、その景色を見たいしつくりたい。だからこの会社を創りました。
+                </p>
               </div>
             </div>
           </div>
@@ -149,12 +150,16 @@ export default function PhilosophyPage() {
       </section>
 
       {/* Mission Section */}
-      <section className="py-32 px-[5vw] bg-[var(--background)]">
-        <div className="max-w-[1200px] mx-auto text-center">
-          <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-[var(--mid-teal)]">
-            Mission
+      <section className="py-32 px-6 md:px-12 bg-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <span className="inline-flex items-center gap-3 mb-8 mx-auto">
+            <span className="w-12 h-px bg-neutral-900" />
+            <span className="font-mono text-xs tracking-[0.3em] uppercase text-neutral-400">
+              Mission
+            </span>
+            <span className="w-12 h-px bg-neutral-900" />
           </span>
-          <h2 className="mt-8 text-[clamp(28px,4.5vw,52px)] font-bold text-[var(--off-white)] leading-tight">
+          <h2 className="text-[clamp(32px,5vw,56px)] font-bold text-neutral-900 leading-tight">
             人間の意志と創造が輝く
             <br />
             世界を築く
@@ -163,37 +168,43 @@ export default function PhilosophyPage() {
       </section>
 
       {/* Values Section */}
-      <section className="py-32 px-[5vw] bg-[var(--dark-teal)]">
-        <div className="max-w-[1200px] mx-auto">
+      <section className="py-32 px-6 md:px-12 bg-neutral-900">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
-            <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-[var(--light-sage)]/60">
-              Value
+            <span className="inline-flex items-center gap-3 mb-6 mx-auto">
+              <span className="w-12 h-px bg-white/20" />
+              <span className="font-mono text-xs tracking-[0.3em] uppercase text-neutral-500">
+                Value
+              </span>
+              <span className="w-12 h-px bg-white/20" />
             </span>
-            <h2 className="mt-4 text-[clamp(24px,3.5vw,36px)] font-bold text-[var(--off-white)]">
+            <h2 className="text-[clamp(28px,4vw,40px)] font-bold text-white">
               私たちの価値観
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {values.map((value, index) => (
               <div
                 key={value.title}
-                className="relative bg-[var(--background)]/40 rounded-xl p-10 border border-[var(--off-white)]/5"
+                className="relative bg-white rounded-2xl p-10 group hover:shadow-2xl transition-shadow duration-500"
               >
                 {/* Number */}
-                <span className="absolute top-6 right-8 font-mono text-[72px] font-bold text-[var(--light-sage)]/10 leading-none">
+                <span className="absolute top-8 right-8 font-mono text-7xl font-bold text-neutral-100 leading-none">
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
-                <h3 className="text-[20px] font-bold text-[var(--off-white)] mb-2">
-                  {value.title}
-                </h3>
-                <p className="font-mono text-[12px] tracking-wider text-[var(--light-sage)] mb-6">
-                  {value.subtitle}
-                </p>
-                <p className="text-[14px] leading-[1.9] text-[var(--off-white)]/70">
-                  {value.description}
-                </p>
+                <div className="relative">
+                  <h3 className="text-2xl font-bold text-neutral-900 mb-2">
+                    {value.title}
+                  </h3>
+                  <p className="text-sm text-neutral-400 mb-8">
+                    {value.subtitle}
+                  </p>
+                  <p className="text-base leading-relaxed text-neutral-600">
+                    {value.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
