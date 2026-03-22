@@ -4,13 +4,16 @@ import { useState, useEffect, useRef, useCallback } from "react"
 import { Hero } from "@/components/hero"
 import { MissionSection } from "@/components/sections/mission-section"
 
-type Section = "hero" | "mission"
+type Section = "hero" | "mission" | "services"
 
 export function FixedSectionsContainer() {
   const [currentSection, setCurrentSection] = useState<Section>("hero")
   const [isAnimating, setIsAnimating] = useState(false)
   const lastWheelTime = useRef(0)
   const containerRef = useRef<HTMLDivElement>(null)
+  
+  // When in services mode, hide the fixed container
+  const isInServices = currentSection === "services"
 
   const handleWheel = useCallback((e: WheelEvent) => {
     // Touch device check
@@ -48,14 +51,20 @@ export function FixedSectionsContainer() {
       setCurrentSection("hero")
       setTimeout(() => setIsAnimating(false), 800)
     } else if (currentSection === "mission" && isScrollingDown) {
-      // Scroll to services (let it pass through)
+      // Transition to services - hide fixed container and scroll
       e.preventDefault()
       lastWheelTime.current = now
-      // Scroll the page to services section
-      const servicesSection = document.getElementById("services")
-      if (servicesSection) {
-        servicesSection.scrollIntoView({ behavior: "smooth" })
-      }
+      setIsAnimating(true)
+      setCurrentSection("services")
+      
+      // After transition, scroll to services section
+      setTimeout(() => {
+        const servicesSection = document.getElementById("services")
+        if (servicesSection) {
+          window.scrollTo({ top: window.innerHeight, behavior: "instant" })
+        }
+        setIsAnimating(false)
+      }, 100)
     }
   }, [currentSection, isAnimating])
 
@@ -75,15 +84,21 @@ export function FixedSectionsContainer() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY
-      // If scrolled back to top, ensure we're showing the fixed container
-      if (scrollY < 10 && currentSection !== "hero") {
-        // User scrolled back to very top
+      // If scrolled back to top from services, show mission
+      if (scrollY < 50 && currentSection === "services") {
+        setCurrentSection("mission")
+        window.scrollTo({ top: 0, behavior: "instant" })
       }
     }
     
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [currentSection])
+
+  // Don't render fixed container when viewing services
+  if (isInServices) {
+    return null
+  }
 
   return (
     <div 
