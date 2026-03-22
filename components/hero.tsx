@@ -92,11 +92,14 @@ export function Hero() {
 
       {/* Bottom Content - Tagline */}
       <div className="absolute bottom-0 left-0 right-0 z-[3] px-[5vw] pb-[5vh] text-center">
-        <p className="font-[var(--font-noto-sans-jp)] font-light text-[clamp(14px,2vw,24px)] tracking-[0.15em] text-[rgba(232,237,233,0.8)] opacity-0 animate-slide-up animation-delay-1800">
-          <em className="not-italic text-[var(--off-white)] font-medium">人間の意志</em>
-          と
-          <em className="not-italic text-[var(--off-white)] font-medium">創造性</em>
-          が輝く時代を創る
+        <p className="font-[var(--font-noto-sans-jp)] font-light text-[clamp(14px,2vw,24px)] tracking-[0.15em] text-[rgba(232,237,233,0.8)] opacity-0 animate-slide-up animation-delay-1800 leading-[1.8]">
+          <span className="text-[#999]">すべての人と企業に</span>
+          <br />
+          <span className="text-[var(--off-white)] font-medium">デジタルレイバーを。</span>
+          <br />
+          <span className="text-[#999]">私たちは、AI時代のなめらかな</span>
+          <br />
+          <span className="text-[var(--off-white)] font-medium">産業インフラをつくる。</span>
         </p>
       </div>
 
