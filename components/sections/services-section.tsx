@@ -1,13 +1,13 @@
 import Link from "next/link"
 import { ArrowRight, ArrowUpRight } from "lucide-react"
 
-const services = [
+const serviceItems = [
   {
     id: "dx-solution",
     number: "01",
     title: "DXソリューション",
     titleEn: "DX Solution",
-    description: "Strategy to execution support for digital transformation",
+    description: "事業成長に必要な課題を特定し、戦略策定、要件定義から現場でのAX・DXまでを一気通貫で支援します。",
   },
   {
     id: "ai-agent",
@@ -56,30 +56,30 @@ export function ServicesSection(): JSX.Element {
 
         {/* Services List */}
         <div className="border-t border-neutral-200">
-          {services.map((service) => (
+          {serviceItems.map((item) => (
             <Link
-              key={service.id}
+              key={item.id}
               href="/service"
               className="group flex flex-col md:flex-row md:items-center gap-6 md:gap-12 py-10 border-b border-neutral-200 hover:bg-white transition-colors px-0 md:px-8 -mx-0 md:-mx-8"
             >
               {/* Number */}
               <span className="font-mono text-sm text-neutral-300 w-12">
-                {service.number}
+                {item.number}
               </span>
 
               {/* Title */}
               <div className="flex-1">
                 <h3 className="text-xl md:text-2xl font-bold text-neutral-900 mb-1 group-hover:text-neutral-600 transition-colors">
-                  {service.title}
+                  {item.title}
                 </h3>
                 <span className="text-xs font-mono tracking-wider text-neutral-400 uppercase">
-                  {service.titleEn}
+                  {item.titleEn}
                 </span>
               </div>
 
               {/* Description */}
               <p className="flex-1 text-sm text-neutral-500 leading-relaxed max-w-sm">
-                {service.description}
+                {item.description}
               </p>
 
               {/* Arrow */}
