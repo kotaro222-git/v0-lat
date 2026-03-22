@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react"
 
 export function MissionSection() {
   return (
-    <section className="relative bg-white py-32 md:py-40 px-6 md:px-12 overflow-hidden">
+    <section id="mission" className="relative bg-white py-32 md:py-40 px-6 md:px-12 overflow-hidden">
       {/* Subtle grid pattern */}
       <div className="absolute inset-0 opacity-[0.03]">
         <div
