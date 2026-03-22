@@ -58,7 +58,7 @@ export function ServicesSection() {
 
         {/* Services List */}
         <div className="border-t border-neutral-200">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <Link
               key={service.number}
               href="/service"

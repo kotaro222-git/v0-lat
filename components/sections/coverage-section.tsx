@@ -77,15 +77,11 @@ export function CoverageSection() {
           {domains.map((domain) => (
             <div
               key={domain.titleEn}
-              className="group relative bg-white rounded-2xl p-9 transition-all duration-300 hover:-translate-y-1"
+              className="group relative bg-white rounded-2xl p-9 transition-all duration-300 hover:-translate-y-1 border-t-[3px] border-t-[#3a6b6b]"
               style={{
                 boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04)",
               }}
             >
-              {/* Accent Line */}
-              <div 
-                className="absolute top-0 left-0 right-0 h-[3px] bg-[#3a6b6b] rounded-t-2xl transition-all duration-300 group-hover:h-[4px]"
-              />
 
               {/* Icon */}
               <div className="w-16 h-16 rounded-xl bg-[#f5f5f5] flex items-center justify-center mb-6">
@@ -106,7 +102,7 @@ export function CoverageSection() {
               </div>
 
               {/* Items as Pill Tags */}
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-col items-start gap-2">
                 {domain.items.map((item) => (
                   <span
                     key={item}
