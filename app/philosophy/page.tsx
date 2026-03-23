@@ -7,43 +7,48 @@ export default function PhilosophyPage() {
       <Header variant="light" />
 
       {/* Hero */}
-      <section className="pt-40 pb-24 px-6 lg:px-20 max-w-[1200px] mx-auto">
-        <div className="flex items-center gap-4 mb-9">
-          <div className="w-12 h-px bg-neutral-900" />
-          <span className="font-mono text-[11px] tracking-[0.2em] text-neutral-400 uppercase">Philosophy</span>
+      <section className="pt-32 pb-20 px-6">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-8 h-[1px] bg-neutral-300" />
+            <span className="text-[11px] tracking-[0.2em] text-neutral-400 uppercase">Philosophy</span>
+          </div>
+          <h1 className="text-[clamp(32px,5vw,56px)] font-bold leading-[1.3] tracking-[-0.02em] text-neutral-900">
+            AI時代に、<br />
+            人間の意志と創造が輝く世界を創る
+          </h1>
+          <p className="text-[15px] text-neutral-500 leading-[2] mt-8">
+            テクノロジーが人の可能性を拡張する時代。私たちは、AIに任せられることを正しく任せ、<br />人間が持っている「意志」と「創造」に集中できる世界を目指しています。
+          </p>
         </div>
-        <h1 className="text-[clamp(36px,5vw,60px)] font-bold leading-[1.25] tracking-[-0.03em] text-neutral-900">
-          AI時代に、<br />人間の意志と創造が輝く世界を創る
-        </h1>
-        <p className="text-[15px] text-neutral-500 leading-[2] mt-8">
-          テクノロジーが人の可能性を拡張する時代。私たちは、AIに任せられることを正しく任せ、<br />人間が持っている「意志」と「創造」に集中できる世界を目指しています。
-        </p>
       </section>
 
       {/* CEO Message */}
-      <section className="border-t border-neutral-200 px-6 lg:px-20 py-20 lg:py-24">
+      <section className="py-16 px-6">
         <div className="max-w-[1200px] mx-auto">
-          <div className="mb-14">
-            <div className="flex items-center gap-4 mb-6">
-              <span className="w-10 h-px bg-neutral-300" />
-              <span className="font-mono text-[11px] tracking-[0.2em] text-neutral-400 uppercase">Message</span>
-            </div>
-            <h2 className="text-[clamp(24px,3vw,32px)] font-bold tracking-[-0.02em] leading-[1.4] text-neutral-900">
-              代表メッセージ
-            </h2>
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-8 h-[1px] bg-neutral-300" />
+            <span className="text-[11px] tracking-[0.2em] text-neutral-400 uppercase">Message</span>
           </div>
-          <div className="grid lg:grid-cols-[380px_1fr] gap-14 items-start">
+          <h2 className="text-[clamp(24px,3vw,32px)] font-bold tracking-[-0.02em] leading-[1.4] text-neutral-900 mb-12">
+            代表メッセージ
+          </h2>
+          <div className="grid lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-20">
             <div>
-              <div className="aspect-[3/4] bg-neutral-200 w-full" />
-              <div className="mt-5">
-                <div className="font-mono text-[10px] tracking-[0.15em] text-neutral-400 uppercase mb-1.5">CEO &amp; Founder</div>
-                <div className="text-lg font-bold tracking-[-0.01em] text-neutral-900">稲葉 幸太郎</div>
+              <div className="aspect-[3/4] bg-neutral-100 rounded-sm overflow-hidden mb-4">
+                <img
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=800&fit=crop"
+                  alt="CEO"
+                  className="w-full h-full object-cover"
+                />
               </div>
+              <p className="text-[11px] text-neutral-400 tracking-[0.05em] uppercase">CEO & Founder</p>
+              <p className="text-[15px] font-bold text-neutral-900 mt-1">稲葉 幸太郎</p>
             </div>
             <div className="space-y-[18px] text-[14px] text-neutral-600 leading-[1.85]">
               <p>人類にとって、かつてない時代がやってきました。誰もが創れる。届けられる。届かなかった知識に手が届く。</p>
               <p>そして、従来のチャットボットではなく、一度セットアップすれば、24時間自律的に業務と改善を繰り返すAIエージェントが誕生しました。</p>
-              <p>これから築くべき未来は、AIファーストの時代ではなく、<strong className="text-neutral-900 font-bold">ヒューマンファーストの時代</strong>だと、僕たちは信じています。</p>
+              <p>これから築くべき未来は、AIファーストの時代ではなく、<span className="font-bold text-neutral-900">ヒューマンファーストの時代</span>だと、僕たちは信じています。</p>
               <p>生産のために自分らしさを消耗させる必要がなくなり、何かを生み出すこと、自分らしくいることが、両立する。</p>
               <p>AIが実務の99%を担っていく時代。人間は、最も尊い1%の意志と創造だけに向き合える。何を美しいと感じ、何に怒り、何を選ぶか。</p>
               <p>もし今の仕事のほとんどがなくなったとして、僕たちは何に集中するだろう。誰の代わりでもない、自分にしか生み出せない価値はなんだろうか。</p>
@@ -54,19 +59,19 @@ export default function PhilosophyPage() {
       </section>
 
       {/* Origin of Name */}
-      <section className="border-t border-neutral-200 px-6 lg:px-20 py-24 lg:py-28">
+      <section className="border-t border-neutral-200 py-20 px-6">
         <div className="max-w-[1200px] mx-auto">
-          <div className="flex items-center gap-4 mb-7">
-            <span className="w-10 h-px bg-neutral-300" />
-            <span className="font-mono text-[11px] tracking-[0.2em] text-neutral-400 uppercase">Origin of Name</span>
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-8 h-[1px] bg-neutral-300" />
+            <span className="text-[11px] tracking-[0.2em] text-neutral-400 uppercase">Origin of Name</span>
           </div>
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
             <div>
               <h2 className="text-[clamp(28px,3.5vw,40px)] font-bold tracking-[-0.02em] leading-[1.3] mb-8 text-neutral-900">
                 社名に込めた思い
               </h2>
-              <div className="text-[15px] text-neutral-600 leading-[2.2] space-y-5">
-                <p><strong className="text-neutral-900 font-bold">Lat91</strong>という社名は、地球の緯度が90度で終わることに由来しています。91度目は、地図上に存在しない。まだ誰も見たことのない景色。</p>
+              <div className="space-y-6 text-[14px] text-neutral-600 leading-[1.85]">
+                <p><span className="font-bold text-neutral-900">Lat91</span>という社名は、地球の緯度が90度で終わることに由来しています。91度目は、地図上に存在しない。まだ誰も見たことのない景色。</p>
                 <p>90度までをAIに正しく担わせ、みんなで91度目に立つ。私は、その景色を見たいしつくりたい。だからこの会社を創りました。</p>
               </div>
             </div>
@@ -104,7 +109,7 @@ export default function PhilosophyPage() {
                 <text x="398" y="22" fill="#141413" fontFamily="sans-serif" fontSize="16" fontWeight="600" opacity="0.9">{"91°"}</text>
                 <line x1="340" y1="56" x2="340" y2="24" stroke="#73726c" strokeWidth="0.8" opacity="0.35" strokeDasharray="2 2"/>
                 <text x="340" y="470" textAnchor="middle" fill="#3d3d3a" fontFamily="sans-serif" fontSize="12" opacity="0.4">The 91st degree does not exist on any map.</text>
-                <text x="340" y="488" textAnchor="middle" fill="#3d3d3a" fontFamily="sans-serif" fontSize="12" opacity="0.4">That is exactly why we go there.</text>
+                <text x="340" y="488" textAnchor="middle" fill="#3d3d3a" fontFamily="sans-serif" fontSize="12" opacity="0.4">{"That's exactly why we go there."}</text>
               </svg>
             </div>
           </div>
@@ -112,51 +117,44 @@ export default function PhilosophyPage() {
       </section>
 
       {/* Mission */}
-      <section className="border-t border-neutral-200 py-28 lg:py-32 px-6 text-center">
-        <div className="flex items-center justify-center gap-4 mb-8">
-          <span className="w-8 h-px bg-neutral-300" />
-          <span className="font-mono text-[11px] tracking-[0.2em] text-neutral-400 uppercase">Mission</span>
-          <span className="w-8 h-px bg-neutral-300" />
+      <section className="border-t border-neutral-200 py-24 px-6">
+        <div className="max-w-[1200px] mx-auto text-center">
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="w-8 h-[1px] bg-neutral-300" />
+            <span className="text-[11px] tracking-[0.2em] text-neutral-400 uppercase">Mission</span>
+            <div className="w-8 h-[1px] bg-neutral-300" />
+          </div>
+          <h2 className="text-[clamp(28px,4vw,44px)] font-bold leading-[1.5] tracking-[-0.02em] max-w-[600px] mx-auto text-neutral-900">
+            人間の意志と創造が<br />
+            輝く世界を創る
+          </h2>
         </div>
-        <h2 className="text-[clamp(28px,4vw,44px)] font-bold leading-[1.5] tracking-[-0.02em] max-w-[600px] mx-auto text-neutral-900">
-          人間の意志と創造が<br />輝く世界を創る
-        </h2>
       </section>
 
       {/* Values */}
-      <section className="bg-neutral-800 text-white py-28 lg:py-32 px-6">
+      <section className="bg-neutral-900 py-20 px-6">
         <div className="max-w-[1200px] mx-auto">
-          <div className="flex items-center justify-center gap-4 mb-5">
-            <span className="w-8 h-px bg-neutral-600" />
-            <span className="font-mono text-[11px] tracking-[0.2em] text-neutral-400 uppercase">Value</span>
-            <span className="w-8 h-px bg-neutral-600" />
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="w-8 h-[1px] bg-neutral-600" />
+            <span className="text-[11px] tracking-[0.2em] text-neutral-500 uppercase">Value</span>
+            <div className="w-8 h-[1px] bg-neutral-600" />
           </div>
-          <h2 className="text-[clamp(28px,3.5vw,40px)] font-bold text-center tracking-[-0.02em] mb-16">私たちの価値観</h2>
+          <h2 className="text-[clamp(24px,3vw,32px)] font-bold text-white text-center mb-16">
+            私たちの価値観
+          </h2>
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white text-neutral-900 rounded-2xl p-9 relative overflow-hidden min-h-[220px]">
-              <div className="flex justify-between items-start mb-1">
-                <span className="text-xl font-bold tracking-[-0.01em] relative z-10">Be True</span>
-                <span className="text-[72px] font-bold text-neutral-100 leading-none tracking-[-0.04em] absolute top-5 right-6">01</span>
+            {[
+              { num: "01", title: "Be True", subtitle: "純度を大切に", desc: "純粋な意志でコトに向き合い、自らの内なる声に真っ直ぐに従うこと。" },
+              { num: "02", title: "Stay Kind", subtitle: "優くあること", desc: "相手を深く尊重し、共に歩むこと。巧拙は抜誠に勝かず。" },
+              { num: "03", title: "Build, Don't Decorate", subtitle: "中身を大切に", desc: "本当に価値のある本質を泥臭く積み上げること。見せかけの完成度より、実を伴う力強さを。" },
+            ].map((value) => (
+              <div key={value.num} className="bg-white rounded-sm p-8 relative">
+                <span className="absolute top-6 right-6 text-[64px] font-bold text-neutral-100 leading-none">{value.num}</span>
+                <h3 className="text-[20px] font-bold text-neutral-900 mb-1">{value.title}</h3>
+                <p className="text-[12px] text-neutral-400 mb-4">{value.subtitle}</p>
+                <p className="text-[13px] text-neutral-600 leading-[1.8]">{value.desc}</p>
               </div>
-              <div className="text-xs text-neutral-500 mb-6">純度を大切に。</div>
-              <p className="text-sm text-neutral-600 leading-[1.9]">純粋な意志でコトに向き合い、自らの内なる声に真っ直ぐに従うこと。</p>
-            </div>
-            <div className="bg-white text-neutral-900 rounded-2xl p-9 relative overflow-hidden min-h-[220px]">
-              <div className="flex justify-between items-start mb-1">
-                <span className="text-xl font-bold tracking-[-0.01em] relative z-10">Stay Kind</span>
-                <span className="text-[72px] font-bold text-neutral-100 leading-none tracking-[-0.04em] absolute top-5 right-6">02</span>
-              </div>
-              <div className="text-xs text-neutral-500 mb-6">優くあること。</div>
-              <p className="text-sm text-neutral-600 leading-[1.9]">相手を深く尊重し、共に歩むこと。巧好は技術に勝かず。</p>
-            </div>
-            <div className="bg-white text-neutral-900 rounded-2xl p-9 relative overflow-hidden min-h-[220px]">
-              <div className="flex justify-between items-start mb-1">
-                <span className="text-xl font-bold tracking-[-0.01em] relative z-10">Build, Don't Decorate</span>
-                <span className="text-[72px] font-bold text-neutral-100 leading-none tracking-[-0.04em] absolute top-5 right-6">03</span>
-              </div>
-              <div className="text-xs text-neutral-500 mb-6">中身を大切に。</div>
-              <p className="text-sm text-neutral-600 leading-[1.9]">本当に価値のある本質を泥臭く積み上げること。見せかけの完成度より、実を伴う力強さを。</p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
