@@ -37,7 +37,7 @@ export default function PhilosophyPage() {
           </div>
           <div className="grid lg:grid-cols-[380px_1fr] gap-14 items-start">
             <div>
-              <div className="aspect-[3/4] w-full relative overflow-hidden">
+              <div className="aspect-[3/3.6] w-full relative overflow-hidden">
                 <Image
                   src="/images/ceo.jpg"
                   alt="CEO 稲葉 幸太郎"
