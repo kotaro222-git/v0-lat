@@ -15,7 +15,8 @@ export default function PhilosophyPage() {
           AI時代に、<br />人間の意志と創造が輝く世界を創る
         </h1>
         <p className="text-[15px] text-neutral-500 leading-[2] max-w-[540px] mt-8">
-          テクノロジーが人の可能性を拡張する時代。私たちは、AIに任せられることはすべて任せ、人間にしかできない「意志」と「創造」に集中できる世界を目指しています。
+          テクノロジーが人の可能性を拡張する時代。私たちは、AIに任せられることを正しく任せ、<br />
+          人間が持っている「意志」と「創造」に集中できる世界を目指しています。
         </p>
       </section>
 
@@ -26,9 +27,7 @@ export default function PhilosophyPage() {
               <span className="w-10 h-px bg-neutral-300" />
               <span className="font-mono text-[11px] tracking-[0.2em] text-neutral-400 uppercase">Message</span>
             </div>
-            <h2 className="text-[clamp(24px,3vw,32px)] font-bold tracking-[-0.02em] leading-[1.4] text-neutral-900">
-              代表メッセージ
-            </h2>
+            <h2 className="text-[clamp(24px,3vw,32px)] font-bold tracking-[-0.02em] leading-[1.4] text-neutral-900">代表メッセージ</h2>
           </div>
 
           <div className="grid lg:grid-cols-[380px_1fr] gap-14 items-start">
@@ -62,9 +61,7 @@ export default function PhilosophyPage() {
 
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
-              <h2 className="text-[clamp(28px,3.5vw,40px)] font-bold tracking-[-0.02em] leading-[1.3] mb-8 text-neutral-900">
-                社名に込めた思い
-              </h2>
+              <h2 className="text-[clamp(28px,3.5vw,40px)] font-bold tracking-[-0.02em] leading-[1.3] mb-8 text-neutral-900">社名に込めた思い</h2>
               <div className="text-[15px] text-neutral-600 leading-[2.2] space-y-5">
                 <p><strong className="text-neutral-900 font-bold">Lat91</strong>という社名は、地球の緯度が90度で終わることに由来しています。91度目は、地図上に存在しない。まだ誰も見たことのない景色。</p>
                 <p>90度までをAIに正しく担わせ、みんなで91度目に立つ。私は、その景色を見たいしつくりたい。だからこの会社を創りました。</p>
@@ -122,9 +119,7 @@ export default function PhilosophyPage() {
           <span className="font-mono text-[11px] tracking-[0.2em] text-neutral-400 uppercase">Mission</span>
           <span className="w-8 h-px bg-neutral-300" />
         </div>
-        <h2 className="text-[clamp(28px,4vw,44px)] font-bold leading-[1.5] tracking-[-0.02em] max-w-[600px] mx-auto text-neutral-900">
-          人間の意志と創造が輝く世界を創る
-        </h2>
+        <h2 className="text-[clamp(28px,4vw,44px)] font-bold leading-[1.5] tracking-[-0.02em] max-w-[600px] mx-auto text-neutral-900">人間の意志と創造が輝く世界を創る</h2>
       </section>
 
       <section className="bg-neutral-800 text-white py-28 lg:py-32 px-6">
