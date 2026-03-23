@@ -62,7 +62,6 @@ export function Footer() {
               <li className="font-medium text-white">株式会社Lat.91</li>
               <li>東京都港区赤坂3-13-3</li>
               <li>赤坂セントラルビル6F</li>
-              <li className="pt-4">代表取締役 稲葉幸太郎</li>
             </ul>
           </div>
         </div>
