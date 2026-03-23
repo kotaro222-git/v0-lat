@@ -1,5 +1,6 @@
 "use client"
 
+import { Header } from "@/components/header"
 import { FixedSectionsContainer } from "@/components/fixed-sections-container"
 import { ServiceSection } from "@/components/sections/service-section"
 import { CoverageSection } from "@/components/sections/coverage-section"
@@ -10,14 +11,19 @@ import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
-    <main className="bg-[var(--background)] min-h-screen">
-      {/* Fixed container for Hero and Mission with fade transitions */}
+    <main
+      className="bg-[var(--background)] min-h-screen"
+      style={{
+        scrollSnapType: "y proximity",
+      }}
+    >
+      {/* Fixed Header */}
+      <Header />
+      
+      {/* Hero and Mission with scroll-snap fade transitions */}
       <FixedSectionsContainer />
-      
-      {/* Spacer to push services below the fixed container */}
-      <div className="h-screen" />
-      
-      {/* Normal flow sections */}
+
+      {/* Normal flow sections - no spacer needed */}
       <ServiceSection />
       <CoverageSection />
       <StrengthSection />

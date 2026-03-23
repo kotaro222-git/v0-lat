@@ -1,131 +1,89 @@
 "use client"
 
-import { useState, useEffect, useRef, useCallback } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Hero } from "@/components/hero"
 import { MissionSection } from "@/components/sections/mission-section"
 
-type Section = "hero" | "mission" | "services"
-
 export function FixedSectionsContainer() {
-  const [currentSection, setCurrentSection] = useState<Section>("hero")
-  const [isExitingToServices, setIsExitingToServices] = useState(false)
-  const [isAnimating, setIsAnimating] = useState(false)
-  const lastWheelTime = useRef(0)
-  const containerRef = useRef<HTMLDivElement>(null)
-  
-  // When in services mode, hide the fixed container
-  const isInServices = currentSection === "services"
+  const [visibleSection, setVisibleSection] = useState<"hero" | "mission">("hero")
 
-  const handleWheel = useCallback((e: WheelEvent) => {
-    // Touch device check
-    if ("ontouchstart" in window || navigator.maxTouchPoints > 0) return
-    
-    // Ignore micro-scrolls
-    if (Math.abs(e.deltaY) < 5) return
-    
-    // Debounce - 800ms cooldown
-    const now = Date.now()
-    if (now - lastWheelTime.current < 800) {
-      e.preventDefault()
-      return
-    }
-    
-    // Skip if animating or exiting
-    if (isAnimating || isExitingToServices) {
-      e.preventDefault()
-      return
-    }
+  const heroRef = useRef<HTMLDivElement>(null)
+  const missionRef = useRef<HTMLDivElement>(null)
 
-    const isScrollingDown = e.deltaY > 0
-    const isScrollingUp = e.deltaY < 0
-
-    if (currentSection === "hero" && isScrollingDown) {
-      e.preventDefault()
-      lastWheelTime.current = now
-      setIsAnimating(true)
-      setCurrentSection("mission")
-      setTimeout(() => setIsAnimating(false), 800)
-    } else if (currentSection === "mission" && isScrollingUp) {
-      e.preventDefault()
-      lastWheelTime.current = now
-      setIsAnimating(true)
-      setCurrentSection("hero")
-      setTimeout(() => setIsAnimating(false), 800)
-    } else if (currentSection === "mission" && isScrollingDown) {
-      // Transition to services with smooth fade out
-      e.preventDefault()
-      lastWheelTime.current = now
-      setIsExitingToServices(true)
-      
-      // Wait for fade out animation, then switch to services
-      setTimeout(() => {
-        window.scrollTo({ top: window.innerHeight, behavior: "instant" })
-        setCurrentSection("services")
-        setIsExitingToServices(false)
-      }, 500)
-    }
-  }, [currentSection, isAnimating, isExitingToServices])
-
+  // Intersection Observer to detect which snap section is visible
   useEffect(() => {
-    window.addEventListener("wheel", handleWheel, { passive: false })
-    return () => window.removeEventListener("wheel", handleWheel)
-  }, [handleWheel])
-
-  // Handle scroll back from services to mission
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY
-      // If scrolled back to top from services, show mission
-      if (scrollY < 50 && currentSection === "services") {
-        setCurrentSection("mission")
-        window.scrollTo({ top: 0, behavior: "instant" })
-      }
+    const options = {
+      root: null,
+      threshold: 0.6,
     }
-    
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [currentSection])
 
-  // Don't render fixed container when viewing services
-  if (isInServices) {
-    return null
-  }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (entry.target === heroRef.current) {
+            setVisibleSection("hero")
+          } else if (entry.target === missionRef.current) {
+            setVisibleSection("mission")
+          }
+        }
+      })
+    }, options)
+
+    if (heroRef.current) observer.observe(heroRef.current)
+    if (missionRef.current) observer.observe(missionRef.current)
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <div 
-      ref={containerRef}
-      className="fixed inset-0 w-full h-screen overflow-hidden z-10"
-      style={{
-        backgroundColor: currentSection === "hero" ? "#050e10" : "#ffffff",
-        transition: "background-color 800ms ease-in-out",
-        opacity: isExitingToServices ? 0 : 1,
-      }}
-    >
-      {/* Hero Section */}
-      <div
-        className="absolute inset-0 w-full h-full"
+    <>
+      {/* Hero Panel */}
+      <section
+        ref={heroRef}
         style={{
-          opacity: currentSection === "hero" ? 1 : 0,
-          transform: currentSection === "hero" ? "translateY(0)" : "translateY(-30px)",
-          transition: "opacity 800ms ease-in-out, transform 800ms ease-in-out",
-          pointerEvents: currentSection === "hero" ? "auto" : "none",
+          height: "100vh",
+          scrollSnapAlign: "start",
+          position: "relative",
+          overflow: "hidden",
+          backgroundColor: "#050e10",
         }}
       >
-        <Hero />
-      </div>
+        <div
+          style={{
+            opacity: visibleSection === "hero" ? 1 : 0,
+            transform: visibleSection === "hero" ? "translateY(0)" : "translateY(-30px)",
+            transition: "opacity 700ms ease-in-out, transform 700ms ease-in-out",
+            width: "100%",
+            height: "100%",
+          }}
+        >
+          <Hero />
+        </div>
+      </section>
 
-      {/* Mission Section */}
-      <div
-        className="absolute inset-0 w-full h-full overflow-auto"
+      {/* Mission Panel */}
+      <section
+        ref={missionRef}
         style={{
-          opacity: currentSection === "mission" && !isExitingToServices ? 1 : 0,
-          transform: currentSection === "mission" ? "translateY(0)" : "translateY(30px)",
-          transition: "opacity 500ms ease-in-out, transform 500ms ease-in-out",
-          pointerEvents: currentSection === "mission" ? "auto" : "none",
+          height: "100vh",
+          scrollSnapAlign: "start",
+          position: "relative",
+          overflow: "hidden",
+          backgroundColor: "#ffffff",
         }}
       >
-        <MissionSection />
-      </div>
-    </div>
+        <div
+          style={{
+            opacity: visibleSection === "mission" ? 1 : 0,
+            transform: visibleSection === "mission" ? "translateY(0)" : "translateY(30px)",
+            transition: "opacity 600ms ease-in-out, transform 600ms ease-in-out",
+            width: "100%",
+            height: "100%",
+          }}
+        >
+          <MissionSection />
+        </div>
+      </section>
+    </>
   )
 }
