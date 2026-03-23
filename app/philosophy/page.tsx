@@ -4,7 +4,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
 
-export default function PhilosophyPage() {
+function PhilosophyPageComponent() {
   return (
     <main className="bg-white min-h-screen">
       <Header />
@@ -106,3 +106,5 @@ export default function PhilosophyPage() {
     </main>
   )
 }
+
+export default PhilosophyPageComponent

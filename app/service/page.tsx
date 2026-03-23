@@ -66,7 +66,7 @@ const services = [
     leftText: "AIが問い合わせを分類・回答し、確信度が低い案件だけ人にエスカレ。全件の対応結果がナレッジに還元され、精度は使うほど向上します。",
     stats: [
       { value: "80%", label: "自動対応率" },
-      { value: "< 30s", label: "平均初回応答" },
+      { value: " 1/2", label: "担当者工数" },
     ],
     workflowBadge: "80% automated",
     workflow: [
@@ -210,7 +210,7 @@ function MarketingWorkflowSVG() {
       {/* Row 2 */}
       <text className="font-mono text-[9px]" fill="#c8c7c3" x={14} y={130}>04</text>
       <rect fill="#fafaf9" stroke="#e2e1de" x={8} y={138} width={176} height={50} rx={8}/>
-      <text className="font-semibold text-[12px]" fill="#0a0a0a" x={96} y={159} textAnchor="middle" dominantBaseline="central">配信実行</text>
+      <text className="font-semibold text-[12px]" fill="#0a0a0a" x={96} y={159} textAnchor="middle" dominantBaseline="central">配信実��</text>
       <text className="text-[10px]" fill="#6e6d69" x={96} y={176} textAnchor="middle" dominantBaseline="central">チャネル最適化</text>
       <line stroke="#c8c7c3" x1={184} y1={163} x2={206} y2={163} markerEnd="url(#arrow-mkt)"/>
       
