@@ -8,7 +8,6 @@ type Section = "hero" | "mission" | "services"
 
 export function FixedSectionsContainer() {
   const [currentSection, setCurrentSection] = useState<Section>("hero")
-  const [isExitingToServices, setIsExitingToServices] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
   const lastWheelTime = useRef(0)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -30,8 +29,8 @@ export function FixedSectionsContainer() {
       return
     }
     
-    // Skip if animating or exiting
-    if (isAnimating || isExitingToServices) {
+    // Skip if animating
+    if (isAnimating) {
       e.preventDefault()
       return
     }
@@ -52,21 +51,10 @@ export function FixedSectionsContainer() {
       setCurrentSection("hero")
       setTimeout(() => setIsAnimating(false), 800)
     } else if (currentSection === "mission" && isScrollingDown) {
-      // Transition to services with smooth fade out
-      e.preventDefault()
-      lastWheelTime.current = now
-      setIsExitingToServices(true)
+      // Simply switch to services mode and let normal scrolling take over
       setCurrentSection("services")
-      
-      // Scroll smoothly to services section
-      requestAnimationFrame(() => {
-        window.scrollTo({ top: window.innerHeight, behavior: "smooth" })
-        setTimeout(() => {
-          setIsExitingToServices(false)
-        }, 300)
-      })
     }
-  }, [currentSection, isAnimating, isExitingToServices])
+  }, [currentSection, isAnimating])
 
   useEffect(() => {
     window.addEventListener("wheel", handleWheel, { passive: false })
@@ -100,7 +88,6 @@ export function FixedSectionsContainer() {
       style={{
         backgroundColor: currentSection === "hero" ? "#050e10" : "#ffffff",
         transition: "background-color 800ms ease-in-out",
-        opacity: isExitingToServices ? 0 : 1,
       }}
     >
       {/* Hero Section */}
@@ -120,7 +107,7 @@ export function FixedSectionsContainer() {
       <div
         className="absolute inset-0 w-full h-full overflow-auto"
         style={{
-          opacity: currentSection === "mission" && !isExitingToServices ? 1 : 0,
+          opacity: currentSection === "mission" ? 1 : 0,
           transform: currentSection === "mission" ? "translateY(0)" : "translateY(30px)",
           transition: "opacity 500ms ease-in-out, transform 500ms ease-in-out",
           pointerEvents: currentSection === "mission" ? "auto" : "none",
