@@ -53,10 +53,10 @@ export default function PhilosophyPage() {
       {/* CEO Message Section */}
       <section className="py-24 px-6 md:px-12 bg-neutral-50">
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+          <div className="grid lg:grid-cols-[400px_1fr] gap-12 lg:gap-20 items-start">
             {/* CEO Photo */}
             <div className="lg:sticky lg:top-32">
-              <div className="relative aspect-[4/5] max-w-[360px] rounded-2xl overflow-hidden bg-neutral-200">
+              <div className="relative w-[400px] h-[500px] rounded-2xl overflow-hidden bg-neutral-200">
                 <Image
                   src="/images/ceo-photo.png"
                   alt="代表取締役 稲葉幸太郎"
@@ -64,21 +64,19 @@ export default function PhilosophyPage() {
                   className="object-cover"
                 />
               </div>
-              <div className="mt-8">
-                <p className="font-mono text-xs tracking-wider text-neutral-400 uppercase">
-                  CEO & Founder
-                </p>
-                <p className="mt-2 text-xl font-bold text-neutral-900">
-                  稲葉 幸太郎
-                </p>
-                <p className="text-sm text-neutral-500">
-                  Kotaro Inaba
-                </p>
-              </div>
             </div>
 
             {/* Message Content */}
-            <div className="space-y-6 text-base md:text-lg leading-[2] text-neutral-600">
+            <div>
+              {/* CEO Name & Title */}
+              <p className="font-mono text-xs tracking-wider text-neutral-400 uppercase mb-1">
+                CEO & Founder
+              </p>
+              <p className="text-lg font-bold text-neutral-900 mb-10">
+                稲葉 幸太郎
+              </p>
+              
+              <div className="space-y-6 text-base md:text-lg leading-[2] text-neutral-600">
               <p>
                 人類にとって、かつてない時代がやってきました。
                 <br />
@@ -127,6 +125,7 @@ export default function PhilosophyPage() {
                 <br />
                 僕たちはその瞬間を創り、純度の高い創造で世界を前へ進めたいと考えています。
               </p>
+              </div>
             </div>
           </div>
         </div>
