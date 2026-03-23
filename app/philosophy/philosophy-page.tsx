@@ -62,7 +62,7 @@ const missionText = {
   line2: "輝く世界を創る",
 }
 
-export default function PhilosophyPage() {
+export default function PhilosophyPageContent() {
   return (
     <main className="bg-white min-h-screen">
       <Header variant="light" />
@@ -96,6 +96,7 @@ export default function PhilosophyPage() {
                   alt="CEO"
                   fill
                   priority
+                  loading="eager"
                   className="object-cover"
                 />
               </div>
@@ -173,18 +174,14 @@ export default function PhilosophyPage() {
               <h2 className="text-[clamp(24px,4vw,36px)] font-bold text-neutral-900 leading-tight mb-10">
                 {companyOrigin.title}
               </h2>
-              <div className="space-y-6 text-base md:text-lg leading-[2] text-neutral-600 max-w-xl">
+              <div className="space-y-0 text-base md:text-lg leading-[2.2] text-neutral-600">
                 <p>
                   <span className="text-neutral-900 font-bold">{companyOrigin.name}</span>
                   {companyOrigin.line1}
-                  <br />
-                  {companyOrigin.line2}
                 </p>
-                <p>
-                  {companyOrigin.line3}
-                  <br />
-                  {companyOrigin.line4}
-                </p>
+                <p>{companyOrigin.line2}</p>
+                <p className="mt-4">{companyOrigin.line3}</p>
+                <p>{companyOrigin.line4}</p>
               </div>
             </div>
 

@@ -3,10 +3,14 @@
 import dynamic from "next/dynamic"
 
 const PhilosophyPageContent = dynamic(
-  () => import("./philosophy-page").then((mod) => mod.default),
-  { ssr: false }
+  () => import("./philosophy-page"),
+  { ssr: false, loading: () => <div className="min-h-screen bg-white" /> }
 )
 
 export default function PhilosophyPage() {
-  return <PhilosophyPageContent />
+  return (
+    <div suppressHydrationWarning>
+      <PhilosophyPageContent />
+    </div>
+  )
 }
