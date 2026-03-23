@@ -18,9 +18,8 @@ const ceoMessage = {
   p5_1: "AIが実務の99%を担っていく時代。",
   p5_2: "人間は、最も尊い1%の意志と創造だけに向き合える。",
   p5_3: "何を美しいと感じ、何に怒り、何を選ぶか。",
-  p6_1: "もし今の仕事のほとんどがなくなったとして、僕たちは何に集中するだろう。",
-  p6_2: "誰の代わりでもない、自分にしか生み出せない価値はなんだろうか。",
-  p7: "僕たちはその瞬間を創り、純度の高い創造で溢れる世界を目指してます。",
+  p6_1: "その力を取り戻すために、僕たちは全力でAIエージェントをつくります。",
+  signature: "代表取締役 稲葉 幸太郎",
 }
 
 const companyOrigin = {
@@ -32,22 +31,15 @@ const companyOrigin = {
   line4: "私は、その景色を見たいしつくりたい。だからこの会社を創りました。",
 }
 
-const heroText = {
-  lead: "AIが99%を引き受ける時代。",
+const missionText = {
   title1: "すべての人と企業に",
   title2: "デジタルレイバーを。",
   title3: "AI時代の確かな",
   title4: "産業インフラをつくる",
-  description: "実務の摩擦をAIが引き受け、人間が純粋な意思や創造へと向かうための次代の産業インフラを創ります。",
-}
-
-const missionText = {
-  values: [
-    "産業革命から続く、人が労働力になる時代は、 まもなく歴史の転換点を迎えます。",
-    "私たちが提供するのは、自信して実務を完遂する AI、デジタルレイバーという新しい労働力の実装。",
-    "電気や水道が社会を底支えするように、この無体の 知能を、誰もが当たり前に使える確かなインフラと して日本から散設する。",
-    "実務の摩擦をAIが引き受け、人間が純粋な意思や創 造へと向かうための次代の産業インフラを創り ます。",
-  ],
+  p1: "産業革命から続く、人が労働力になる時代は、まもなく歴史の転換点を迎えます。",
+  p2: "私たちが提供するのは、自律して実務を完遂するAI、デジタルレイバーという新しい労働力の実装。",
+  p3: "電気や水道が社会を底支えするように、この無休の知能を、誰もが当たり前に使える確かなインフラとして日本から敷設する。",
+  p4: "実務の摩擦をAIが引き受け、人間が純粋な意思や創造へと向かうための次代の産業インフラを創ります。",
 }
 
 export default function PhilosophyPage() {
@@ -65,77 +57,79 @@ export default function PhilosophyPage() {
     <main className="bg-white min-h-screen" suppressHydrationWarning>
       <Header variant="light" />
 
+      {/* Hero Section */}
+      <section className="pt-36 pb-24 px-6 md:px-12 lg:px-20">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="flex items-center gap-4 mb-8">
+            <span className="w-12 h-px bg-neutral-900" />
+            <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-neutral-400">
+              Philosophy
+            </span>
+          </div>
+          <h1 className="text-[clamp(36px,5vw,56px)] font-bold text-neutral-900 leading-[1.15] tracking-[-0.03em]">
+            理念
+          </h1>
+        </div>
+      </section>
+
       {/* CEO Message Section */}
-      <section className="py-24 px-6 md:px-12 bg-neutral-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-[400px_1fr] gap-12 lg:gap-20 items-start">
+      <section className="py-24 px-6 md:px-12 bg-neutral-50 border-t border-neutral-200">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="grid lg:grid-cols-[400px_1fr] gap-16 items-start">
             {/* CEO Photo */}
-            <div className="lg:sticky lg:top-32">
-              <div className="relative w-[400px] h-[500px] rounded-2xl overflow-hidden bg-neutral-200">
+            <div className="relative">
+              <div className="aspect-[3/4] w-full max-w-[400px] relative rounded-2xl overflow-hidden">
                 <Image
                   src="/images/ceo-photo.png"
                   alt="CEO"
                   fill
                   priority
-                  loading="eager"
                   className="object-cover"
                 />
               </div>
-              <div className="mt-6">
-                <p className="font-mono text-xs tracking-wider text-neutral-400 uppercase">
-                  CEO & Founder
-                </p>
-                <p className="mt-1 text-lg font-bold text-neutral-900">
-                  稲葉 幸太郎
-                </p>
-              </div>
+              <span className="inline-flex items-center gap-3 mt-6">
+                <span className="w-8 h-px bg-neutral-300" />
+                <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-neutral-400">
+                  CEO Message
+                </span>
+              </span>
             </div>
 
             {/* Message Content */}
-            <div className="space-y-4 text-[15px] md:text-[17px] leading-[2] text-neutral-600">
-              <p>
-                {ceoMessage.p1_1}
-                <br />
-                {ceoMessage.p1_2}
-              </p>
-
-              <p>
-                {ceoMessage.p2_1}
-                <br />
-                {ceoMessage.p2_2}
-              </p>
-
-              <p>
-                {ceoMessage.p3_1}
-                <br />
-                <span className="text-neutral-900 font-medium">
-                  {ceoMessage.p3_2}
-                </span>
-                {ceoMessage.p3_3}
-              </p>
-
-              <p>
-                {ceoMessage.p4_1}
-                <br />
-                {ceoMessage.p4_2}
-              </p>
-
-              <p>
-                {ceoMessage.p5_1}
-                <br />
-                {ceoMessage.p5_2}
-                <br />
-                {ceoMessage.p5_3}
-              </p>
-
-              <p>
-                {ceoMessage.p6_1}
-                <br />
-                {ceoMessage.p6_2}
-              </p>
-
-              <p>
-                {ceoMessage.p7}
+            <div className="lg:pt-8">
+              <div className="space-y-4 text-[15px] md:text-[17px] leading-[2] text-neutral-600">
+                <p>
+                  {ceoMessage.p1_1}
+                  <br />
+                  {ceoMessage.p1_2}
+                </p>
+                <p>
+                  {ceoMessage.p2_1}
+                  <br />
+                  {ceoMessage.p2_2}
+                </p>
+                <p>
+                  {ceoMessage.p3_1}
+                  <br />
+                  <span className="text-neutral-900 font-semibold">{ceoMessage.p3_2}</span>
+                  {ceoMessage.p3_3}
+                </p>
+                <p>
+                  {ceoMessage.p4_1}
+                  <br />
+                  {ceoMessage.p4_2}
+                </p>
+                <p>
+                  {ceoMessage.p5_1}
+                  <br />
+                  {ceoMessage.p5_2}
+                  <br />
+                  {ceoMessage.p5_3}
+                </p>
+                <p>{ceoMessage.p6_1}</p>
+              </div>
+              <p className="mt-12 text-[15px] text-neutral-900 font-medium">
+                {ceoMessage.signature}
               </p>
             </div>
           </div>
@@ -184,21 +178,36 @@ export default function PhilosophyPage() {
       </section>
 
       {/* Mission Section */}
-      <section className="py-24 px-6 md:px-12 bg-neutral-50">
-        <div className="max-w-3xl mx-auto">
-          <span className="inline-flex items-center gap-3 mb-8">
-            <span className="w-12 h-px bg-neutral-900" />
-            <span className="font-mono text-xs tracking-[0.3em] uppercase text-neutral-400">
+      <section className="py-28 px-6 md:px-12 bg-neutral-50 border-t border-neutral-200">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="flex items-center justify-center gap-4 mb-12">
+            <span className="w-8 h-px bg-neutral-300" />
+            <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-neutral-400">
               Mission
             </span>
-          </span>
-          <h2 className="text-[clamp(24px,4vw,40px)] font-bold text-neutral-900 leading-tight mb-12">
-            {missionText.values[0]}
-          </h2>
-          <div className="space-y-8 text-base md:text-lg leading-[2] text-neutral-600">
-            {missionText.values.slice(1).map((text, idx) => (
-              <p key={idx}>{text}</p>
-            ))}
+            <span className="w-8 h-px bg-neutral-300" />
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-16 items-start">
+            <div className="lg:col-span-7">
+              <h2 className="text-[clamp(28px,4vw,44px)] font-bold text-neutral-900 leading-[1.3] tracking-[-0.02em]">
+                {missionText.title1}
+                <br />
+                {missionText.title2}
+                <br />
+                {missionText.title3}
+                <br />
+                {missionText.title4}
+              </h2>
+            </div>
+            <div className="lg:col-span-5 max-w-[480px]">
+              <div className="space-y-5 text-[15px] text-neutral-500 leading-[2]">
+                <p>{missionText.p1}</p>
+                <p>{missionText.p2}</p>
+                <p>{missionText.p3}</p>
+                <p>{missionText.p4}</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
