@@ -5,7 +5,6 @@ import { useState, useEffect } from "react"
 import { Menu, X, ArrowRight } from "lucide-react"
 
 const navItems = [
-  { label: "Top", href: "/" },
   { label: "Philosophy", href: "/philosophy" },
   { label: "Service", href: "/service" },
   { label: "Media", href: "/media" },
