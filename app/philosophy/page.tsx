@@ -64,19 +64,18 @@ export default function PhilosophyPage() {
                   className="object-cover"
                 />
               </div>
+              <div className="mt-6">
+                <p className="font-mono text-xs tracking-wider text-neutral-400 uppercase">
+                  CEO & Founder
+                </p>
+                <p className="mt-1 text-lg font-bold text-neutral-900">
+                  稲葉 幸太郎
+                </p>
+              </div>
             </div>
 
             {/* Message Content */}
-            <div>
-              {/* CEO Name & Title */}
-              <p className="font-mono text-xs tracking-wider text-neutral-400 uppercase mb-1">
-                CEO & Founder
-              </p>
-              <p className="text-lg font-bold text-neutral-900 mb-10">
-                稲葉 幸太郎
-              </p>
-              
-              <div className="space-y-6 text-base md:text-lg leading-[2] text-neutral-600">
+            <div className="space-y-6 text-base md:text-lg leading-[2] text-neutral-600">
               <p>
                 人類にとって、かつてない時代がやってきました。
                 <br />
