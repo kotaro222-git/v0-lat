@@ -68,7 +68,7 @@ export default function PhilosophyPage() {
               </div>
             </div>
 
-            <div className="flex items-center justify-center pt-6">
+            <div className="flex items-start justify-center">
               <svg width="320" height="380" viewBox="0 0 680 520">
                 <defs>
                   <clipPath id="globe-clip">
