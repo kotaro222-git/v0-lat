@@ -10,22 +10,22 @@ import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
-    <main className="bg-[var(--background)] min-h-screen">
-      {/* Fixed container for Hero and Mission with fade transitions */}
+    <main
+      className="bg-[var(--background)] min-h-screen"
+      style={{
+        scrollSnapType: "y proximity",
+      }}
+    >
+      {/* Hero and Mission with scroll-snap fade transitions */}
       <FixedSectionsContainer />
 
-      {/* Spacer: height matches the fixed container so scroll position works */}
-      <div style={{ height: "100vh", pointerEvents: "none" }} aria-hidden="true" />
-
-      {/* Normal flow sections */}
-      <div>
-        <ServiceSection />
-        <CoverageSection />
-        <StrengthSection />
-        <CTASection />
-        <MediaSection />
-        <Footer />
-      </div>
+      {/* Normal flow sections - no spacer needed */}
+      <ServiceSection />
+      <CoverageSection />
+      <StrengthSection />
+      <CTASection />
+      <MediaSection />
+      <Footer />
     </main>
   )
 }
