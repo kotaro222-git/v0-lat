@@ -13,9 +13,12 @@ export default function Home() {
     <main className="bg-[var(--background)] min-h-screen">
       {/* Fixed container for Hero and Mission with fade transitions */}
       <FixedSectionsContainer />
-      
-      {/* Spacer + normal flow sections below fixed container */}
-      <div style={{ marginTop: "100vh" }}>
+
+      {/* Spacer: height matches the fixed container so scroll position works */}
+      <div style={{ height: "100vh", pointerEvents: "none" }} aria-hidden="true" />
+
+      {/* Normal flow sections */}
+      <div>
         <ServiceSection />
         <CoverageSection />
         <StrengthSection />

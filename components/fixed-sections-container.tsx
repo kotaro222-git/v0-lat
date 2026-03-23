@@ -12,22 +12,15 @@ export function FixedSectionsContainer() {
   const lastWheelTime = useRef(0)
   const containerRef = useRef<HTMLDivElement>(null)
 
-  // Determine if we're in services mode (container should be hidden but NOT removed from DOM)
   const isInServices = currentSection === "services"
 
   const handleWheel = useCallback((e: WheelEvent) => {
-    // If in services mode, let normal scrolling happen
     if (isInServices) return
-    
-    // Touch device check
     if ("ontouchstart" in window || navigator.maxTouchPoints > 0) return
-    
-    // Ignore micro-scrolls
     if (Math.abs(e.deltaY) < 5) return
-    
+
     const now = Date.now()
-    
-    // Skip if animating
+
     if (isAnimating) {
       e.preventDefault()
       return
@@ -37,7 +30,6 @@ export function FixedSectionsContainer() {
     const isScrollingUp = e.deltaY < 0
 
     if (currentSection === "hero" && isScrollingDown) {
-      // Hero to Mission transition
       if (now - lastWheelTime.current < 800) {
         e.preventDefault()
         return
@@ -48,7 +40,6 @@ export function FixedSectionsContainer() {
       setCurrentSection("mission")
       setTimeout(() => setIsAnimating(false), 800)
     } else if (currentSection === "mission" && isScrollingUp) {
-      // Mission to Hero transition
       if (now - lastWheelTime.current < 800) {
         e.preventDefault()
         return
@@ -59,8 +50,14 @@ export function FixedSectionsContainer() {
       setCurrentSection("hero")
       setTimeout(() => setIsAnimating(false), 800)
     } else if (currentSection === "mission" && isScrollingDown) {
-      // Mission to Services - hide container, allow normal scroll
-      setCurrentSection("services")
+      // Mission → Services: scroll to service section BEFORE hiding container
+      e.preventDefault()
+      const viewportHeight = window.innerHeight
+      window.scrollTo({ top: viewportHeight, behavior: "instant" })
+      // Use rAF to ensure scroll position is applied before state change
+      requestAnimationFrame(() => {
+        setCurrentSection("services")
+      })
     }
   }, [currentSection, isAnimating, isInServices])
 
@@ -69,34 +66,35 @@ export function FixedSectionsContainer() {
     return () => window.removeEventListener("wheel", handleWheel)
   }, [handleWheel])
 
-  // Handle scroll position to show/hide fixed container
+  // Handle scroll to return from services to mission
   useEffect(() => {
     const handleScroll = () => {
+      if (currentSection !== "services") return
       const scrollY = window.scrollY
-      const viewportHeight = window.innerHeight
-      
-      // If scrolled back above the service section threshold, show mission
-      if (scrollY < viewportHeight * 0.5 && currentSection === "services") {
+
+      // When user scrolls back to the very top, restore mission
+      if (scrollY <= 2) {
         setCurrentSection("mission")
       }
     }
-    
+
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [currentSection])
 
-  // IMPORTANT: Never return null - always keep container in DOM to prevent remount
   return (
-    <div 
+    <div
       ref={containerRef}
-      className="fixed inset-0 w-full h-screen overflow-hidden z-10"
+      className="fixed inset-0 w-full h-screen overflow-hidden"
       style={{
         backgroundColor: currentSection === "hero" ? "#050e10" : "#ffffff",
-        transition: "background-color 800ms ease-in-out",
-        // Hide visually but keep in DOM when in services mode
+        transition: isInServices
+          ? "opacity 300ms ease-out, visibility 0ms linear 300ms"
+          : "background-color 800ms ease-in-out, opacity 300ms ease-in",
         opacity: isInServices ? 0 : 1,
         pointerEvents: isInServices ? "none" : "auto",
         visibility: isInServices ? "hidden" : "visible",
+        zIndex: isInServices ? -1 : 10,
       }}
     >
       {/* Hero Section */}
