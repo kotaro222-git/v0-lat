@@ -121,7 +121,7 @@ export default async function ArticlePage({
         <div className="max-w-3xl mx-auto">
           <div
             className="prose prose-lg max-w-none prose-headings:text-neutral-900 prose-p:text-neutral-600 prose-p:leading-[2] prose-a:text-neutral-900 prose-a:underline prose-img:rounded-xl"
-            dangerouslySetInnerHTML={{ __html: article.body }}
+            dangerouslySetInnerHTML={{ __html: article.htmlBody || article.body || "" }}
           />
 
           {/* Share */}

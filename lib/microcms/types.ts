@@ -9,6 +9,7 @@ export type Article = {
   }
   summary?: string
   body: string
+  htmlBody?: string
   readingTime?: number
   featured?: boolean
   publishedAt: string
