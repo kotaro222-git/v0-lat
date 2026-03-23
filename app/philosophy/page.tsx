@@ -75,7 +75,7 @@ export default function PhilosophyPage() {
                 <p>90度までをAIに正しく担わせ、みんなで91度目に立つ。私は、その景色を見たいしつくりたい。だからこの会社を創りました。</p>
               </div>
             </div>
-            <div className="flex items-start justify-center">
+            <div className="flex items-start justify-center -mt-8">
               <svg width="384" height="456" viewBox="0 0 680 520">
                 <defs><clipPath id="globe-clip"><circle cx="340" cy="240" r="180"/></clipPath></defs>
                 <circle cx="340" cy="240" r="184" fill="none" stroke="#73726c" strokeWidth="0.3" opacity="0.15"/>
@@ -100,16 +100,16 @@ export default function PhilosophyPage() {
                 </g>
                 <ellipse cx="340" cy="84" rx="28" ry="5" fill="none" stroke="#73726c" strokeWidth="1.5" opacity="0.6"/>
                 <circle cx="340" cy="60" r="3.5" fill="#73726c" opacity="0.7"/>
-                <text x="370" y="68" fill="#3d3d3a" fontFamily="sans-serif" fontSize="14" fontWeight="500" opacity="0.6">{"90°N"}</text>
+                <text x="370" y="68" fill="#3d3d3a" fontFamily="sans-serif" fontSize="14" fontWeight="500" opacity="0.6">{"90\u00B0N"}</text>
                 <g opacity="0.9">
                   <path d="M 295 38 Q 318 20, 340 18 Q 362 20, 385 38" fill="none" stroke="#73726c" strokeWidth="1.8" strokeDasharray="4 3"/>
                   <circle cx="340" cy="16" r="5" fill="none" stroke="#73726c" strokeWidth="1.5"/>
                   <circle cx="340" cy="16" r="1.5" fill="#73726c"/>
                 </g>
-                <text x="398" y="22" fill="#141413" fontFamily="sans-serif" fontSize="16" fontWeight="600" opacity="0.9">{"91°"}</text>
+                <text x="398" y="22" fill="#141413" fontFamily="sans-serif" fontSize="16" fontWeight="600" opacity="0.9">{"91\u00B0"}</text>
                 <line x1="340" y1="56" x2="340" y2="24" stroke="#73726c" strokeWidth="0.8" opacity="0.35" strokeDasharray="2 2"/>
                 <text x="340" y="470" textAnchor="middle" fill="#3d3d3a" fontFamily="sans-serif" fontSize="12" opacity="0.4">The 91st degree does not exist on any map.</text>
-                <text x="340" y="488" textAnchor="middle" fill="#3d3d3a" fontFamily="sans-serif" fontSize="12" opacity="0.4">{"That's exactly why we go there."}</text>
+                <text x="340" y="488" textAnchor="middle" fill="#3d3d3a" fontFamily="sans-serif" fontSize="12" opacity="0.4">That is exactly why we go there.</text>
               </svg>
             </div>
           </div>
