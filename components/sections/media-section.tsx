@@ -2,29 +2,36 @@
 
 import Link from "next/link"
 import { ArrowRight, ArrowUpRight } from "lucide-react"
+import useSWR from "swr"
+import type { Article, ArticleResponse } from "@/lib/microcms/client"
 
-const articles = [
-  {
-    id: 1,
-    title: "AIエージェント導入で営業効率が3倍に - 製造業A社の事例",
-    category: "Case Study",
-    date: "2026.03.15",
-  },
-  {
-    id: 2,
-    title: "2026年のAIトレンド：エージェント型AIが変える企業の働き方",
-    category: "Insight",
-    date: "2026.03.10",
-  },
-  {
-    id: 3,
-    title: "DX推進における経営課題起点のアプローチとは",
-    category: "Column",
-    date: "2026.03.05",
-  },
-]
+const fetcher = (url: string) => fetch(url).then((res) => res.json())
+
+// カテゴリ表示用のマッピング
+const categoryLabels: Record<string, string> = {
+  caseStudy: "Case Study",
+  insight: "Insight",
+  column: "Column",
+  news: "News",
+}
+
+// 日付フォーマット
+function formatDate(dateString: string) {
+  const date = new Date(dateString)
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, "0")
+  const day = String(date.getDate()).padStart(2, "0")
+  return `${year}.${month}.${day}`
+}
 
 export function MediaSection() {
+  const { data, error, isLoading } = useSWR<ArticleResponse>(
+    "/api/media?limit=3",
+    fetcher
+  )
+
+  const articles = data?.contents || []
+
   return (
     <section className="relative bg-neutral-50 py-32 md:py-40 px-6 md:px-12">
       <div className="max-w-6xl mx-auto">
@@ -52,47 +59,82 @@ export function MediaSection() {
           </Link>
         </div>
 
-        {/* Articles Grid */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {articles.map((article, index) => (
-            <Link
-              key={article.id}
-              href={`/media/${article.id}`}
-              className="group block"
-            >
-              <article className="bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500">
-                {/* Image placeholder */}
-                <div className="relative aspect-[16/10] bg-gradient-to-br from-neutral-100 to-neutral-200 overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-mono text-6xl font-bold text-neutral-300/50">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                  </div>
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1.5 bg-white rounded-full text-xs font-medium text-neutral-600">
-                      {article.category}
-                    </span>
-                  </div>
-                  <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span className="flex items-center justify-center w-10 h-10 rounded-full bg-neutral-900 text-white">
-                      <ArrowUpRight size={16} />
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content */}
+        {/* Loading State */}
+        {isLoading && (
+          <div className="grid md:grid-cols-3 gap-6">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="bg-white rounded-2xl overflow-hidden animate-pulse">
+                <div className="aspect-[16/10] bg-neutral-200" />
                 <div className="p-6">
-                  <span className="font-mono text-xs text-neutral-400 mb-3 block">
-                    {article.date}
-                  </span>
-                  <h3 className="text-base font-bold text-neutral-900 leading-relaxed group-hover:text-neutral-600 transition-colors">
-                    {article.title}
-                  </h3>
+                  <div className="h-3 bg-neutral-200 rounded w-20 mb-3" />
+                  <div className="h-4 bg-neutral-200 rounded w-full mb-2" />
+                  <div className="h-4 bg-neutral-200 rounded w-3/4" />
                 </div>
-              </article>
-            </Link>
-          ))}
-        </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Articles Grid */}
+        {!isLoading && articles.length > 0 && (
+          <div className="grid md:grid-cols-3 gap-6">
+            {articles.map((article, index) => (
+              <Link
+                key={article.id}
+                href={`/media/${article.id}`}
+                className="group block"
+              >
+                <article className="bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500">
+                  {/* Thumbnail or placeholder */}
+                  <div className="relative aspect-[16/10] bg-gradient-to-br from-neutral-100 to-neutral-200 overflow-hidden">
+                    {article.thumbnail ? (
+                      <img
+                        src={article.thumbnail.url}
+                        alt={article.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="font-mono text-6xl font-bold text-neutral-300/50">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                      </div>
+                    )}
+                    <div className="absolute top-4 left-4">
+                      <span className="px-3 py-1.5 bg-white rounded-full text-xs font-medium text-neutral-600">
+                        {article.category?.[0]
+                          ? categoryLabels[article.category[0]] || article.category[0]
+                          : "Article"}
+                      </span>
+                    </div>
+                    <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="flex items-center justify-center w-10 h-10 rounded-full bg-neutral-900 text-white">
+                        <ArrowUpRight size={16} />
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    <span className="font-mono text-xs text-neutral-400 mb-3 block">
+                      {formatDate(article.publishedAt || article.createdAt)}
+                    </span>
+                    <h3 className="text-base font-bold text-neutral-900 leading-relaxed group-hover:text-neutral-600 transition-colors">
+                      {article.title}
+                    </h3>
+                  </div>
+                </article>
+              </Link>
+            ))}
+          </div>
+        )}
+
+        {/* Empty State */}
+        {!isLoading && articles.length === 0 && (
+          <div className="text-center py-16">
+            <p className="text-neutral-500">記事がまだありません</p>
+          </div>
+        )}
       </div>
     </section>
   )
