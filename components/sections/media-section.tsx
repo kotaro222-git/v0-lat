@@ -1,34 +1,30 @@
+"use client"
+
 import Link from "next/link"
 import { ArrowRight, ArrowUpRight } from "lucide-react"
-import { client, type Article } from "@/lib/microcms/client"
 
-async function getLatestArticles(): Promise<Article[]> {
-  try {
-    const data = await client.getList<Article>({
-      endpoint: "media",
-      queries: {
-        orders: "-publishedAt",
-        limit: 3,
-      },
-    })
-    return data.contents
-  } catch (e) {
-    console.error("Failed to fetch articles:", e)
-    return []
-  }
-}
+const articles = [
+  {
+    id: 1,
+    title: "AIエージェント導入で営業効率が3倍に - 製造業A社の事例",
+    category: "Case Study",
+    date: "2026.03.15",
+  },
+  {
+    id: 2,
+    title: "2026年のAIトレンド：エージェント型AIが変える企業の働き方",
+    category: "Insight",
+    date: "2026.03.10",
+  },
+  {
+    id: 3,
+    title: "DX推進における経営課題起点のアプローチとは",
+    category: "Column",
+    date: "2026.03.05",
+  },
+]
 
-function formatDate(dateStr: string): string {
-  const d = new Date(dateStr)
-  const y = d.getFullYear()
-  const m = String(d.getMonth() + 1).padStart(2, "0")
-  const day = String(d.getDate()).padStart(2, "0")
-  return `${y}.${m}.${day}`
-}
-
-export async function MediaSection() {
-  const articles = await getLatestArticles()
-
+export function MediaSection() {
   return (
     <section className="relative bg-neutral-50 py-32 md:py-40 px-6 md:px-12">
       <div className="max-w-6xl mx-auto">
@@ -58,55 +54,44 @@ export async function MediaSection() {
 
         {/* Articles Grid */}
         <div className="grid md:grid-cols-3 gap-6">
-          {articles.length > 0 ? (
-            articles.map((article, index) => (
-              <Link
-                key={article.id}
-                href={`/media/${article.id}`}
-                className="group block"
-              >
-                <article className="bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500">
-                  <div className="relative aspect-[16/10] bg-gradient-to-br from-neutral-100 to-neutral-200 overflow-hidden">
-                    {article.thumbnail ? (
-                      <img
-                        src={article.thumbnail.url}
-                        alt={article.title}
-                        className="absolute inset-0 w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="font-mono text-6xl font-bold text-neutral-300/50">
-                          {String(index + 1).padStart(2, "0")}
-                        </span>
-                      </div>
-                    )}
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1.5 bg-white rounded-full text-xs font-medium text-neutral-600">
-                        {article.category}
-                      </span>
-                    </div>
-                    <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span className="flex items-center justify-center w-10 h-10 rounded-full bg-neutral-900 text-white">
-                        <ArrowUpRight size={16} />
-                      </span>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <span className="font-mono text-xs text-neutral-400 mb-3 block">
-                      {formatDate(article.publishedAt)}
+          {articles.map((article, index) => (
+            <Link
+              key={article.id}
+              href={`/media/${article.id}`}
+              className="group block"
+            >
+              <article className="bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500">
+                {/* Image placeholder */}
+                <div className="relative aspect-[16/10] bg-gradient-to-br from-neutral-100 to-neutral-200 overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="font-mono text-6xl font-bold text-neutral-300/50">
+                      {String(index + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="text-base font-bold text-neutral-900 leading-relaxed group-hover:text-neutral-600 transition-colors">
-                      {article.title}
-                    </h3>
                   </div>
-                </article>
-              </Link>
-            ))
-          ) : (
-            <p className="text-neutral-400 col-span-3 text-center py-12">
-              記事がまだありません
-            </p>
-          )}
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1.5 bg-white rounded-full text-xs font-medium text-neutral-600">
+                      {article.category}
+                    </span>
+                  </div>
+                  <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="flex items-center justify-center w-10 h-10 rounded-full bg-neutral-900 text-white">
+                      <ArrowUpRight size={16} />
+                    </span>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <span className="font-mono text-xs text-neutral-400 mb-3 block">
+                    {article.date}
+                  </span>
+                  <h3 className="text-base font-bold text-neutral-900 leading-relaxed group-hover:text-neutral-600 transition-colors">
+                    {article.title}
+                  </h3>
+                </div>
+              </article>
+            </Link>
+          ))}
         </div>
       </div>
     </section>
