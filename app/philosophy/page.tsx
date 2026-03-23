@@ -1,5 +1,6 @@
 "use client"
 
+// Philosophy Page v2
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
