@@ -33,14 +33,21 @@ const companyOrigin = {
 }
 
 const heroText = {
-  subheading: "AIが99%を引き受ける時代",
-  mainMessage: "人間は、最も尊い1%の意志と創造だけに向き合える",
+  lead: "AIが99%を引き受ける時代。",
+  title1: "すべての人と企業に",
+  title2: "デジタルレイバーを。",
+  title3: "AI時代の確かな",
+  title4: "産業インフラをつくる",
+  description: "実務の摩擦をAIが引き受け、人間が純粋な意思や創造へと向かうための次代の産業インフラを創ります。",
 }
 
 const missionText = {
-  heading: "我々のミッション",
-  description1: "実務的な業務からの解放により、人間が本来果たすべき役割を取り戻す。",
-  description2: "AIが精度の高い意思決定と実行をサポートすることで、個人と企業の可能性を最大化する。",
+  values: [
+    "産業革命から続く、人が労働力になる時代は、 まもなく歴史の転換点を迎えます。",
+    "私たちが提供するのは、自信して実務を完遂する AI、デジタルレイバーという新しい労働力の実装。",
+    "電気や水道が社会を底支えするように、この無体の 知能を、誰もが当たり前に使える確かなインフラと して日本から散設する。",
+    "実務の摩擦をAIが引き受け、人間が純粋な意思や創 造へと向かうための次代の産業インフラを創り ます。",
+  ],
 }
 
 export default function PhilosophyPage() {
@@ -58,17 +65,10 @@ export default function PhilosophyPage() {
     <main className="bg-white min-h-screen" suppressHydrationWarning>
       <Header variant="light" />
 
-      {/* Hero Section */}
-      <section className="pt-28 pb-32 px-6 md:px-12 lg:px-20">
+      {/* CEO Message Section */}
+      <section className="py-24 px-6 md:px-12 bg-neutral-50">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-3 mb-8">
-            <span className="w-12 h-px bg-neutral-900" />
-            <span className="font-mono text-xs tracking-widest text-neutral-400 uppercase">
-              Philosophy
-            </span>
-          </div>
-
-          <div className="grid lg:grid-cols-[1fr_400px] gap-16 lg:gap-24 items-start">
+          <div className="grid lg:grid-cols-[400px_1fr] gap-12 lg:gap-20 items-start">
             {/* CEO Photo */}
             <div className="lg:sticky lg:top-32">
               <div className="relative w-[400px] h-[500px] rounded-2xl overflow-hidden bg-neutral-200">
@@ -173,7 +173,7 @@ export default function PhilosophyPage() {
               <div className="relative w-[280px] h-[240px] lg:w-[340px] lg:h-[280px]">
                 <Image
                   src="/images/lat91-globe.svg"
-                  alt="Lat91 Globe"
+                  alt="Lat91 Globe Illustration - 91st degree concept"
                   fill
                   className="object-contain"
                 />
@@ -185,46 +185,20 @@ export default function PhilosophyPage() {
 
       {/* Mission Section */}
       <section className="py-24 px-6 md:px-12 bg-neutral-50">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-[clamp(24px,4vw,36px)] font-bold text-neutral-900 leading-tight mb-8">
-            {missionText.heading}
+        <div className="max-w-3xl mx-auto">
+          <span className="inline-flex items-center gap-3 mb-8">
+            <span className="w-12 h-px bg-neutral-900" />
+            <span className="font-mono text-xs tracking-[0.3em] uppercase text-neutral-400">
+              Mission
+            </span>
+          </span>
+          <h2 className="text-[clamp(24px,4vw,40px)] font-bold text-neutral-900 leading-tight mb-12">
+            {missionText.values[0]}
           </h2>
-          <div className="grid lg:grid-cols-2 gap-8">
-            <p className="text-lg text-neutral-600 leading-[1.8]">
-              {missionText.description1}
-            </p>
-            <p className="text-lg text-neutral-600 leading-[1.8]">
-              {missionText.description2}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Values Section */}
-      <section className="py-24 px-6 md:px-12 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-[clamp(24px,4vw,36px)] font-bold text-neutral-900 leading-tight mb-12">
-            Our Values
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-6 border border-neutral-200 rounded-lg">
-              <h3 className="text-lg font-bold text-neutral-900 mb-3">Integrity</h3>
-              <p className="text-neutral-600 leading-relaxed">
-                We operate with honesty and transparency in all our dealings.
-              </p>
-            </div>
-            <div className="p-6 border border-neutral-200 rounded-lg">
-              <h3 className="text-lg font-bold text-neutral-900 mb-3">Innovation</h3>
-              <p className="text-neutral-600 leading-relaxed">
-                We push boundaries to create next-generation solutions.
-              </p>
-            </div>
-            <div className="p-6 border border-neutral-200 rounded-lg">
-              <h3 className="text-lg font-bold text-neutral-900 mb-3">Impact</h3>
-              <p className="text-neutral-600 leading-relaxed">
-                We measure success by the positive change we create.
-              </p>
-            </div>
+          <div className="space-y-8 text-base md:text-lg leading-[2] text-neutral-600">
+            {missionText.values.slice(1).map((text, idx) => (
+              <p key={idx}>{text}</p>
+            ))}
           </div>
         </div>
       </section>
