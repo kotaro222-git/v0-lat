@@ -498,7 +498,7 @@ export default function ServicePage() {
               <span className="w-8 h-px bg-neutral-300" />
             </div>
             <h2 className="text-[clamp(28px,3.5vw,40px)] font-bold text-neutral-900 tracking-[-0.02em] leading-[1.3]">
-              DX・AI導入の失敗パターン
+              DX・AI導入を成功させるために
             </h2>
           </div>
 

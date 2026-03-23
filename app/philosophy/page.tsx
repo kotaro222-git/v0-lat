@@ -10,7 +10,7 @@ export default function PhilosophyPage() {
 
   useEffect(() => {
     setMounted(true)
-  }, [])
+  }, []) // cache reset v2
 
   if (!mounted) {
     return <div className="min-h-screen bg-white" />
