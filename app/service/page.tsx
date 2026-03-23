@@ -42,7 +42,7 @@ const services = [
     leftText: "市場の反応や顧客の反応から仮説を立て、クリエイティブの生成から施策実施、検証、学習までのグロースサイクルを円滑化させます。",
     stats: [
       { value: "5x", label: "コンテンツ生産量" },
-      { value: "40%", label: "CPA削減" },
+      { value: "1.8x", label: "リード獲得率" },
     ],
     workflowBadge: "Cycle automated",
     workflow: [
@@ -400,7 +400,7 @@ export default function ServicePage() {
             AX・DXソリューション事業
           </h1>
           <p className="text-[15px] text-neutral-500 leading-[2] max-w-[520px]">
-            経営・事業課題を、AIエージェントで解決する。<br />
+            経営・事業課題を、AIエージェ��トで解決する。<br />
             業務プロセスの自動化から意思決定の高速化まで、<br />
             あらゆる領域でAIが実務を遂行します。
           </p>
