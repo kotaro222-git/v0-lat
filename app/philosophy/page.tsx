@@ -6,34 +6,25 @@ export default function PhilosophyPage() {
     <main className="bg-white min-h-screen">
       <Header />
 
-      {/* Hero */}
       <section className="pt-40 pb-24 px-6 lg:px-20 max-w-[1200px] mx-auto">
         <div className="flex items-center gap-4 mb-9">
           <div className="w-12 h-px bg-neutral-900" />
-          <span className="font-mono text-[11px] tracking-[0.2em] text-neutral-400 uppercase">
-            Philosophy
-          </span>
+          <span className="font-mono text-[11px] tracking-[0.2em] text-neutral-400 uppercase">Philosophy</span>
         </div>
         <h1 className="text-[clamp(36px,5vw,60px)] font-bold leading-[1.25] tracking-[-0.03em] text-neutral-900">
-          AI時代に、<br />
-          人間の意志と創造が輝く世界を創る
+          AI時代に、<br />人間の意志と創造が輝く世界を創る
         </h1>
         <p className="text-[15px] text-neutral-500 leading-[2] max-w-[540px] mt-8">
-          テクノロジーが人の可能性を拡張する時代。<br />
-          私たちは、AIに任せられることはすべて任せ、<br />
-          人間にしかできない「意志」と「創造」に集中できる世界を目指しています。
+          テクノロジーが人の可能性を拡張する時代。私たちは、AIに任せられることはすべて任せ、人間にしかできない「意志」と「創造」に集中できる世界を目指しています。
         </p>
       </section>
 
-      {/* Founder Message */}
       <section className="border-t border-neutral-200 px-6 lg:px-20 py-20 lg:py-24">
         <div className="max-w-[1200px] mx-auto">
           <div className="mb-14">
             <div className="flex items-center gap-4 mb-6">
               <span className="w-10 h-px bg-neutral-300" />
-              <span className="font-mono text-[11px] tracking-[0.2em] text-neutral-400 uppercase">
-                Message
-              </span>
+              <span className="font-mono text-[11px] tracking-[0.2em] text-neutral-400 uppercase">Message</span>
             </div>
             <h2 className="text-[clamp(24px,3vw,32px)] font-bold tracking-[-0.02em] leading-[1.4] text-neutral-900">
               代表メッセージ
@@ -42,21 +33,10 @@ export default function PhilosophyPage() {
 
           <div className="grid lg:grid-cols-[380px_1fr] gap-14 items-start">
             <div>
-              <div 
-                className="w-full aspect-[3/4] bg-neutral-200"
-                style={{
-                  backgroundImage: "url('/images/ceo.jpg')",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              />
+              <div className="w-full aspect-[3/4] bg-neutral-200" style={{backgroundImage: "url('/images/ceo.jpg')", backgroundSize: "cover", backgroundPosition: "center"}} />
               <div className="mt-5">
-                <div className="font-mono text-[10px] tracking-[0.15em] text-neutral-400 uppercase mb-1.5">
-                  CEO & Founder
-                </div>
-                <div className="text-lg font-bold tracking-[-0.01em]">
-                  稲葉 幸太郎
-                </div>
+                <div className="font-mono text-[10px] tracking-[0.15em] text-neutral-400 uppercase mb-1.5">CEO & Founder</div>
+                <div className="text-lg font-bold tracking-[-0.01em]">稲葉 幸太郎</div>
               </div>
             </div>
 
@@ -64,7 +44,7 @@ export default function PhilosophyPage() {
               <p>人類にとって、かつてない時代がやってきました。誰もが創れる。届けられる。届かなかった知識に手が届く。</p>
               <p>そして、従来のチャットボットではなく、一度セットアップすれば、24時間自律的に業務と改善を繰り返すAIエージェントが誕生しました。</p>
               <p>これから築くべき未来は、AIファーストの時代ではなく、<strong className="text-neutral-900 font-bold">ヒューマンファーストの時代</strong>だと、僕たちは信じています。</p>
-              <p>生産のために自分らしさを消耗させる必要がなくなり、何かを生み出すことと、自分らしくいることが、両立する。</p>
+              <p>生産のために自分らしさを消耗させる必要がなくなり、何かを生み出すこと、自分らしくいることが、両立する。</p>
               <p>AIが実務の99%を担っていく時代。人間は、最も尊い1%の意志と創造だけに向き合える。何を美しいと感じ、何に怒り、何を選ぶか。</p>
               <p>もし今の仕事のほとんどがなくなったとして、僕たちは何に集中するだろう。誰の代わりでもない、自分にしか生み出せない価値はなんだろうか。</p>
               <p>僕たちはその瞬間を創り、純度の高い創造で溢れる世界を目指してます。</p>
@@ -73,20 +53,17 @@ export default function PhilosophyPage() {
         </div>
       </section>
 
-      {/* Origin of Name */}
       <section className="border-t border-neutral-200 px-6 lg:px-20 py-24 lg:py-28">
         <div className="max-w-[1200px] mx-auto">
           <div className="flex items-center gap-4 mb-7">
             <span className="w-10 h-px bg-neutral-300" />
-            <span className="font-mono text-[11px] tracking-[0.2em] text-neutral-400 uppercase">
-              Origin of Name
-            </span>
+            <span className="font-mono text-[11px] tracking-[0.2em] text-neutral-400 uppercase">Origin of Name</span>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
               <h2 className="text-[clamp(28px,3.5vw,40px)] font-bold tracking-[-0.02em] leading-[1.3] mb-8 text-neutral-900">
-                社名に込めた想い。
+                社名に込めた思い
               </h2>
               <div className="text-[15px] text-neutral-600 leading-[2.2] space-y-5">
                 <p><strong className="text-neutral-900 font-bold">Lat91</strong>という社名は、地球の緯度が90度で終わることに由来しています。91度目は、地図上に存在しない。まだ誰も見たことのない景色。</p>
@@ -139,34 +116,25 @@ export default function PhilosophyPage() {
         </div>
       </section>
 
-      {/* Mission */}
       <section className="border-t border-neutral-200 py-28 lg:py-32 px-6 text-center">
         <div className="flex items-center justify-center gap-4 mb-8">
           <span className="w-8 h-px bg-neutral-300" />
-          <span className="font-mono text-[11px] tracking-[0.2em] text-neutral-400 uppercase">
-            Mission
-          </span>
+          <span className="font-mono text-[11px] tracking-[0.2em] text-neutral-400 uppercase">Mission</span>
           <span className="w-8 h-px bg-neutral-300" />
         </div>
         <h2 className="text-[clamp(28px,4vw,44px)] font-bold leading-[1.5] tracking-[-0.02em] max-w-[600px] mx-auto text-neutral-900">
-          人間の意志と創造が<br />
-          輝く世界を創る
+          人間の意志と創造が輝く世界を創る
         </h2>
       </section>
 
-      {/* Values */}
       <section className="bg-neutral-800 text-white py-28 lg:py-32 px-6">
         <div className="max-w-[1200px] mx-auto">
           <div className="flex items-center justify-center gap-4 mb-5">
             <span className="w-8 h-px bg-neutral-600" />
-            <span className="font-mono text-[11px] tracking-[0.2em] text-neutral-400 uppercase">
-              Value
-            </span>
+            <span className="font-mono text-[11px] tracking-[0.2em] text-neutral-400 uppercase">Value</span>
             <span className="w-8 h-px bg-neutral-600" />
           </div>
-          <h2 className="text-[clamp(28px,3.5vw,40px)] font-bold text-center tracking-[-0.02em] mb-16">
-            私たちの価値観
-          </h2>
+          <h2 className="text-[clamp(28px,3.5vw,40px)] font-bold text-center tracking-[-0.02em] mb-16">私たちの価値観</h2>
 
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white text-neutral-900 rounded-2xl p-9 relative overflow-hidden min-h-[220px]">
