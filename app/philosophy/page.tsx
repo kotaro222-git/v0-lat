@@ -124,7 +124,6 @@ export default function PhilosophyPage() {
                 <br />
                 僕たちはその瞬間を創り、純度の高い創造で世界を前へ進めたいと考えています。
               </p>
-              </div>
             </div>
           </div>
         </div>
@@ -198,7 +197,6 @@ export default function PhilosophyPage() {
                 key={value.title}
                 className="relative bg-white rounded-2xl p-10 group hover:shadow-2xl transition-shadow duration-500"
               >
-                {/* Number */}
                 <span className="absolute top-8 right-8 font-mono text-7xl font-bold text-neutral-100 leading-none">
                   {String(index + 1).padStart(2, "0")}
                 </span>
