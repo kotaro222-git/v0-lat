@@ -43,6 +43,25 @@ const ceoMessage = {
   p7: "僕たちはその瞬間を創り、純度の高い創造で溢れる世界を目指してます。",
 }
 
+const companyOrigin = {
+  title: "社名に込めた想い。",
+  name: "Lat91",
+  line1: "という社名は、地球の緯度が90度で終わることに由来しています。",
+  line2: "91度目は、地図上に存在しない。まだ誰も見たことのない景色。",
+  line3: "90度までをAIに正しく担わせ、みんなで91度目に立つ。",
+  line4: "私は、その景色を見たいしつくりたい。だからこの会社を創りました。",
+}
+
+const heroText = {
+  line1: "AI時代に、",
+  line2: "人間の意志と創造が輝く世界を創る",
+}
+
+const missionText = {
+  line1: "人間の意志と創造が",
+  line2: "輝く世界を創る",
+}
+
 export default function PhilosophyPage() {
   return (
     <main className="bg-white min-h-screen">
@@ -58,9 +77,9 @@ export default function PhilosophyPage() {
             </span>
           </span>
           <h1 className="text-[clamp(36px,6vw,64px)] font-bold text-neutral-900 leading-[1.1] tracking-tight">
-            {"AI時代に、"}
+            {heroText.line1}
             <br />
-            {"人間の意志と創造が輝く世界を創る"}
+            {heroText.line2}
           </h1>
         </div>
       </section>
@@ -74,9 +93,9 @@ export default function PhilosophyPage() {
               <div className="relative w-[400px] h-[500px] rounded-2xl overflow-hidden bg-neutral-200">
                 <Image
                   src="/images/ceo-photo.png"
-                  alt="代表取締役 稲葉幸太郎"
+                  alt="CEO"
                   fill
-                  loading="eager"
+                  priority
                   className="object-cover"
                 />
               </div>
@@ -91,7 +110,7 @@ export default function PhilosophyPage() {
             </div>
 
             {/* Message Content */}
-            <div className="space-y-5 text-[15px] md:text-[17px] leading-[2] text-neutral-600">
+            <div className="space-y-4 text-[15px] md:text-[17px] leading-[2] text-neutral-600">
               <p>
                 {ceoMessage.p1}
                 <br />
@@ -149,19 +168,19 @@ export default function PhilosophyPage() {
             </span>
           </span>
           <h2 className="text-[clamp(24px,4vw,36px)] font-bold text-neutral-900 leading-tight mb-10">
-            {"社名に込めた想い。"}
+            {companyOrigin.title}
           </h2>
           <div className="space-y-6 text-base md:text-lg leading-[2] text-neutral-600 max-w-2xl">
             <p>
-              <span className="text-neutral-900 font-bold">{"Lat91"}</span>
-              {"という社名は、地球の緯度が90度で終わることに由来しています。"}
+              <span className="text-neutral-900 font-bold">{companyOrigin.name}</span>
+              {companyOrigin.line1}
               <br />
-              {"91度目は、地図上に存在しない。まだ誰も見たことのない景色。"}
+              {companyOrigin.line2}
             </p>
             <p>
-              {"90度までをAIに正しく担わせ、みんなで91度目に立つ。"}
+              {companyOrigin.line3}
               <br />
-              {"私は、その景色を見たいしつくりたい。だからこの会社を創りました。"}
+              {companyOrigin.line4}
             </p>
           </div>
         </div>
@@ -178,9 +197,9 @@ export default function PhilosophyPage() {
             <span className="w-12 h-px bg-neutral-900" />
           </span>
           <h2 className="text-[clamp(32px,5vw,56px)] font-bold text-neutral-900 leading-tight">
-            {"人間の意志と創造が"}
+            {missionText.line1}
             <br />
-            {"輝く世界を創る"}
+            {missionText.line2}
           </h2>
         </div>
       </section>
