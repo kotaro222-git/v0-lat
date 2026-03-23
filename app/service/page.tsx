@@ -264,14 +264,14 @@ export default function ServicePage() {
                 Typical approach
               </div>
               <div className="text-[18px] font-semibold text-neutral-900 mb-6">
-                一般的なアプローチ
+                上手くいかないアプローチ
               </div>
 
               <div className="space-y-4">
                 {[
-                  { title: "とりあえずAIを導入する", desc: "目的が曖昧なまま流行りのツールを導入" },
+                  { title: "とりあえずAI導入から考える", desc: "目的が曖昧なままエージェントを導入" },
                   { title: "業務プロセスはそのまま", desc: "既存の業務にAIを載せるだけ" },
-                  { title: "もちろん使われない", desc: "現場に定着せず、投資が無駄になる" },
+                  { title: "成果が出ない・現場にのらない", desc: "現場に定着せず、投資が無駄になる" },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-start gap-3">
                     <div className="w-[22px] h-[22px] rounded-full bg-neutral-100 flex-shrink-0 flex items-center justify-center mt-0.5">
