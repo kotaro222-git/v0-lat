@@ -78,22 +78,24 @@ export default function CompanyPage() {
                 Business Areas
               </h2>
 
-              <div className="bg-white rounded-2xl p-8">
-                <h3 className="text-lg font-bold text-neutral-900 mb-8">
-                  事業概要
-                </h3>
-                <ul className="space-y-4">
-                  {businessAreas.map((area, index) => (
-                    <li key={area} className="flex items-start gap-5">
-                      <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-neutral-100 flex items-center justify-center text-sm font-mono text-neutral-500">
-                        {index + 1}
-                      </span>
-                      <span className="text-base text-neutral-700 pt-1">
-                        {area}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+              <div className="bg-white rounded-2xl overflow-hidden">
+                {businessAreas.map((area, index) => (
+                  <div
+                    key={area}
+                    className={`flex items-center gap-8 py-6 px-8 ${
+                      index !== businessAreas.length - 1
+                        ? "border-b border-neutral-100"
+                        : ""
+                    }`}
+                  >
+                    <span className="font-mono text-sm text-neutral-400 w-8 flex-shrink-0">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <span className="text-base text-neutral-900">
+                      {area}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
