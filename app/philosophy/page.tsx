@@ -10,7 +10,7 @@ export default function PhilosophyPage() {
 
   useEffect(() => {
     setMounted(true)
-  }, []) // cache reset v2
+  }, [])
 
   if (!mounted) {
     return <div className="min-h-screen bg-white" />
@@ -38,11 +38,7 @@ export default function PhilosophyPage() {
                 AIの急速な進化により、これまで数ヶ月かかった業務が数秒で完結する時代が来ました。しかし、テクノロジーを導入するだけでは何も変わりません。重要なのは、経営課題を本質的に理解し、業務プロセスを根本から再設計し、テクノロジーを使いこなしことです。
               </p>
               <p className="text-lg text-neutral-700 leading-relaxed mt-6">
-                私たちLat91は、単なるAIツール提供企業ではなく、クライアントの経営課題を徹底的に理解し、その解決に全力でコミットするパートナーです。DX・AI導入の失敗を避け、真の成功をつかむために。
-              </p>
-              <p className="text-base text-neutral-500 mt-8 font-mono">
-                代表取締役CEO<br />
-                稲葉 幸太郎
+                DXは単なるツール導入ではなく、経営課題を解決するための戦略的な変革です。Lat91では、顧客の本質的なニーズを深掘りし、最適なソリューションを提供します。
               </p>
             </div>
           </div>
@@ -50,25 +46,23 @@ export default function PhilosophyPage() {
       </section>
 
       {/* Company Origin Section */}
-      <section className="border-t border-neutral-200">
+      <section className="border-t border-neutral-200 bg-neutral-50">
         <div className="max-w-[1200px] mx-auto py-24 px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="lg:order-2">
+            <div>
               <span className="font-mono text-xs text-neutral-400 tracking-[0.2em] uppercase">
                 Company Origin
               </span>
               <h2 className="text-4xl lg:text-5xl font-bold text-neutral-900 mt-6 leading-tight">
-                DX・AI導入の失敗を<br />
-                本気で解決する。
+                AIが本当に必要とされる場面を創る
               </h2>
+              <p className="text-base text-neutral-600 leading-relaxed mt-8">
+                Lat91は、DXやAI導入の課題に直面する企業と、その課題を本当に解決したいと考えるエンジニアが出会う場として設立されました。私たちは、テクノロジーを使いこなす企業文化を創り、経営課題から実装まで一気通貫でサポートします。
+              </p>
             </div>
-            <div className="lg:order-1">
-              <svg className="w-full h-auto" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="200" cy="150" r="100" fill="#f5f5f5" stroke="#e5e5e5" strokeWidth="2"/>
-                <circle cx="150" cy="120" r="40" fill="#e0e0e0"/>
-                <circle cx="250" cy="120" r="40" fill="#e0e0e0"/>
-                <path d="M 200 180 Q 190 200 200 210 Q 210 200 200 180" fill="#e0e0e0"/>
-              </svg>
+            <div className="relative h-96 lg:h-full">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl" />
+              <div className="absolute inset-4 border-2 border-dashed border-neutral-300 rounded-xl" />
             </div>
           </div>
         </div>
@@ -77,42 +71,39 @@ export default function PhilosophyPage() {
       {/* Mission Section */}
       <section className="border-t border-neutral-200">
         <div className="max-w-[1200px] mx-auto py-24 px-6">
-          <div className="grid lg:grid-cols-[45%_1fr] gap-16 items-center">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="font-mono text-xs text-neutral-400 tracking-[0.2em] uppercase">
+              Mission
+            </span>
+            <h2 className="text-4xl lg:text-5xl font-bold text-neutral-900 mt-6 leading-tight">
+              実務の摩擦をAIが引き受け、人間が純粋な意思や創造へと向かうための次代の産業インフラを創ります。
+            </h2>
+          </div>
+
+          {/* Values Grid */}
+          <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <span className="font-mono text-xs text-neutral-400 tracking-[0.2em] uppercase mb-4 block">
-                Mission
-              </span>
-              <div className="h-1 w-16 bg-neutral-900 mb-8" />
-              <h2 className="text-4xl lg:text-5xl font-bold text-neutral-900 leading-tight">
-                すべての人と企業に<br />
-                デジタルレイバーを。<br />
-                AI時代の確かな<br />
-                産業インフラをつくる
-              </h2>
+              <h3 className="text-lg font-bold text-neutral-900 mb-4">課題発見力</h3>
+              <p className="text-base text-neutral-600">
+                経営層から現場まで、複数のステークホルダーから情報を収集し、本質的な課題を特定します。
+              </p>
             </div>
-            <div className="space-y-8">
-              <p className="text-base text-neutral-600 leading-relaxed">
-                産業革命から続く、人が労働力になる時代は、
-                <br />
-                まもなく歴史の転換点を迎えます。
+            <div>
+              <h3 className="text-lg font-bold text-neutral-900 mb-4">実装力</h3>
+              <p className="text-base text-neutral-600">
+                最先端のAI技術を活用し、課題解決に最適なソリューションを設計・実装します。
               </p>
-
-              <p className="text-base text-neutral-600 leading-relaxed">
-                私たちが提供するのは、自信して実務を完遂する
-                <br />
-                AI、デジタルレイバーという新しい労働力の実装。
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-neutral-900 mb-4">伴走力</h3>
+              <p className="text-base text-neutral-600">
+                導入後も継続的にサポートし、効果測定と改善を通じて価値を最大化します。
               </p>
-
-              <p className="text-base text-neutral-600 leading-relaxed">
-                電気や水道が社会を底支えするように、この無体の
-                <br />
-                知能を、誰もが当たり前に使える確かなインフラと
-                <br />
-                して日本から散設する。
-              </p>
-
-              <p className="text-base text-neutral-600 leading-relaxed">
-                実務の摩擦をAIが引き受け、人間が純粋な意思や創造へと向かうための次代の産業インフラを創ります。
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-neutral-900 mb-4">人間力</h3>
+              <p className="text-base text-neutral-600">
+                AIの可能性を理解しつつ、最後の判断は人間が行う。そうした価値観を大切にしています。
               </p>
             </div>
           </div>

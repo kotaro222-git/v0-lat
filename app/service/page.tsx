@@ -16,8 +16,8 @@ const services = [
     leftHeadline: "営業担当者の時間を、\n本当に価値ある活動へ。",
     leftText: "リスト作成やメール送信に費やしていた時間をゼロに。AIがリサーチから商談設定までを完走し、営業は価値提案やリレーション構築に集中できます。",
     stats: [
-      { value: "90%", label: "作業時間削減" },
-      { value: "3.2x", label: "商談化率向上" },
+      { value: "70%", label: "作業時間削減" },
+      { value: "2x", label: "商談獲得数" },
     ],
     workflowBadge: "Fully automated",
     workflow: [
