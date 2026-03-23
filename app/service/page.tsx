@@ -127,7 +127,7 @@ export default function ServicePage() {
             </span>
           </div>
           <h1 className="text-[clamp(36px,5vw,56px)] font-bold text-neutral-900 leading-[1.2] tracking-[-0.03em] mb-7">
-            DXソリューション事業
+            AX・DXソリューション事業
           </h1>
           <p className="text-[15px] text-neutral-500 leading-[2] max-w-[520px]">
             経営・事業課題を、AIエージェントで解決する。<br />
