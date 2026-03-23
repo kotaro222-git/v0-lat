@@ -19,7 +19,7 @@ const services = [
       { value: "70%", label: "作業時間削減" },
       { value: "2x", label: "商談獲得数" },
     ],
-    workflowBadge: "Fully automated",
+    workflowBadge: "CYCLE autmate",
     workflow: [
       { step: "01", title: "条件設定", sub: "ターゲット定義" },
       { step: "02", title: "自動リサーチ", sub: "Web・DB・SNS" },
@@ -68,7 +68,7 @@ const services = [
       { value: "80%", label: "自動対応率" },
       { value: " 1/2", label: "担当者工数" },
     ],
-    workflowBadge: "80% automated",
+    workflowBadge: "Cycle automate",
     workflow: [
       { step: "01", title: "問い合わせ受信", sub: "全チャネル統合" },
       { step: "02", title: "内容分類", sub: "カテゴリ・緊急度" },
