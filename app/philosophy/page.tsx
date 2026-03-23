@@ -5,8 +5,6 @@ import { Footer } from "@/components/footer"
 import Image from "next/image"
 import { useState, useEffect } from "react"
 
-// All content integrated directly - no external imports needed
-
 const ceoMessage = {
   p1_1: "人類にとって、かつてない時代がやってきました。",
   p1_2: "誰もが創れる。届けられる。届かなかった知識に手が届く。",
@@ -35,34 +33,15 @@ const companyOrigin = {
 }
 
 const heroText = {
-  line1: "AI時代に、",
-  line2: "人間の意志と創造が輝く世界を創る",
+  subheading: "AIが99%を引き受ける時代",
+  mainMessage: "人間は、最も尊い1%の意志と創造だけに向き合える",
 }
 
 const missionText = {
-  label: "Mission",
-  title: "次代の産業インフラを創る。",
-  description:
-    "実務の摩擦をAIが引き受け、人間が純粋な意思や創造へと向かうための産業インフラを創り出します。",
+  heading: "我々のミッション",
+  description1: "実務的な業務からの解放により、人間が本来果たすべき役割を取り戻す。",
+  description2: "AIが精度の高い意思決定と実行をサポートすることで、個人と企業の可能性を最大化する。",
 }
-
-const values = [
-  {
-    number: "01",
-    title: "経営課題起点",
-    description: "AIありきではなく、経営目標から逆算して課題を特定し、本質的な価値を創出する",
-  },
-  {
-    number: "02",
-    title: "現場への定着",
-    description: "導入して終わりではなく、現場に根付き、成果が出るまで伴走する",
-  },
-  {
-    number: "03",
-    title: "全体最適の設計",
-    description: "部分最適に陥らず、組織全体を見据えた持続可能なAI活用を設計する",
-  },
-]
 
 export default function PhilosophyPage() {
   const [mounted, setMounted] = useState(false)
@@ -77,29 +56,19 @@ export default function PhilosophyPage() {
 
   return (
     <main className="bg-white min-h-screen" suppressHydrationWarning>
-      <Header />
+      <Header variant="light" />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 md:px-12">
+      <section className="pt-28 pb-32 px-6 md:px-12 lg:px-20">
         <div className="max-w-6xl mx-auto">
-          <span className="inline-flex items-center gap-3 mb-8">
+          <div className="flex items-center gap-3 mb-8">
             <span className="w-12 h-px bg-neutral-900" />
-            <span className="font-mono text-xs tracking-[0.3em] uppercase text-neutral-400">
+            <span className="font-mono text-xs tracking-widest text-neutral-400 uppercase">
               Philosophy
             </span>
-          </span>
-          <h1 className="text-[clamp(36px,6vw,64px)] font-bold text-neutral-900 leading-[1.1] tracking-tight">
-            {heroText.line1}
-            <br />
-            {heroText.line2}
-          </h1>
-        </div>
-      </section>
+          </div>
 
-      {/* CEO Message Section */}
-      <section className="py-24 px-6 md:px-12 bg-neutral-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-[400px_1fr] gap-12 lg:gap-20 items-start">
+          <div className="grid lg:grid-cols-[1fr_400px] gap-16 lg:gap-24 items-start">
             {/* CEO Photo */}
             <div className="lg:sticky lg:top-32">
               <div className="relative w-[400px] h-[500px] rounded-2xl overflow-hidden bg-neutral-200">
@@ -108,6 +77,7 @@ export default function PhilosophyPage() {
                   alt="CEO"
                   fill
                   priority
+                  loading="eager"
                   className="object-cover"
                 />
               </div>
@@ -164,7 +134,9 @@ export default function PhilosophyPage() {
                 {ceoMessage.p6_2}
               </p>
 
-              <p>{ceoMessage.p7}</p>
+              <p>
+                {ceoMessage.p7}
+              </p>
             </div>
           </div>
         </div>
@@ -201,7 +173,7 @@ export default function PhilosophyPage() {
               <div className="relative w-[280px] h-[240px] lg:w-[340px] lg:h-[280px]">
                 <Image
                   src="/images/lat91-globe.svg"
-                  alt="Lat91 Globe Illustration - 91st degree concept"
+                  alt="Lat91 Globe"
                   fill
                   className="object-contain"
                 />
@@ -212,51 +184,47 @@ export default function PhilosophyPage() {
       </section>
 
       {/* Mission Section */}
-      <section className="py-24 px-6 md:px-12 bg-neutral-900">
-        <div className="max-w-6xl mx-auto text-center">
-          <span className="inline-flex items-center gap-3 mb-8 justify-center">
-            <span className="w-12 h-px bg-white/30" />
-            <span className="font-mono text-xs tracking-[0.3em] uppercase text-white/50">
-              {missionText.label}
-            </span>
-            <span className="w-12 h-px bg-white/30" />
-          </span>
-          <h2 className="text-[clamp(28px,5vw,48px)] font-bold text-white leading-tight mb-8">
-            {missionText.title}
+      <section className="py-24 px-6 md:px-12 bg-neutral-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-[clamp(24px,4vw,36px)] font-bold text-neutral-900 leading-tight mb-8">
+            {missionText.heading}
           </h2>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
-            {missionText.description}
-          </p>
+          <div className="grid lg:grid-cols-2 gap-8">
+            <p className="text-lg text-neutral-600 leading-[1.8]">
+              {missionText.description1}
+            </p>
+            <p className="text-lg text-neutral-600 leading-[1.8]">
+              {missionText.description2}
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Values Section */}
       <section className="py-24 px-6 md:px-12 bg-white">
         <div className="max-w-6xl mx-auto">
-          <span className="inline-flex items-center gap-3 mb-8">
-            <span className="w-12 h-px bg-neutral-900" />
-            <span className="font-mono text-xs tracking-[0.3em] uppercase text-neutral-400">
-              Value
-            </span>
-          </span>
-          <h2 className="text-[clamp(28px,4vw,40px)] font-bold text-neutral-900 leading-tight mb-16">
-            私たちが大切にしていること
+          <h2 className="text-[clamp(24px,4vw,36px)] font-bold text-neutral-900 leading-tight mb-12">
+            Our Values
           </h2>
-
           <div className="grid md:grid-cols-3 gap-8">
-            {values.map((value) => (
-              <div key={value.number} className="group">
-                <span className="font-mono text-4xl font-bold text-neutral-200 group-hover:text-neutral-900 transition-colors">
-                  {value.number}
-                </span>
-                <h3 className="mt-4 text-xl font-bold text-neutral-900">
-                  {value.title}
-                </h3>
-                <p className="mt-3 text-neutral-600 leading-relaxed">
-                  {value.description}
-                </p>
-              </div>
-            ))}
+            <div className="p-6 border border-neutral-200 rounded-lg">
+              <h3 className="text-lg font-bold text-neutral-900 mb-3">Integrity</h3>
+              <p className="text-neutral-600 leading-relaxed">
+                We operate with honesty and transparency in all our dealings.
+              </p>
+            </div>
+            <div className="p-6 border border-neutral-200 rounded-lg">
+              <h3 className="text-lg font-bold text-neutral-900 mb-3">Innovation</h3>
+              <p className="text-neutral-600 leading-relaxed">
+                We push boundaries to create next-generation solutions.
+              </p>
+            </div>
+            <div className="p-6 border border-neutral-200 rounded-lg">
+              <h3 className="text-lg font-bold text-neutral-900 mb-3">Impact</h3>
+              <p className="text-neutral-600 leading-relaxed">
+                We measure success by the positive change we create.
+              </p>
+            </div>
           </div>
         </div>
       </section>
