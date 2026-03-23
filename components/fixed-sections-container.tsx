@@ -56,13 +56,15 @@ export function FixedSectionsContainer() {
       e.preventDefault()
       lastWheelTime.current = now
       setIsExitingToServices(true)
+      setCurrentSection("services")
       
-      // Wait for fade out animation, then switch to services
-      setTimeout(() => {
-        window.scrollTo({ top: window.innerHeight, behavior: "instant" })
-        setCurrentSection("services")
-        setIsExitingToServices(false)
-      }, 500)
+      // Scroll smoothly to services section
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: window.innerHeight, behavior: "smooth" })
+        setTimeout(() => {
+          setIsExitingToServices(false)
+        }, 300)
+      })
     }
   }, [currentSection, isAnimating, isExitingToServices])
 
