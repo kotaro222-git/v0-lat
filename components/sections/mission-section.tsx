@@ -41,7 +41,7 @@ export function MissionSection() {
           </div>
 
           {/* Right - Description */}
-          <div className="lg:col-span-5 max-w-[420px]">
+          <div className="lg:col-span-5 max-w-[480px]">
             <p className="text-base md:text-lg leading-[1.9] text-neutral-500 mb-6">
               産業革命から続く、人が労働力になる時代は、
               <br />
