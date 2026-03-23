@@ -11,13 +11,10 @@ import { Footer } from "@/components/footer"
 export default function Home() {
   return (
     <main className="bg-[var(--background)] min-h-screen">
-      {/* Fixed container for Hero and Mission with fade transitions */}
+      {/* Hero and Mission sections with fade transitions - normal document flow */}
       <FixedSectionsContainer />
       
-      {/* Spacer to push services below the fixed container */}
-      <div className="h-screen" />
-      
-      {/* Normal flow sections */}
+      {/* All other sections - normal document flow */}
       <ServiceSection />
       <CoverageSection />
       <StrengthSection />
