@@ -1,11 +1,8 @@
+"use client"
+
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
-
-export const metadata = {
-  title: "Philosophy | Lat91",
-  description: "AI時代に、人間の意志と創造が輝く世界を創る",
-}
 
 const values = [
   {
@@ -43,7 +40,7 @@ const ceoMessage = {
   p5c: "何を美しいと感じ、何に怒り、何を選ぶか。",
   p6: "もし今の仕事のほとんどがなくなったとして、僕たちは何に集中するだろう。",
   p6b: "誰の代わりでもない、自分にしか生み出せない価値はなんだろうか。",
-  p7: "僕たちはその瞬間を創り、純度の高い創造で世界を前へ進めます。",
+  p7: "僕たちはその瞬間を創り、純度の高い創造で溢れる世界を目指してます。",
 }
 
 export default function PhilosophyPage() {
