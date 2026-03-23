@@ -5,6 +5,8 @@ import { Footer } from "@/components/footer"
 import Image from "next/image"
 import { useState, useEffect } from "react"
 
+// All content integrated directly - no external imports needed
+
 const ceoMessage = {
   p1_1: "人類にとって、かつてない時代がやってきました。",
   p1_2: "誰もが創れる。届けられる。届かなかった知識に手が届く。",
