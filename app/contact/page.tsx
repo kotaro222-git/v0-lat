@@ -2,11 +2,15 @@
 
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { useState } from "react"
-import { Send, CheckCircle, ArrowRight } from "lucide-react"
+import { useState, useRef } from "react"
+import { CheckCircle, ArrowRight, Loader2 } from "lucide-react"
+import emailjs from "@emailjs/browser"
 
 export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const formRef = useRef<HTMLFormElement>(null)
   const [formData, setFormData] = useState({
     email: "",
     company: "",
@@ -15,9 +19,25 @@ export default function ContactPage() {
     message: "",
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitted(true)
+    setIsLoading(true)
+    setError(null)
+
+    try {
+      await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        formRef.current!,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      )
+      setIsSubmitted(true)
+    } catch (err) {
+      console.error("EmailJS Error:", err)
+      setError("送信に失敗しました。お手数ですが再度お試しください。")
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleChange = (
@@ -67,12 +87,18 @@ export default function ContactPage() {
               <p className="text-base text-neutral-500 leading-relaxed">
                 お問い合わせありがとうございます。
                 <br />
-                内容を確認の上、担当者より2営業日以内にご連絡いたします。
+                担当者より折り返しご連絡いたします。
               </p>
             </div>
           ) : (
             /* Contact Form */
-            <form onSubmit={handleSubmit} className="space-y-8">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-8">
+              {/* Error Message */}
+              {error && (
+                <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm">
+                  {error}
+                </div>
+              )}
               {/* Email */}
               <div>
                 <label className="block text-sm font-medium text-neutral-900 mb-3">
@@ -161,12 +187,22 @@ export default function ContactPage() {
               <div className="pt-4">
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-3 px-8 py-5 bg-neutral-900 text-white rounded-full font-medium text-base hover:bg-neutral-800 transition-all group"
+                  disabled={isLoading}
+                  className="w-full flex items-center justify-center gap-3 px-8 py-5 bg-neutral-900 text-white rounded-full font-medium text-base hover:bg-neutral-800 transition-all group disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  送信する
-                  <span className="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 group-hover:bg-white/20 transition-colors">
-                    <ArrowRight size={16} />
-                  </span>
+                  {isLoading ? (
+                    <>
+                      <Loader2 size={20} className="animate-spin" />
+                      送信中...
+                    </>
+                  ) : (
+                    <>
+                      送信する
+                      <span className="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 group-hover:bg-white/20 transition-colors">
+                        <ArrowRight size={16} />
+                      </span>
+                    </>
+                  )}
                 </button>
               </div>
 
