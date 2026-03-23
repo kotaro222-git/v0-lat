@@ -1,5 +1,6 @@
 "use client"
 
+// Philosophy page - all content integrated directly
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import Image from "next/image"

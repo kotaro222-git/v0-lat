@@ -594,7 +594,7 @@ export default function ServicePage() {
             {processSteps.map((step) => (
               <div
                 key={step.number}
-                className="bg-neutral-50 border border-neutral-200 rounded-2xl p-8 relative"
+                className="bg-neutral-50 border border-neutral-200 rounded-2xl p-8 relative flex flex-col"
               >
                 <div className="text-[56px] font-bold text-neutral-100 leading-none tracking-[-0.04em] mb-6">
                   {step.number}
@@ -602,10 +602,10 @@ export default function ServicePage() {
                 <div className="text-[20px] font-bold text-neutral-900 mb-2.5">
                   {step.title}
                 </div>
-                <div className="text-[13px] text-neutral-500 leading-[1.8] mb-5 whitespace-pre-line">
+                <div className="text-[13px] text-neutral-500 leading-[1.8] whitespace-pre-line flex-1">
                   {step.description}
                 </div>
-                <div className="font-mono text-[11px] text-neutral-400 tracking-[0.05em]">
+                <div className="font-mono text-[11px] text-neutral-400 tracking-[0.05em] mt-5">
                   {step.duration}
                 </div>
               </div>
