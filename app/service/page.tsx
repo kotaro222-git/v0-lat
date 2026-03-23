@@ -400,7 +400,7 @@ export default function ServicePage() {
             AX・DXソリューション事業
           </h1>
           <p className="text-[15px] text-neutral-500 leading-[2] max-w-[520px]">
-            経営・事業課題を、AIエージェ��トで解決する。<br />
+            経営・事業課題を、AIエージェントで解決する。<br />
             業務プロセスの自動化から意思決定の高速化まで、<br />
             あらゆる領域でAIが実務を遂行します。
           </p>
@@ -560,7 +560,7 @@ export default function ServicePage() {
                 {[
                   { title: "現場を理解し、解くべき課題を特定する", desc: "経営・事業・組織の観点から設計する" },
                   { title: "解決されるオペレーションを実装する", desc: "成果を完遂する労働力として稼働させる" },
-                  { title: "自律的に改善可能な状態まで伴走する", desc: "結果を学び、精度と効率を自動でチューニング" },
+                  { title: "自律的に改善可能な状態まで伴走する", desc: "結果を学び��精度と効率を自動でチューニング" },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-start gap-3">
                     <div className="w-[22px] h-[22px] rounded-full bg-neutral-700 flex-shrink-0 flex items-center justify-center mt-0.5">

@@ -1,3 +1,4 @@
+// Philosophy page - direct content, no dynamic imports
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
