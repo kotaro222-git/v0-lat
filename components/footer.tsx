@@ -26,7 +26,9 @@ export function Footer() {
               Lat91
             </Link>
             <p className="text-base leading-relaxed text-neutral-400 max-w-sm">
-              人間の意志と、純度の高い創造が溢れる世界を創る。
+              AI時代の確かな産業インフラの構築を通じて、
+              <br />
+              人間の意志と純度の高い創造が溢れる世界を実現する
             </p>
           </div>
 
