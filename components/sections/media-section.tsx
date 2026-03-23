@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { ArrowRight, ArrowUpRight } from "lucide-react"
 import useSWR from "swr"
-import type { Article, ArticleResponse } from "@/lib/microcms/client"
+import type { Article, ArticleResponse } from "@/lib/microcms/types"
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
