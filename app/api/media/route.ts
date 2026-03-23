@@ -10,7 +10,7 @@ export async function GET() {
 
   try {
     const res = await fetch(
-      `https://${domain}.microcms.io/api/v1/articles?orders=-publishedAt&limit=3`,
+      `https://${domain}.microcms.io/api/v1/media?orders=-publishedAt&limit=3`,
       {
         headers: { "X-MICROCMS-API-KEY": apiKey },
         next: { revalidate: 60 },

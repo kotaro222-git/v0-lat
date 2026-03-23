@@ -6,6 +6,7 @@ import { client, type Article } from "@/lib/microcms/client"
 import { notFound } from "next/navigation"
 
 async function getArticle(id: string): Promise<Article | null> {
+  if (!client) return null
   try {
     const article = await client.get<Article>({
       endpoint: "media",
@@ -18,6 +19,7 @@ async function getArticle(id: string): Promise<Article | null> {
 }
 
 async function getRelatedArticles(currentId: string, category: string): Promise<Article[]> {
+  if (!client) return []
   try {
     const data = await client.getList<Article>({
       endpoint: "media",

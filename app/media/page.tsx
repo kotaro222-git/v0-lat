@@ -18,6 +18,10 @@ const categories = [
 ]
 
 async function getArticles(): Promise<Article[]> {
+  if (!client) {
+    console.warn("microCMS client not configured")
+    return []
+  }
   try {
     const data = await client.getList<Article>({
       endpoint: "media",
