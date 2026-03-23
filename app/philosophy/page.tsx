@@ -70,7 +70,7 @@ export default function PhilosophyPage() {
                 <p>90度までをAIに正しく担わせ、みんなで91度目に立つ。私は、その景色を見たいしつくりたい。だからこの会社を創りました。</p>
               </div>
             </div>
-            <div className="flex items-start justify-center -mt-8">
+            <div className="flex items-start justify-center -mt-16">
               <svg width="384" height="456" viewBox="0 0 680 520">
                 <defs><clipPath id="globe-clip"><circle cx="340" cy="240" r="180"/></clipPath></defs>
                 <circle cx="340" cy="240" r="184" fill="none" stroke="#73726c" strokeWidth="0.3" opacity="0.15"/>
