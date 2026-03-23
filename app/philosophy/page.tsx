@@ -1,5 +1,6 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import Image from "next/image"
 
 export default function PhilosophyPage() {
   return (
@@ -36,7 +37,14 @@ export default function PhilosophyPage() {
           </div>
           <div className="grid lg:grid-cols-[380px_1fr] gap-14 items-start">
             <div>
-              <div className="aspect-[3/4] bg-neutral-200 w-full" />
+              <div className="aspect-[3/4] w-full relative overflow-hidden">
+                <Image
+                  src="/images/ceo.jpg"
+                  alt="CEO 稲葉 幸太郎"
+                  fill
+                  className="object-cover object-top"
+                />
+              </div>
               <div className="mt-5">
                 <div className="font-mono text-[10px] tracking-[0.15em] text-neutral-400 uppercase mb-1.5">CEO & Founder</div>
                 <div className="text-lg font-bold tracking-[-0.01em] text-neutral-900">{"\u7A32\u8449 \u5E78\u592A\u90CE"}</div>
