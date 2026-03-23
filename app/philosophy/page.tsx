@@ -35,7 +35,7 @@ export default function PhilosophyPage() {
                 Message
               </span>
             </div>
-            <h2 className="text-[clamp(24px,3vw,32px)] font-bold tracking-[-0.02em] leading-[1.4]">
+            <h2 className="text-[clamp(24px,3vw,32px)] font-bold tracking-[-0.02em] leading-[1.4] text-neutral-900">
               代表メッセージ
             </h2>
           </div>
@@ -61,34 +61,13 @@ export default function PhilosophyPage() {
             </div>
 
             <div className="space-y-[18px] text-[14px] text-neutral-600 leading-[1.85]">
-              <p>
-                人類にとって、かつてない時代がやってきました。
-                誰もが創れる。届けられる。届かなかった知識に手が届く。
-              </p>
-              <p>
-                そして、従来のチャットボットではなく、一度セットアップすれば、
-                24時間自律的に業務と改善を繰り返すAIエージェントが誕生しました。
-              </p>
-              <p>
-                これから築くべき未来は、AIファーストの時代ではなく、
-                <strong className="text-neutral-900 font-bold">ヒューマンファーストの時代</strong>だと、僕たちは信じています。
-              </p>
-              <p>
-                生産のために自分らしさを消耗させる必要がなくなり、
-                何かを生み出すことと、自分らしくいることが、両立する。
-              </p>
-              <p>
-                AIが実務の99%を担っていく時代。
-                人間は、最も尊い1%の意志と創造だけに向き合える。
-                何を美しいと感じ、何に怒り、何を選ぶか。
-              </p>
-              <p>
-                もし今の仕事のほとんどがなくなったとして、僕たちは何に集中するだろう。
-                誰の代わりでもない、自分にしか生み出せない価値はなんだろうか。
-              </p>
-              <p>
-                僕たちはその瞬間を創り、純度の高い創造で溢れる世界を目指してます。
-              </p>
+              <p>人類にとって、かつてない時代がやってきました。誰もが創れる。届けられる。届かなかった知識に手が届く。</p>
+              <p>そして、従来のチャットボットではなく、一度セットアップすれば、24時間自律的に業務と改善を繰り返すAIエージェントが誕生しました。</p>
+              <p>これから築くべき未来は、AIファーストの時代ではなく、<strong className="text-neutral-900 font-bold">ヒューマンファーストの時代</strong>だと、僕たちは信じています。</p>
+              <p>生産のために自分らしさを消耗させる必要がなくなり、何かを生み出すことと、自分らしくいることが、両立する。</p>
+              <p>AIが実務の99%を担っていく時代。人間は、最も尊い1%の意志と創造だけに向き合える。何を美しいと感じ、何に怒り、何を選ぶか。</p>
+              <p>もし今の仕事のほとんどがなくなったとして、僕たちは何に集中するだろう。誰の代わりでもない、自分にしか生み出せない価値はなんだろうか。</p>
+              <p>僕たちはその瞬間を創り、純度の高い創造で溢れる世界を目指してます。</p>
             </div>
           </div>
         </div>
@@ -106,18 +85,12 @@ export default function PhilosophyPage() {
 
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
-              <h2 className="text-[clamp(28px,3.5vw,40px)] font-bold tracking-[-0.02em] leading-[1.3] mb-8">
+              <h2 className="text-[clamp(28px,3.5vw,40px)] font-bold tracking-[-0.02em] leading-[1.3] mb-8 text-neutral-900">
                 社名に込めた想い。
               </h2>
               <div className="text-[15px] text-neutral-600 leading-[2.2] space-y-5">
-                <p>
-                  <strong className="text-neutral-900 font-bold">Lat91</strong>という社名は、地球の緯度が90度で終わることに由来しています。
-                  91度目は、地図上に存在しない。まだ誰も見たことのない景色。
-                </p>
-                <p>
-                  90度までをAIに正しく担わせ、みんなで91度目に立つ。
-                  私は、その景色を見たいしつくりたい。だからこの会社を創りました。
-                </p>
+                <p><strong className="text-neutral-900 font-bold">Lat91</strong>という社名は、地球の緯度が90度で終わることに由来しています。91度目は、地図上に存在しない。まだ誰も見たことのない景色。</p>
+                <p>90度までをAIに正しく担わせ、みんなで91度目に立つ。私は、その景色を見たいしつくりたい。だからこの会社を創りました。</p>
               </div>
             </div>
 
@@ -175,7 +148,7 @@ export default function PhilosophyPage() {
           </span>
           <span className="w-8 h-px bg-neutral-300" />
         </div>
-        <h2 className="text-[clamp(28px,4vw,44px)] font-bold leading-[1.5] tracking-[-0.02em] max-w-[600px] mx-auto">
+        <h2 className="text-[clamp(28px,4vw,44px)] font-bold leading-[1.5] tracking-[-0.02em] max-w-[600px] mx-auto text-neutral-900">
           人間の意志と創造が<br />
           輝く世界を創る
         </h2>
@@ -202,9 +175,7 @@ export default function PhilosophyPage() {
                 <div className="text-[72px] font-bold text-neutral-100 leading-none tracking-[-0.04em] absolute top-5 right-6">01</div>
               </div>
               <div className="text-xs text-neutral-500 mb-6">純度を大切に。</div>
-              <div className="text-sm text-neutral-600 leading-[1.9]">
-                純粋な意志でコトに向き合い、自らの内なる声に真っ直ぐに従うこと。
-              </div>
+              <div className="text-sm text-neutral-600 leading-[1.9]">純粋な意志でコトに向き合い、自らの内なる声に真っ直ぐに従うこと。</div>
             </div>
 
             <div className="bg-white text-neutral-900 rounded-2xl p-9 relative overflow-hidden min-h-[220px]">
@@ -213,9 +184,7 @@ export default function PhilosophyPage() {
                 <div className="text-[72px] font-bold text-neutral-100 leading-none tracking-[-0.04em] absolute top-5 right-6">02</div>
               </div>
               <div className="text-xs text-neutral-500 mb-6">優くあること。</div>
-              <div className="text-sm text-neutral-600 leading-[1.9]">
-                相手を深く尊重し、共に歩むこと。巧好は技術に勝かず。
-              </div>
+              <div className="text-sm text-neutral-600 leading-[1.9]">相手を深く尊重し、共に歩むこと。巧好は技術に勝かず。</div>
             </div>
 
             <div className="bg-white text-neutral-900 rounded-2xl p-9 relative overflow-hidden min-h-[220px]">
@@ -224,9 +193,7 @@ export default function PhilosophyPage() {
                 <div className="text-[72px] font-bold text-neutral-100 leading-none tracking-[-0.04em] absolute top-5 right-6">03</div>
               </div>
               <div className="text-xs text-neutral-500 mb-6">中身を大切に。</div>
-              <div className="text-sm text-neutral-600 leading-[1.9]">
-                本当に価値のある本質を泥臭く積み上げること。見せかけの完成度より、実を伴う力強さを。
-              </div>
+              <div className="text-sm text-neutral-600 leading-[1.9]">本当に価値のある本質を泥臭く積み上げること。見せかけの完成度より、実を伴う力強さを。</div>
             </div>
           </div>
         </div>
