@@ -119,8 +119,88 @@ export default async function ArticlePage({
       {/* Article Content (Rich Editor HTML) */}
       <section className="px-6 md:px-12 pb-24">
         <div className="max-w-3xl mx-auto">
+          <style jsx global>{`
+            .article-html-body h1 {
+              font-size: 2rem;
+              font-weight: 700;
+              margin: 2rem 0 1rem;
+              color: #1a1a1a;
+            }
+            .article-html-body h2 {
+              font-size: 1.5rem;
+              font-weight: 700;
+              margin: 2rem 0 1rem;
+              color: #1a1a1a;
+            }
+            .article-html-body h3 {
+              font-size: 1.25rem;
+              font-weight: 600;
+              margin: 1.5rem 0 0.75rem;
+              color: #1a1a1a;
+            }
+            .article-html-body h4 {
+              font-size: 1.125rem;
+              font-weight: 600;
+              margin: 1.25rem 0 0.5rem;
+              color: #1a1a1a;
+            }
+            .article-html-body p {
+              font-size: 1rem;
+              line-height: 1.8;
+              margin: 1rem 0;
+              color: #333;
+            }
+            .article-html-body ul, .article-html-body ol {
+              margin: 1rem 0;
+              padding-left: 1.5rem;
+              color: #333;
+            }
+            .article-html-body li {
+              line-height: 1.8;
+              margin: 0.5rem 0;
+            }
+            .article-html-body a {
+              color: #1a1a1a;
+              text-decoration: underline;
+            }
+            .article-html-body a:hover {
+              color: #666;
+            }
+            .article-html-body img {
+              max-width: 100%;
+              height: auto;
+              margin: 2rem auto;
+              border-radius: 0.75rem;
+            }
+            .article-html-body svg {
+              max-width: 100%;
+              height: auto;
+              margin: 2rem auto;
+              display: block;
+            }
+            .article-html-body blockquote {
+              border-left: 4px solid #e5e5e5;
+              padding-left: 1rem;
+              margin: 1.5rem 0;
+              color: #666;
+              font-style: italic;
+            }
+            .article-html-body code {
+              background: #f5f5f5;
+              padding: 0.2rem 0.4rem;
+              border-radius: 0.25rem;
+              font-size: 0.875rem;
+            }
+            .article-html-body pre {
+              background: #f5f5f5;
+              padding: 1rem;
+              border-radius: 0.5rem;
+              overflow-x: auto;
+              margin: 1.5rem 0;
+            }
+          `}</style>
           <div
-            className="prose prose-lg max-w-none prose-headings:text-neutral-900 prose-p:text-neutral-600 prose-p:leading-[2] prose-a:text-neutral-900 prose-a:underline prose-img:rounded-xl"
+            className="article-html-body"
             dangerouslySetInnerHTML={{ __html: article.htmlBody || article.body || "" }}
           />
 
