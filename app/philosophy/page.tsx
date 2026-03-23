@@ -1,24 +1,10 @@
-"use client"
-
-// Philosophy page - all content integrated directly
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
-import { useState, useEffect } from "react"
 
 export default function PhilosophyPage() {
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!mounted) {
-    return <div className="min-h-screen bg-white" />
-  }
-
   return (
-    <main className="bg-white min-h-screen" suppressHydrationWarning>
+    <main className="bg-white min-h-screen">
       <Header />
       
       <section className="border-t border-neutral-200">
@@ -92,32 +78,24 @@ export default function PhilosophyPage() {
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Efficiency",
-                description: "業務プロセスの自動化により、人間は創造的な業務に専念できる環境を実現。",
-              },
-              {
-                title: "Accessibility",
-                description: "あらゆる企業規模、業種を問わず、AI導入のハードルを大幅に低減。",
-              },
-              {
-                title: "Sustainability",
-                description: "テクノロジーと人間の協働による、持続可能な経営モデルの構築。",
-              },
-            ].map((value) => (
-              <div
-                key={value.title}
-                className="bg-white rounded-2xl p-8 border border-neutral-200 hover:border-neutral-300 transition-colors"
-              >
-                <h3 className="text-[16px] font-bold text-neutral-900 mb-4">
-                  {value.title}
-                </h3>
-                <p className="text-[13px] text-neutral-500 leading-[1.8]">
-                  {value.description}
-                </p>
-              </div>
-            ))}
+            <div className="bg-white rounded-2xl p-8 border border-neutral-200 hover:border-neutral-300 transition-colors">
+              <h3 className="text-[16px] font-bold text-neutral-900 mb-4">Efficiency</h3>
+              <p className="text-[13px] text-neutral-500 leading-[1.8]">
+                業務プロセスの自動化により、人間は創造的な業務に専念できる環境を実現。
+              </p>
+            </div>
+            <div className="bg-white rounded-2xl p-8 border border-neutral-200 hover:border-neutral-300 transition-colors">
+              <h3 className="text-[16px] font-bold text-neutral-900 mb-4">Accessibility</h3>
+              <p className="text-[13px] text-neutral-500 leading-[1.8]">
+                あらゆる企業規模、業種を問わず、AI導入のハードルを大幅に低減。
+              </p>
+            </div>
+            <div className="bg-white rounded-2xl p-8 border border-neutral-200 hover:border-neutral-300 transition-colors">
+              <h3 className="text-[16px] font-bold text-neutral-900 mb-4">Sustainability</h3>
+              <p className="text-[13px] text-neutral-500 leading-[1.8]">
+                テクノロジーと人間の協働による、持続可能な経営モデルの構築。
+              </p>
+            </div>
           </div>
         </div>
       </section>

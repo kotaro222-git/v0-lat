@@ -243,13 +243,13 @@ function MarketingWorkflowSVG() {
 
 function SupportWorkflowSVG() {
   return (
-    <svg className="w-full h-auto" viewBox="0 0 600 380">
+    <svg className="w-full h-auto" viewBox="0 0 600 420">
       <defs>
         <marker id="arrow-sup" viewBox="0 0 10 10" refX={8} refY={5} markerWidth={5} markerHeight={5} orient="auto-start-reverse">
           <path d="M2 1.5L8 5L2 8.5" fill="none" stroke="#9c9b97" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round"/>
         </marker>
       </defs>
-      {/* Row 1 */}
+      {/* Row 1: 01-02-03 */}
       <text className="font-mono text-[9px]" fill="#c8c7c3" x={14} y={14}>01</text>
       <rect fill="#fafaf9" stroke="#e2e1de" x={8} y={22} width={176} height={50} rx={8}/>
       <text className="font-semibold text-[12px]" fill="#0a0a0a" x={96} y={43} textAnchor="middle" dominantBaseline="central">問い合わせ受信</text>
@@ -267,47 +267,56 @@ function SupportWorkflowSVG() {
       <text className="font-semibold text-[12px]" fill="#0a0a0a" x={496} y={43} textAnchor="middle" dominantBaseline="central">回答ドラフト</text>
       <text className="text-[10px]" fill="#6e6d69" x={496} y={60} textAnchor="middle" dominantBaseline="central">KB・履歴から生成</text>
       
-      {/* Branch point */}
+      {/* Arrow from 03 to 04 */}
       <line stroke="#c8c7c3" x1={496} y1={72} x2={496} y2={100} markerEnd="url(#arrow-sup)"/>
-      <text className="font-mono text-[9px]" fill="#c8c7c3" x={410} y={104}>04</text>
-      <rect fill="#fafaf9" stroke="#e2e1de" x={408} y={112} width={176} height={50} rx={8}/>
-      <text className="font-semibold text-[12px]" fill="#0a0a0a" x={496} y={133} textAnchor="middle" dominantBaseline="central">確信度判定</text>
-      <text className="text-[10px]" fill="#6e6d69" x={496} y={150} textAnchor="middle" dominantBaseline="central">閾値で分岐</text>
       
-      {/* HIGH branch */}
-      <text className="font-mono text-[8px]" fill="#9c9b97" x={340} y={172}>HIGH</text>
-      <line stroke="#c8c7c3" strokeDasharray="5 4" x1={408} y1={147} x2={270} y2={183} markerEnd="url(#arrow-sup)"/>
-      <rect fill="#fafaf9" stroke="#e2e1de" x={108} y={180} width={160} height={50} rx={8}/>
-      <text className="font-semibold text-[12px]" fill="#0a0a0a" x={188} y={201} textAnchor="middle" dominantBaseline="central">自動送信</text>
-      <text className="text-[10px]" fill="#6e6d69" x={188} y={218} textAnchor="middle" dominantBaseline="central">80%の対応を処理</text>
+      {/* Row 2: 04 確信度判定 (center) */}
+      <text className="font-mono text-[9px]" fill="#c8c7c3" x={210} y={104}>04</text>
+      <rect fill="#fafaf9" stroke="#e2e1de" x={208} y={112} width={176} height={50} rx={8}/>
+      <text className="font-semibold text-[12px]" fill="#0a0a0a" x={296} y={133} textAnchor="middle" dominantBaseline="central">確信度判定</text>
+      <text className="text-[10px]" fill="#6e6d69" x={296} y={150} textAnchor="middle" dominantBaseline="central">閾値で分岐</text>
       
-      {/* LOW branch */}
-      <text className="font-mono text-[8px]" fill="#9c9b97" x={556} y={172}>LOW</text>
-      <line stroke="#c8c7c3" strokeDasharray="5 4" x1={584} y1={147} x2={560} y2={183} markerEnd="url(#arrow-sup)"/>
-      <rect fill="#fafaf9" stroke="#e2e1de" x={408} y={180} width={176} height={50} rx={8}/>
-      <text className="font-semibold text-[12px]" fill="#0a0a0a" x={496} y={201} textAnchor="middle" dominantBaseline="central">人にエスカレ</text>
-      <text className="text-[10px]" fill="#6e6d69" x={496} y={218} textAnchor="middle" dominantBaseline="central">担当者へ通知</text>
+      {/* Curved path from 03 to 04 */}
+      <path stroke="#c8c7c3" strokeWidth={1} fill="none" d="M 496 72 L 496 90 Q 496 100, 486 100 L 394 100 Q 384 100, 384 110 L 384 112" markerEnd="url(#arrow-sup)"/>
       
-      {/* Bottom row */}
-      <text className="font-mono text-[9px]" fill="#c8c7c3" x={14} y={268}>05</text>
-      <rect fill="#fafaf9" stroke="#e2e1de" x={8} y={276} width={176} height={50} rx={8}/>
-      <text className="font-semibold text-[12px]" fill="#0a0a0a" x={96} y={297} textAnchor="middle" dominantBaseline="central">KB自動更新</text>
-      <text className="text-[10px]" fill="#6e6d69" x={96} y={314} textAnchor="middle" dominantBaseline="central">新パターン学習</text>
-      <line stroke="#c8c7c3" x1={184} y1={301} x2={206} y2={301} markerEnd="url(#arrow-sup)"/>
+      {/* HIGH branch - from 04 left side to 自動送信 */}
+      <text className="font-mono text-[8px]" fill="#9c9b97" x={130} y={172}>HIGH</text>
+      <path stroke="#c8c7c3" strokeDasharray="5 4" strokeWidth={1} fill="none" d="M 208 137 L 184 137 L 184 190" markerEnd="url(#arrow-sup)"/>
+      <rect fill="#fafaf9" stroke="#e2e1de" x={8} y={190} width={176} height={50} rx={8}/>
+      <text className="font-semibold text-[12px]" fill="#0a0a0a" x={96} y={211} textAnchor="middle" dominantBaseline="central">自動送信</text>
+      <text className="text-[10px]" fill="#6e6d69" x={96} y={228} textAnchor="middle" dominantBaseline="central">80%の対応を処理</text>
       
-      <text className="font-mono text-[9px]" fill="#c8c7c3" x={210} y={268}>06</text>
-      <rect fill="#fafaf9" stroke="#e2e1de" x={208} y={276} width={176} height={50} rx={8}/>
-      <text className="font-semibold text-[12px]" fill="#0a0a0a" x={296} y={297} textAnchor="middle" dominantBaseline="central">VOC分析</text>
-      <text className="text-[10px]" fill="#6e6d69" x={296} y={314} textAnchor="middle" dominantBaseline="central">改善点を自動検出</text>
-      <line stroke="#c8c7c3" x1={384} y1={301} x2={406} y2={301} markerEnd="url(#arrow-sup)"/>
+      {/* LOW branch - from 04 right side to 人にエスカレ */}
+      <text className="font-mono text-[8px]" fill="#9c9b97" x={456} y={172}>LOW</text>
+      <path stroke="#c8c7c3" strokeDasharray="5 4" strokeWidth={1} fill="none" d="M 384 137 L 408 137 L 408 190" markerEnd="url(#arrow-sup)"/>
+      <rect fill="#fafaf9" stroke="#e2e1de" x={408} y={190} width={176} height={50} rx={8}/>
+      <text className="font-semibold text-[12px]" fill="#0a0a0a" x={496} y={211} textAnchor="middle" dominantBaseline="central">人にエスカレ</text>
+      <text className="text-[10px]" fill="#6e6d69" x={496} y={228} textAnchor="middle" dominantBaseline="central">担当者へ通知</text>
       
-      <text className="font-mono text-[9px]" fill="#c8c7c3" x={410} y={268}>07</text>
-      <rect fill="#fafaf9" stroke="#e2e1de" x={408} y={276} width={176} height={50} rx={8}/>
-      <text className="font-semibold text-[12px]" fill="#0a0a0a" x={496} y={297} textAnchor="middle" dominantBaseline="central">サービス改善</text>
-      <text className="text-[10px]" fill="#6e6d69" x={496} y={314} textAnchor="middle" dominantBaseline="central">機能・UI改善提案</text>
+      {/* Connection from 自動送信 and 人にエスカレ to bottom row */}
+      <path stroke="#c8c7c3" strokeWidth={1} fill="none" d="M 96 240 L 96 260 Q 96 270, 86 270 L 12 270 Q 8 270, 8 276" markerEnd="url(#arrow-sup)"/>
+      <path stroke="#c8c7c3" strokeWidth={1} fill="none" d="M 496 240 L 496 260 Q 496 270, 486 270 L 112 270 Q 96 270, 96 276"/>
+      
+      {/* Bottom row: 05-06-07 */}
+      <text className="font-mono text-[9px]" fill="#c8c7c3" x={14} y={290}>05</text>
+      <rect fill="#fafaf9" stroke="#e2e1de" x={8} y={298} width={176} height={50} rx={8}/>
+      <text className="font-semibold text-[12px]" fill="#0a0a0a" x={96} y={319} textAnchor="middle" dominantBaseline="central">KB自動更新</text>
+      <text className="text-[10px]" fill="#6e6d69" x={96} y={336} textAnchor="middle" dominantBaseline="central">新パターン学習</text>
+      <line stroke="#c8c7c3" x1={184} y1={323} x2={206} y2={323} markerEnd="url(#arrow-sup)"/>
+      
+      <text className="font-mono text-[9px]" fill="#c8c7c3" x={210} y={290}>06</text>
+      <rect fill="#fafaf9" stroke="#e2e1de" x={208} y={298} width={176} height={50} rx={8}/>
+      <text className="font-semibold text-[12px]" fill="#0a0a0a" x={296} y={319} textAnchor="middle" dominantBaseline="central">VOC分析</text>
+      <text className="text-[10px]" fill="#6e6d69" x={296} y={336} textAnchor="middle" dominantBaseline="central">改善点を自動検出</text>
+      <line stroke="#c8c7c3" x1={384} y1={323} x2={406} y2={323} markerEnd="url(#arrow-sup)"/>
+      
+      <text className="font-mono text-[9px]" fill="#c8c7c3" x={410} y={290}>07</text>
+      <rect fill="#fafaf9" stroke="#e2e1de" x={408} y={298} width={176} height={50} rx={8}/>
+      <text className="font-semibold text-[12px]" fill="#0a0a0a" x={496} y={319} textAnchor="middle" dominantBaseline="central">サービス改善</text>
+      <text className="text-[10px]" fill="#6e6d69" x={496} y={336} textAnchor="middle" dominantBaseline="central">機能・UI改善提案</text>
       
       {/* Caption */}
-      <text className="text-[10px]" fill="#9c9b97" x={300} y={360} textAnchor="middle">全件がナレッジに還元。使うほど精度が上がる。</text>
+      <text className="text-[10px]" fill="#9c9b97" x={300} y={390} textAnchor="middle">全件がナレッジに還元。使うほど精度が上がる。</text>
     </svg>
   )
 }
