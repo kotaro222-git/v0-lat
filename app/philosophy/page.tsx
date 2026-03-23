@@ -59,8 +59,9 @@ export default function PhilosophyPage() {
               <div className="relative w-[400px] h-[500px] rounded-2xl overflow-hidden bg-neutral-200">
                 <Image
                   src="/images/ceo-photo.png"
-                  alt="代表取締役 稲葉幸太郎"
+                  alt="CEO Kotaro Inaba"
                   fill
+                  loading="eager"
                   className="object-cover"
                 />
               </div>
@@ -69,56 +70,54 @@ export default function PhilosophyPage() {
                   CEO & Founder
                 </p>
                 <p className="mt-1 text-lg font-bold text-neutral-900">
-                  稲葉 幸太郎
+                  Kotaro Inaba
                 </p>
               </div>
             </div>
 
             {/* Message Content */}
-            <div className="space-y-6 text-base md:text-lg leading-[2] text-neutral-600">
+            <div className="space-y-6 text-[15px] md:text-[17px] leading-[2] text-neutral-600">
               <p>
-                人類にとって、かつてない時代がやってきました。
+                A new era has arrived for humanity.
                 <br />
-                誰もが創れる。届けられる。届かなかった知識に手が届く。
+                Anyone can create. Anyone can deliver. Knowledge once out of reach is now accessible.
               </p>
 
               <p>
-                そして、従来のチャットボットではなく、一度セットアップすれば、
-                <br />
-                24時間自律的に業務と改善を繰り返すAIエージェントが誕生しました。
+                And now, AI agents have emerged that autonomously handle work and improvements 24/7, once set up.
               </p>
 
               <p>
-                これから築くべき未来は、AIファーストの時代ではなく、
+                The future we must build is not an AI-first era, but
                 <br />
                 <span className="text-neutral-900 font-medium">
-                  ヒューマンファーストの時代
+                  a human-first era
                 </span>
-                だと、僕たちは信じています。
+                —that is what we believe.
               </p>
 
               <p>
-                生産のために自分らしさを消耗させる必要がなくなり、
+                No longer do we need to exhaust our authenticity for the sake of production.
                 <br />
-                何かを生み出すことと、自分らしくいることが、両立する。
+                Creating something and being true to yourself can finally coexist.
               </p>
 
               <p>
-                AIが実務の99%を担っていく時代。
+                In an era where AI handles 99% of practical work,
                 <br />
-                人間は、最も尊い1%の意志と創造だけに向き合える。
+                humans can focus solely on the most precious 1%: will and creativity.
                 <br />
-                何を美しいと感じ、何に怒り、何を選ぶか。
+                What do you find beautiful? What angers you? What do you choose?
               </p>
 
               <p>
-                もし今の仕事のほとんどがなくなったとして、僕たちは何に集中するだろう。
+                If most of our work disappeared today, what would we focus on?
                 <br />
-                誰の代わりでもない、自分にしか生み出せない価値はなんだろうか。
+                What value can only we create, irreplaceable by anyone else?
               </p>
 
               <p>
-                僕たちはその瞬間を創り、純度の高い創造で世界を前へ進めます。
+                We create those moments and move the world forward with pure creativity.
               </p>
             </div>
           </div>
@@ -135,19 +134,19 @@ export default function PhilosophyPage() {
             </span>
           </span>
           <h2 className="text-[clamp(24px,4vw,36px)] font-bold text-neutral-900 leading-tight mb-10">
-            社名に込めた想い。
+            The meaning behind our name.
           </h2>
           <div className="space-y-6 text-base md:text-lg leading-[2] text-neutral-600 max-w-2xl">
             <p>
               <span className="text-neutral-900 font-bold">Lat91</span>
-              という社名は、地球の緯度が90度で終わることに由来しています。
+              {" "}comes from the fact that Earth's latitude ends at 90 degrees.
               <br />
-              91度目は、地図上に存在しない。まだ誰も見たことのない景色。
+              The 91st degree doesn't exist on any map. A view no one has ever seen.
             </p>
             <p>
-              90度までをAIに正しく担わせ、みんなで91度目に立つ。
+              Let AI properly handle the first 90 degrees, and together we stand at the 91st.
               <br />
-              私は、その景色を見たいしつくりたい。だからこの会社を創りました。
+              I want to see and create that view. That's why I founded this company.
             </p>
           </div>
         </div>
@@ -164,9 +163,9 @@ export default function PhilosophyPage() {
             <span className="w-12 h-px bg-neutral-900" />
           </span>
           <h2 className="text-[clamp(32px,5vw,56px)] font-bold text-neutral-900 leading-tight">
-            人間の意志と創造が輝く
+            Building a world where
             <br />
-            世界を築く
+            human will and creativity shine
           </h2>
         </div>
       </section>
@@ -183,7 +182,7 @@ export default function PhilosophyPage() {
               <span className="w-12 h-px bg-white/20" />
             </span>
             <h2 className="text-[clamp(28px,4vw,40px)] font-bold text-white">
-              私たちの価値観
+              Our Values
             </h2>
           </div>
 
