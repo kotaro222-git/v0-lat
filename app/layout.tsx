@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Instrument_Sans, Noto_Sans_JP, Space_Mono } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const instrumentSans = Instrument_Sans({
@@ -36,7 +35,6 @@ export default function RootLayout({
     <html lang="ja">
       <body className={`${instrumentSans.variable} ${notoSansJP.variable} ${spaceMono.variable} font-sans antialiased`}>
         {children}
-        <Analytics />
       </body>
     </html>
   )
