@@ -11,23 +11,19 @@ export function FixedSectionsContainer() {
   const [isAnimating, setIsAnimating] = useState(false)
   const lastWheelTime = useRef(0)
   const containerRef = useRef<HTMLDivElement>(null)
-  
-  // When in services mode, hide the fixed container
-  const isInServices = currentSection === "services"
 
   const handleWheel = useCallback((e: WheelEvent) => {
+    // If in services mode, let normal scrolling happen
+    if (currentSection === "services") return
+    
     // Touch device check
     if ("ontouchstart" in window || navigator.maxTouchPoints > 0) return
     
     // Ignore micro-scrolls
     if (Math.abs(e.deltaY) < 5) return
     
-    // Debounce - 800ms cooldown
+    // Debounce - 800ms cooldown for hero/mission transitions only
     const now = Date.now()
-    if (now - lastWheelTime.current < 800) {
-      e.preventDefault()
-      return
-    }
     
     // Skip if animating
     if (isAnimating) {
@@ -39,20 +35,29 @@ export function FixedSectionsContainer() {
     const isScrollingUp = e.deltaY < 0
 
     if (currentSection === "hero" && isScrollingDown) {
+      if (now - lastWheelTime.current < 800) {
+        e.preventDefault()
+        return
+      }
       e.preventDefault()
       lastWheelTime.current = now
       setIsAnimating(true)
       setCurrentSection("mission")
       setTimeout(() => setIsAnimating(false), 800)
     } else if (currentSection === "mission" && isScrollingUp) {
+      if (now - lastWheelTime.current < 800) {
+        e.preventDefault()
+        return
+      }
       e.preventDefault()
       lastWheelTime.current = now
       setIsAnimating(true)
       setCurrentSection("hero")
       setTimeout(() => setIsAnimating(false), 800)
     } else if (currentSection === "mission" && isScrollingDown) {
-      // Simply switch to services mode and let normal scrolling take over
+      // Switch to services mode immediately - no debounce needed
       setCurrentSection("services")
+      // Don't prevent default - let the scroll continue naturally
     }
   }, [currentSection, isAnimating])
 
@@ -66,9 +71,8 @@ export function FixedSectionsContainer() {
     const handleScroll = () => {
       const scrollY = window.scrollY
       // If scrolled back to top from services, show mission
-      if (scrollY < 50 && currentSection === "services") {
+      if (scrollY < 10 && currentSection === "services") {
         setCurrentSection("mission")
-        window.scrollTo({ top: 0, behavior: "instant" })
       }
     }
     
@@ -76,10 +80,8 @@ export function FixedSectionsContainer() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [currentSection])
 
-  // Don't render fixed container when viewing services
-  if (isInServices) {
-    return null
-  }
+  // Determine visibility - hide when in services mode
+  const isHidden = currentSection === "services"
 
   return (
     <div 
@@ -88,6 +90,9 @@ export function FixedSectionsContainer() {
       style={{
         backgroundColor: currentSection === "hero" ? "#050e10" : "#ffffff",
         transition: "background-color 800ms ease-in-out",
+        opacity: isHidden ? 0 : 1,
+        pointerEvents: isHidden ? "none" : "auto",
+        visibility: isHidden ? "hidden" : "visible",
       }}
     >
       {/* Hero Section */}
