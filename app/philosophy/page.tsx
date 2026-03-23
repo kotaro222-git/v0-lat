@@ -28,85 +28,47 @@ export default function PhilosophyPage() {
               <span className="font-mono text-xs text-neutral-400 tracking-[0.2em] uppercase">
                 CEO Message
               </span>
-              <div className="mt-12 space-y-6">
-                <p className="text-[28px] lg:text-[36px] leading-[1.3] text-neutral-900 font-bold">
-                  人類にとって、かつてない時代がやってきました。
-                </p>
-                <p className="text-[18px] text-neutral-600 leading-[1.8]">
-                  誰もが創れる。届けられる。届かなかった知識に手が届く。
-                </p>
-
-                <div className="pt-6 space-y-6">
-                  <p className="text-[14px] text-neutral-500 leading-[1.8]">
-                    そして、従来のチャットボットではなく、一度セットアップすれば、24時間自律的に業務と改善を繰り返すAIエージェントが誕生しました。
-                  </p>
-
-                  <p className="text-[18px] text-neutral-900 font-semibold">
-                    これから築くべき未来は、AIファーストの時代ではなく、ヒューマンファーストの時代だと、僕たちは信じています。
-                  </p>
-
-                  <p className="text-[14px] text-neutral-500 leading-[1.8]">
-                    生産のために自分らしさを消耗させる必要がなくなり、何かを生み出すことと、自分らしくいることが、両立する。
-                  </p>
-
-                  <p className="text-[14px] text-neutral-500 leading-[1.8]">
-                    AIが実務の99%を担っていく時代。人間は、最も尊い1%の意志と創造だけに向き合える。何を美しいと感じ、何に怒り、何を選ぶか。その本質的な選択の連続こそが、個人の人生であり、企業の未来だと思っています。
-                  </p>
-                </div>
-              </div>
+              <h1 className="text-5xl lg:text-6xl font-bold text-neutral-900 mt-6 leading-tight">
+                経営課題の解決が、<br />
+                僕たちの仕事です。
+              </h1>
             </div>
-
-            <div className="relative h-[500px] rounded-2xl overflow-hidden">
-              <Image
-                src="/images/ceo-photo.png"
-                alt="CEO"
-                fill
-                priority
-                loading="eager"
-                className="object-cover"
-              />
+            <div>
+              <p className="text-lg text-neutral-700 leading-relaxed">
+                AIの急速な進化により、これまで数ヶ月かかった業務が数秒で完結する時代が来ました。しかし、テクノロジーを導入するだけでは何も変わりません。重要なのは、経営課題を本質的に理解し、業務プロセスを根本から再設計し、テクノロジーを使いこなしことです。
+              </p>
+              <p className="text-lg text-neutral-700 leading-relaxed mt-6">
+                私たちLat91は、単なるAIツール提供企業ではなく、クライアントの経営課題を徹底的に理解し、その解決に全力でコミットするパートナーです。DX・AI導入の失敗を避け、真の成功をつかむために。
+              </p>
+              <p className="text-base text-neutral-500 mt-8 font-mono">
+                代表取締役CEO<br />
+                稲葉 幸太郎
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Origin of Name Section */}
+      {/* Company Origin Section */}
       <section className="border-t border-neutral-200">
         <div className="max-w-[1200px] mx-auto py-24 px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
+            <div className="lg:order-2">
               <span className="font-mono text-xs text-neutral-400 tracking-[0.2em] uppercase">
-                Origin of Name
+                Company Origin
               </span>
-              <h2 className="mt-8 text-[48px] lg:text-[56px] font-bold text-neutral-900 leading-[1.1]">
-                社名に込めた想い。
+              <h2 className="text-4xl lg:text-5xl font-bold text-neutral-900 mt-6 leading-tight">
+                DX・AI導入の失敗を<br />
+                本気で解決する。
               </h2>
-
-              <div className="mt-12 space-y-0">
-                <p className="text-[14px] text-neutral-600 leading-[2.2]">
-                  Lat91という社名は、地球の緯度が90度で終わることに由来しています。
-                </p>
-                <p className="text-[14px] text-neutral-600 leading-[2.2]">
-                  91度目は、地図上に存在しない。まだ誰も見たことのない景色。
-                </p>
-                <p className="text-[14px] text-neutral-600 leading-[2.2] mt-4">
-                  90度までをAIに正しく担わせ、みんなで91度目に立つ。
-                </p>
-                <p className="text-[14px] text-neutral-600 leading-[2.2]">
-                  私は、その景色を見たいしつくりたい。だからこの会社を創りました。
-                </p>
-              </div>
             </div>
-
-            <div className="flex items-end justify-center lg:justify-start pt-8">
-              <div className="relative w-[280px] h-[240px] lg:w-[340px] lg:h-[280px]">
-                <Image
-                  src="/images/lat91-globe.svg"
-                  alt="Lat91 Globe Illustration - 91st degree concept"
-                  fill
-                  className="object-contain"
-                />
-              </div>
+            <div className="lg:order-1">
+              <svg className="w-full h-auto" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="200" cy="150" r="100" fill="#f5f5f5" stroke="#e5e5e5" strokeWidth="2"/>
+                <circle cx="150" cy="120" r="40" fill="#e0e0e0"/>
+                <circle cx="250" cy="120" r="40" fill="#e0e0e0"/>
+                <path d="M 200 180 Q 190 200 200 210 Q 210 200 200 180" fill="#e0e0e0"/>
+              </svg>
             </div>
           </div>
         </div>
@@ -115,34 +77,41 @@ export default function PhilosophyPage() {
       {/* Mission Section */}
       <section className="border-t border-neutral-200">
         <div className="max-w-[1200px] mx-auto py-24 px-6">
-          <div className="grid lg:grid-cols-[35%_1fr] gap-16 items-start">
+          <div className="grid lg:grid-cols-[45%_1fr] gap-16 items-center">
             <div>
-              <span className="font-mono text-xs text-neutral-400 tracking-[0.2em] uppercase">
+              <span className="font-mono text-xs text-neutral-400 tracking-[0.2em] uppercase mb-4 block">
                 Mission
               </span>
-            </div>
-
-            <div className="space-y-8">
-              <h2 className="text-[28px] lg:text-[36px] font-bold text-neutral-900 leading-[1.3]">
+              <div className="h-1 w-16 bg-neutral-900 mb-8" />
+              <h2 className="text-4xl lg:text-5xl font-bold text-neutral-900 leading-tight">
                 すべての人と企業に<br />
                 デジタルレイバーを。<br />
                 AI時代の確かな<br />
                 産業インフラをつくる
               </h2>
-
-              <p className="text-[14px] text-neutral-600 leading-[1.9] max-w-[440px]">
-                産業革命から続く、人が労働力になる時代は、まもなく歴史の転換点を迎えます。
+            </div>
+            <div className="space-y-8">
+              <p className="text-base text-neutral-600 leading-relaxed">
+                産業革命から続く、人が労働力になる時代は、
+                <br />
+                まもなく歴史の転換点を迎えます。
               </p>
 
-              <p className="text-[14px] text-neutral-600 leading-[1.9] max-w-[440px]">
-                私たちが提供するのは、自信して実務を完遂する AI、デジタルレイバーという新しい労働力の実装。
+              <p className="text-base text-neutral-600 leading-relaxed">
+                私たちが提供するのは、自信して実務を完遂する
+                <br />
+                AI、デジタルレイバーという新しい労働力の実装。
               </p>
 
-              <p className="text-[14px] text-neutral-600 leading-[1.9] max-w-[440px]">
-                電気や水道が社会を底支えするように、この無体の知能を、誰もが当たり前に使える確かなインフラとして日本から散設する。
+              <p className="text-base text-neutral-600 leading-relaxed">
+                電気や水道が社会を底支えするように、この無体の
+                <br />
+                知能を、誰もが当たり前に使える確かなインフラと
+                <br />
+                して日本から散設する。
               </p>
 
-              <p className="text-[14px] text-neutral-600 leading-[1.9] max-w-[440px]">
+              <p className="text-base text-neutral-600 leading-relaxed">
                 実務の摩擦をAIが引き受け、人間が純粋な意思や創造へと向かうための次代の産業インフラを創ります。
               </p>
             </div>
