@@ -3,6 +3,7 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
+import { useState, useEffect } from "react"
 
 const values = [
   {
@@ -63,8 +64,18 @@ const missionText = {
 }
 
 export default function PhilosophyPageContent() {
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return <div className="min-h-screen bg-white" />
+  }
+
   return (
-    <main className="bg-white min-h-screen">
+    <main className="bg-white min-h-screen" suppressHydrationWarning>
       <Header variant="light" />
 
       {/* Hero Section */}
@@ -186,8 +197,8 @@ export default function PhilosophyPageContent() {
             </div>
 
             {/* Globe Illustration */}
-            <div className="flex items-center justify-center lg:justify-end">
-              <div className="relative w-[320px] h-[260px] lg:w-[380px] lg:h-[300px]">
+            <div className="flex items-end justify-center lg:justify-start pt-8">
+              <div className="relative w-[280px] h-[240px] lg:w-[340px] lg:h-[280px]">
                 <Image
                   src="/images/lat91-globe.svg"
                   alt="Lat91 Globe Illustration - 91st degree concept"
