@@ -304,9 +304,9 @@ export default function ServicePage() {
 
               <div className="space-y-4">
                 {[
-                  { title: "九九もAIで完結するレベルにする", desc: "業務を根本から再設計してAIネイティブに" },
-                  { title: "AIエージェントが自律的に遂行", desc: "ツール提供ではなく、業務の実行そのものを担う" },
-                  { title: "自律的に改善し続ける", desc: "結果を学び、精度と効率を自動でチューニング" },
+                  { title: "現場を理解し、解くべき課題を特定する", desc: "経営・事業・組織の観点から設計する" },
+                  { title: "解決されるオペレーションを実装する", desc: "成果を完遂する労働力として稼働させる" },
+                  { title: "自律的に改善可能な状態まで伴走する", desc: "結果を学び、精度と効率を自動でチューニング" },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-start gap-3">
                     <div className="w-[22px] h-[22px] rounded-full bg-neutral-700 flex-shrink-0 flex items-center justify-center mt-0.5">
