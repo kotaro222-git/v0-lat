@@ -13,10 +13,12 @@ export default function PhilosophyPage() {
           <span className="font-mono text-[11px] tracking-[0.2em] text-neutral-400 uppercase">Philosophy</span>
         </div>
         <h1 className="text-[clamp(36px,5vw,60px)] font-bold leading-[1.25] tracking-[-0.03em] text-neutral-900">
-          {"AI時代に、"}<br />{"人間の意志と創造が輝く世界を創る"}
+          {"AI\u6642\u4EE3\u306B\u3001"}<br />
+          {"\u4EBA\u9593\u306E\u610F\u5FD7\u3068\u5275\u9020\u304C\u8F1D\u304F\u4E16\u754C\u3092\u5275\u308B"}
         </h1>
         <p className="text-[15px] text-neutral-500 leading-[2] mt-8">
-          {"テクノロジーが人の可能性を拡張する時代。私たちは、AIに任せられることを正しく任せ、"}<br />{"人間が持っている「意志」と「創造」に集中できる世界を目指しています。"}
+          {"\u30C6\u30AF\u30CE\u30ED\u30B8\u30FC\u304C\u4EBA\u306E\u53EF\u80FD\u6027\u3092\u62E1\u5F35\u3059\u308B\u6642\u4EE3\u3002\u79C1\u305F\u3061\u306F\u3001AI\u306B\u4EFB\u305B\u3089\u308C\u308B\u3053\u3068\u3092\u6B63\u3057\u304F\u4EFB\u305B\u3001"}<br />
+          {"\u4EBA\u9593\u304C\u6301\u3063\u3066\u3044\u308B\u300C\u610F\u5FD7\u300D\u3068\u300C\u5275\u9020\u300D\u306B\u96C6\u4E2D\u3067\u304D\u308B\u4E16\u754C\u3092\u76EE\u6307\u3057\u3066\u3044\u307E\u3059\u3002"}
         </p>
       </section>
 
@@ -29,25 +31,25 @@ export default function PhilosophyPage() {
               <span className="font-mono text-[11px] tracking-[0.2em] text-neutral-400 uppercase">Message</span>
             </div>
             <h2 className="text-[clamp(24px,3vw,32px)] font-bold tracking-[-0.02em] leading-[1.4] text-neutral-900">
-              {"代表メッセージ"}
+              {"\u4EE3\u8868\u30E1\u30C3\u30BB\u30FC\u30B8"}
             </h2>
           </div>
           <div className="grid lg:grid-cols-[380px_1fr] gap-14 items-start">
             <div>
               <div className="aspect-[3/4] bg-neutral-200 w-full" />
               <div className="mt-5">
-                <div className="font-mono text-[10px] tracking-[0.15em] text-neutral-400 uppercase mb-1.5">{"CEO & Founder"}</div>
-                <div className="text-lg font-bold tracking-[-0.01em] text-neutral-900">{"稲葉 幸太郎"}</div>
+                <div className="font-mono text-[10px] tracking-[0.15em] text-neutral-400 uppercase mb-1.5">CEO & Founder</div>
+                <div className="text-lg font-bold tracking-[-0.01em] text-neutral-900">{"\u7A32\u8449 \u5E78\u592A\u90CE"}</div>
               </div>
             </div>
             <div className="space-y-[18px] text-[14px] text-neutral-600 leading-[1.85]">
-              <p>{"人類にとって、かつてない時代がやってきました。誰もが創れる。届けられる。届かなかった知識に手が届く。"}</p>
-              <p>{"そして、従来のチャットボットではなく、一度セットアップすれば、24時間自律的に業務と改善を繰り返すAIエージェントが誕生しました。"}</p>
-              <p>{"これから築くべき未来は、AIファーストの時代ではなく、ヒューマンファーストの時代だと、僕たちは信じています。"}</p>
-              <p>{"生産のために自分らしさを消耗させる必要がなくなり、何かを生み出すこと、自分らしくいることが、両立する。"}</p>
-              <p>{"AIが実務の99%を担っていく時代。人間は、最も尊い1%の意志と創造だけに向き合える。何を美しいと感じ、何に怒り、何を選ぶか。"}</p>
-              <p>{"もし今の仕事のほとんどがなくなったとして、僕たちは何に集中するだろう。誰の代わりでもない、自分にしか生み出せない価値はなんだろうか。"}</p>
-              <p>{"僕たちはその瞬間を創り、純度の高い創造で溢れる世界を目指してます。"}</p>
+              <p>{"\u4EBA\u985E\u306B\u3068\u3063\u3066\u3001\u304B\u3064\u3066\u306A\u3044\u6642\u4EE3\u304C\u3084\u3063\u3066\u304D\u307E\u3057\u305F\u3002\u8AB0\u3082\u304C\u5275\u308C\u308B\u3002\u5C4A\u3051\u3089\u308C\u308B\u3002\u5C4A\u304B\u306A\u304B\u3063\u305F\u77E5\u8B58\u306B\u624B\u304C\u5C4A\u304F\u3002"}</p>
+              <p>{"\u305D\u3057\u3066\u3001\u5F93\u6765\u306E\u30C1\u30E3\u30C3\u30C8\u30DC\u30C3\u30C8\u3067\u306F\u306A\u304F\u3001\u4E00\u5EA6\u30BB\u30C3\u30C8\u30A2\u30C3\u30D7\u3059\u308C\u3070\u300124\u6642\u9593\u81EA\u5F8B\u7684\u306B\u696D\u52D9\u3068\u6539\u5584\u3092\u7E70\u308A\u8FD4\u3059AI\u30A8\u30FC\u30B8\u30A7\u30F3\u30C8\u304C\u8A95\u751F\u3057\u307E\u3057\u305F\u3002"}</p>
+              <p>{"\u3053\u308C\u304B\u3089\u7BC9\u304F\u3079\u304D\u672A\u6765\u306F\u3001AI\u30D5\u30A1\u30FC\u30B9\u30C8\u306E\u6642\u4EE3\u3067\u306F\u306A\u304F\u3001\u30D2\u30E5\u30FC\u30DE\u30F3\u30D5\u30A1\u30FC\u30B9\u30C8\u306E\u6642\u4EE3\u3060\u3068\u3001\u50D5\u305F\u3061\u306F\u4FE1\u3058\u3066\u3044\u307E\u3059\u3002"}</p>
+              <p>{"\u751F\u7523\u306E\u305F\u3081\u306B\u81EA\u5206\u3089\u3057\u3055\u3092\u6D88\u8017\u3055\u305B\u308B\u5FC5\u8981\u304C\u306A\u304F\u306A\u308A\u3001\u4F55\u304B\u3092\u751F\u307F\u51FA\u3059\u3053\u3068\u3001\u81EA\u5206\u3089\u3057\u304F\u3044\u308B\u3053\u3068\u304C\u3001\u4E21\u7ACB\u3059\u308B\u3002"}</p>
+              <p>{"AI\u304C\u5B9F\u52D9\u306E99%\u3092\u62C5\u3063\u3066\u3044\u304F\u6642\u4EE3\u3002\u4EBA\u9593\u306F\u3001\u6700\u3082\u5C0A\u30441%\u306E\u610F\u5FD7\u3068\u5275\u9020\u3060\u3051\u306B\u5411\u304D\u5408\u3048\u308B\u3002\u4F55\u3092\u7F8E\u3057\u3044\u3068\u611F\u3058\u3001\u4F55\u306B\u6012\u308A\u3001\u4F55\u3092\u9078\u3076\u304B\u3002"}</p>
+              <p>{"\u3082\u3057\u4ECA\u306E\u4ED5\u4E8B\u306E\u307B\u3068\u3093\u3069\u304C\u306A\u304F\u306A\u3063\u305F\u3068\u3057\u3066\u3001\u50D5\u305F\u3061\u306F\u4F55\u306B\u96C6\u4E2D\u3059\u308B\u3060\u308D\u3046\u3002\u8AB0\u306E\u4EE3\u308F\u308A\u3067\u3082\u306A\u3044\u3001\u81EA\u5206\u306B\u3057\u304B\u751F\u307F\u51FA\u305B\u306A\u3044\u4FA1\u5024\u306F\u306A\u3093\u3060\u308D\u3046\u304B\u3002"}</p>
+              <p>{"\u50D5\u305F\u3061\u306F\u305D\u306E\u77AC\u9593\u3092\u5275\u308A\u3001\u7D14\u5EA6\u306E\u9AD8\u3044\u5275\u9020\u3067\u6EA2\u308C\u308B\u4E16\u754C\u3092\u76EE\u6307\u3057\u3066\u307E\u3059\u3002"}</p>
             </div>
           </div>
         </div>
@@ -63,11 +65,11 @@ export default function PhilosophyPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
               <h2 className="text-[clamp(28px,3.5vw,40px)] font-bold tracking-[-0.02em] leading-[1.3] mb-8 text-neutral-900">
-                {"社名に込めた思い"}
+                {"\u793E\u540D\u306B\u8FBC\u3081\u305F\u601D\u3044"}
               </h2>
               <div className="text-[15px] text-neutral-600 leading-[2.2] space-y-5">
-                <p><strong className="text-neutral-900 font-bold">Lat91</strong>{"という社名は、地球の緯度が90度で終わることに由来しています。91度目は、地図上に存在しない。まだ誰も見たことのない景色。"}</p>
-                <p>{"90度までをAIに正しく担わせ、みんなで91度目に立つ。私は、その景色を見たいしつくりたい。だからこの会社を創りました。"}</p>
+                <p><strong className="text-neutral-900 font-bold">Lat91</strong>{"\u3068\u3044\u3046\u793E\u540D\u306F\u3001\u5730\u7403\u306E\u7DEF\u5EA6\u304C90\u5EA6\u3067\u7D42\u308F\u308B\u3053\u3068\u306B\u7531\u6765\u3057\u3066\u3044\u307E\u3059\u300291\u5EA6\u76EE\u306F\u3001\u5730\u56F3\u4E0A\u306B\u5B58\u5728\u3057\u306A\u3044\u3002\u307E\u3060\u8AB0\u3082\u898B\u305F\u3053\u3068\u306E\u306A\u3044\u666F\u8272\u3002"}</p>
+                <p>{"90\u5EA6\u307E\u3067\u3092AI\u306B\u6B63\u3057\u304F\u62C5\u308F\u305B\u3001\u307F\u3093\u306A\u306791\u5EA6\u76EE\u306B\u7ACB\u3064\u3002\u79C1\u306F\u3001\u305D\u306E\u666F\u8272\u3092\u898B\u305F\u3044\u3057\u5275\u3063\u3066\u307F\u305F\u3044\u3001\u3060\u304B\u3089\u3053\u306E\u4F1A\u793E\u3092\u8A2D\u7ACB\u3057\u307E\u3057\u305F\u3002"}</p>
               </div>
             </div>
             <div className="flex items-start justify-center -mt-20">
@@ -103,8 +105,8 @@ export default function PhilosophyPage() {
                 </g>
                 <text x="398" y="22" fill="#141413" fontFamily="sans-serif" fontSize="16" fontWeight="600" opacity="0.9">{"91\u00B0"}</text>
                 <line x1="340" y1="56" x2="340" y2="24" stroke="#73726c" strokeWidth="0.8" opacity="0.35" strokeDasharray="2 2"/>
-                <text x="340" y="470" textAnchor="middle" fill="#3d3d3a" fontFamily="sans-serif" fontSize="12" opacity="0.4">{"The 91st degree does not exist on any map."}</text>
-                <text x="340" y="488" textAnchor="middle" fill="#3d3d3a" fontFamily="sans-serif" fontSize="12" opacity="0.4">{"That is exactly why we go there."}</text>
+                <text x="340" y="470" textAnchor="middle" fill="#3d3d3a" fontFamily="sans-serif" fontSize="12" opacity="0.4">The 91st degree does not exist on any map.</text>
+                <text x="340" y="488" textAnchor="middle" fill="#3d3d3a" fontFamily="sans-serif" fontSize="12" opacity="0.4">That is exactly why we go there.</text>
               </svg>
             </div>
           </div>
@@ -119,7 +121,8 @@ export default function PhilosophyPage() {
           <span className="w-8 h-px bg-neutral-300" />
         </div>
         <h2 className="text-[clamp(28px,4vw,44px)] font-bold leading-[1.5] tracking-[-0.02em] max-w-[600px] mx-auto text-neutral-900">
-          {"人間の意志と創造が"}<br />{"輝く世界を創る"}
+          {"\u4EBA\u9593\u306E\u610F\u5FD7\u3068\u5275\u9020\u304C"}<br />
+          {"\u8F1D\u304F\u4E16\u754C\u3092\u5275\u308B"}
         </h2>
       </section>
 
@@ -131,31 +134,31 @@ export default function PhilosophyPage() {
             <span className="font-mono text-[11px] tracking-[0.2em] text-neutral-400 uppercase">Value</span>
             <span className="w-8 h-px bg-neutral-600" />
           </div>
-          <h2 className="text-[clamp(28px,3.5vw,40px)] font-bold text-center tracking-[-0.02em] mb-16">{"私たちの価値観"}</h2>
+          <h2 className="text-[clamp(28px,3.5vw,40px)] font-bold text-center tracking-[-0.02em] mb-16">{"\u79C1\u305F\u3061\u306E\u4FA1\u5024\u89B3"}</h2>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white text-neutral-900 rounded-2xl p-9 relative overflow-hidden min-h-[220px]">
               <div className="flex justify-between items-start mb-1">
                 <span className="text-xl font-bold tracking-[-0.01em] relative z-10">Be True</span>
                 <span className="text-[72px] font-bold text-neutral-100 leading-none tracking-[-0.04em] absolute top-5 right-6">01</span>
               </div>
-              <div className="text-xs text-neutral-500 mb-6">{"純度を大切に。"}</div>
-              <p className="text-sm text-neutral-600 leading-[1.9]">{"純粋な意志でコトに向き合い、自らの内なる声に真っ直ぐに従うこと。"}</p>
+              <div className="text-xs text-neutral-500 mb-6">{"\u7D14\u5EA6\u3092\u5927\u5207\u306B\u3002"}</div>
+              <p className="text-sm text-neutral-600 leading-[1.9]">{"\u7D14\u7C8B\u306A\u610F\u5FD7\u3067\u30B3\u30C8\u306B\u5411\u304D\u5408\u3044\u3001\u81EA\u3089\u306E\u5185\u306A\u308B\u58F0\u306B\u771F\u3063\u76F4\u3050\u306B\u5F93\u3046\u3053\u3068\u3002"}</p>
             </div>
             <div className="bg-white text-neutral-900 rounded-2xl p-9 relative overflow-hidden min-h-[220px]">
               <div className="flex justify-between items-start mb-1">
                 <span className="text-xl font-bold tracking-[-0.01em] relative z-10">Stay Kind</span>
                 <span className="text-[72px] font-bold text-neutral-100 leading-none tracking-[-0.04em] absolute top-5 right-6">02</span>
               </div>
-              <div className="text-xs text-neutral-500 mb-6">{"優くあること。"}</div>
-              <p className="text-sm text-neutral-600 leading-[1.9]">{"相手を深く尊重し、共に歩むこと。巧好は技術に勝かず。"}</p>
+              <div className="text-xs text-neutral-500 mb-6">{"\u512A\u304F\u3042\u308B\u3053\u3068\u3002"}</div>
+              <p className="text-sm text-neutral-600 leading-[1.9]">{"\u76F8\u624B\u3092\u6DF1\u304F\u5C0A\u91CD\u3057\u3001\u5171\u306B\u6B69\u3080\u3053\u3068\u3002\u5DE7\u597D\u306F\u6280\u8853\u306B\u52DD\u304B\u305A\u3002"}</p>
             </div>
             <div className="bg-white text-neutral-900 rounded-2xl p-9 relative overflow-hidden min-h-[220px]">
               <div className="flex justify-between items-start mb-1">
                 <span className="text-xl font-bold tracking-[-0.01em] relative z-10">{"Build, Don't Decorate"}</span>
                 <span className="text-[72px] font-bold text-neutral-100 leading-none tracking-[-0.04em] absolute top-5 right-6">03</span>
               </div>
-              <div className="text-xs text-neutral-500 mb-6">{"中身を大切に。"}</div>
-              <p className="text-sm text-neutral-600 leading-[1.9]">{"本当に価値のある本質を泥臭く積み上げること。見せかけの完成度より、実を伴う力強さを。"}</p>
+              <div className="text-xs text-neutral-500 mb-6">{"\u4E2D\u8EAB\u3092\u5927\u5207\u306B\u3002"}</div>
+              <p className="text-sm text-neutral-600 leading-[1.9]">{"\u672C\u5F53\u306B\u4FA1\u5024\u306E\u3042\u308B\u672C\u8CEA\u3092\u6CE5\u81ED\u304F\u7A4D\u307F\u4E0A\u3052\u308B\u3053\u3068\u3002\u898B\u305B\u304B\u3051\u306E\u5B8C\u6210\u5EA6\u3088\u308A\u3001\u5B9F\u3092\u4F34\u3046\u529B\u5F37\u3055\u3092\u3002"}</p>
             </div>
           </div>
         </div>
