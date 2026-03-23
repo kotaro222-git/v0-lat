@@ -1,5 +1,6 @@
 "use client"
 
+import { Header } from "@/components/header"
 import { FixedSectionsContainer } from "@/components/fixed-sections-container"
 import { ServiceSection } from "@/components/sections/service-section"
 import { CoverageSection } from "@/components/sections/coverage-section"
@@ -16,6 +17,9 @@ export default function Home() {
         scrollSnapType: "y proximity",
       }}
     >
+      {/* Fixed Header */}
+      <Header />
+      
       {/* Hero and Mission with scroll-snap fade transitions */}
       <FixedSectionsContainer />
 
