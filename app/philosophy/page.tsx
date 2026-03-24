@@ -80,7 +80,7 @@ export default function PhilosophyPage() {
                 <p>{"90\u5EA6\u307E\u3067\u3092AI\u306B\u6B63\u3057\u304F\u62C5\u308F\u305B\u3001\u307F\u3093\u306A\u306791\u5EA6\u76EE\u306B\u7ACB\u3064\u3002\u79C1\u306F\u3001\u305D\u306E\u666F\u8272\u3092\u898B\u305F\u3044\u3057\u5275\u3063\u3066\u307F\u305F\u3044\u3001\u3060\u304B\u3089\u3053\u306E\u4F1A\u793E\u3092\u8A2D\u7ACB\u3057\u307E\u3057\u305F\u3002"}</p>
               </div>
             </div>
-            <div className="flex items-start justify-center -mt-20">
+            <div className="flex items-start justify-center -mt-28">
               <svg width="384" height="456" viewBox="0 0 680 520">
                 <defs><clipPath id="globe-clip"><circle cx="340" cy="240" r="180"/></clipPath></defs>
                 <circle cx="340" cy="240" r="184" fill="none" stroke="#73726c" strokeWidth="0.3" opacity="0.15"/>
