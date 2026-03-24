@@ -605,7 +605,7 @@ export default function ServicePage() {
                 key={step.number}
                 className="bg-neutral-50 border border-neutral-200 rounded-2xl p-8 relative flex flex-col"
               >
-                <div className="text-[56px] font-bold text-neutral-100 leading-none tracking-[-0.04em] mb-6">
+                <div className="text-[56px] font-bold text-neutral-300 leading-none tracking-[-0.04em] mb-6">
                   {step.number}
                 </div>
                 <div className="text-[20px] font-bold text-neutral-900 mb-2.5">
