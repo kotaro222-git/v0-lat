@@ -210,7 +210,7 @@ function MarketingWorkflowSVG() {
       {/* Row 2 */}
       <text className="font-mono text-[9px]" fill="#c8c7c3" x={14} y={130}>04</text>
       <rect fill="#fafaf9" stroke="#e2e1de" x={8} y={138} width={176} height={50} rx={8}/>
-      <text className="font-semibold text-[12px]" fill="#0a0a0a" x={96} y={159} textAnchor="middle" dominantBaseline="central">配信実��</text>
+      <text className="font-semibold text-[12px]" fill="#0a0a0a" x={96} y={159} textAnchor="middle" dominantBaseline="central">配信実行</text>
       <text className="text-[10px]" fill="#6e6d69" x={96} y={176} textAnchor="middle" dominantBaseline="central">チャネル最適化</text>
       <line stroke="#c8c7c3" x1={184} y1={163} x2={206} y2={163} markerEnd="url(#arrow-mkt)"/>
       
@@ -560,7 +560,7 @@ export default function ServicePage() {
                 {[
                   { title: "現場を理解し、解くべき課題を特定する", desc: "経営・事業・組織の観点から設計する" },
                   { title: "解決されるオペレーションを実装する", desc: "成果を完遂する労働力として稼働させる" },
-                  { title: "自律的に改善可能な状態まで伴走する", desc: "結果を学び��精度と効率を自動でチューニング" },
+                  { title: "自律的に改善可能な状態まで伴走する", desc: "結果を学び、精度と効率を自動でチューニング" },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-start gap-3">
                     <div className="w-[22px] h-[22px] rounded-full bg-neutral-700 flex-shrink-0 flex items-center justify-center mt-0.5">
@@ -605,7 +605,7 @@ export default function ServicePage() {
                 key={step.number}
                 className="bg-neutral-50 border border-neutral-200 rounded-2xl p-8 relative flex flex-col"
               >
-                <div className="text-[56px] font-bold text-neutral-100 leading-none tracking-[-0.04em] mb-6">
+                <div className="text-[56px] font-bold text-neutral-300 leading-none tracking-[-0.04em] mb-6">
                   {step.number}
                 </div>
                 <div className="text-[20px] font-bold text-neutral-900 mb-2.5">

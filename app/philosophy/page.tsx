@@ -39,7 +39,7 @@ export default function PhilosophyPage() {
             <div>
               <div className="aspect-[3/3.6] w-full relative overflow-hidden">
                 <Image
-                  src="/images/ceo.jpg"
+                  src="/images/ceo-photo.jpg"
                   alt="CEO 稲葉 幸太郎"
                   fill
                   className="object-cover object-top"
