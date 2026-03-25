@@ -158,7 +158,7 @@ export default function PhilosophyPage() {
                 <span className="text-[72px] font-bold text-neutral-100 leading-none tracking-[-0.04em] absolute top-5 right-6">02</span>
               </div>
               <div className="text-xs text-neutral-500 mb-6">{"\u512A\u304F\u3042\u308B\u3053\u3068\u3002"}</div>
-              <p className="text-sm text-neutral-600 leading-[1.9]">{"\u76F8\u624B\u3092\u6DF1\u304F\u5C0A\u91CD\u3057\u3001\u5171\u306B\u6B69\u3080\u3053\u3068\u3002\u5DE7\u597D\u306F\u6280\u8853\u306B\u52DD\u304B\u305A\u3002"}</p>
+              <p className="text-sm text-neutral-600 leading-[1.9]">{"相手を深く尊重し、共に歩むこと。巧詐は拙誠に如かず。"}</p>
             </div>
             <div className="bg-white text-neutral-900 rounded-2xl p-9 relative overflow-hidden min-h-[220px]">
               <div className="flex justify-between items-start mb-1">
