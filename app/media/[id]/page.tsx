@@ -5,12 +5,13 @@ import { ArrowLeft, Calendar, Clock, Share2, Twitter, Linkedin } from "lucide-re
 import { client, type Article } from "@/lib/microcms/client"
 import { notFound } from "next/navigation"
 
-async function getArticle(id: string): Promise<Article | null> {
+async function getArticle(id: string, draftKey?: string): Promise<Article | null> {
   if (!client) return null
   try {
     const article = await client.get<Article>({
       endpoint: "media",
       contentId: id,
+      queries: draftKey ? { draftKey } : {},
     })
     return article
   } catch {
@@ -45,11 +46,14 @@ function formatDate(dateStr: string): string {
 
 export default async function ArticlePage({
   params,
+  searchParams,
 }: {
   params: Promise<{ id: string }>
+  searchParams: Promise<{ draftKey?: string }>
 }) {
   const { id } = await params
-  const article = await getArticle(id)
+  const { draftKey } = await searchParams
+  const article = await getArticle(id, draftKey)
 
   if (!article) {
     notFound()
