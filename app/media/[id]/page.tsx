@@ -5,6 +5,8 @@ import { ArrowLeft, Calendar, Clock, Share2, Twitter, Linkedin } from "lucide-re
 import { client, type Article } from "@/lib/microcms/client"
 import { notFound } from "next/navigation"
 
+export const revalidate = 60
+
 async function getArticle(id: string, draftKey?: string): Promise<Article | null> {
   if (!client) return null
   try {
