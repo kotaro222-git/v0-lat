@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next"
 import { client, type Article } from "@/lib/microcms/client"
 
-const BASE_URL = "https://lat91.co.jp"
+const BASE_URL = "https://www.lat91.co.jp"
 
 async function getAllArticles(): Promise<Pick<Article, "id" | "publishedAt" | "updatedAt">[]> {
   if (!client) return []

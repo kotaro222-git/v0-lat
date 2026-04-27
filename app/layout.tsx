@@ -22,19 +22,19 @@ const spaceMono = Space_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://lat91.co.jp'),
+  metadataBase: new URL('https://www.lat91.co.jp'),
   title: {
     default: 'Lat91 | AIエージェント・DX推進パートナー',
     template: '%s | Lat91',
   },
   description: 'Lat91は、AIエージェント導入とDX推進を通じて、企業の成長を実現します。戦略立案から開発・運用まで一気通貫でサポート。',
   alternates: {
-    canonical: 'https://lat91.co.jp',
+    canonical: 'https://www.lat91.co.jp',
   },
   openGraph: {
     title: 'Lat91 | AIエージェント・DX推進パートナー',
     description: 'Lat91は、AIエージェント導入とDX推進を通じて、企業の成長を実現します。戦略立案から開発・運用まで一気通貫でサポート。',
-    url: 'https://lat91.co.jp',
+    url: 'https://www.lat91.co.jp',
     siteName: 'Lat91',
     type: 'website',
     locale: 'ja_JP',

@@ -8,7 +8,7 @@ import { notFound } from "next/navigation"
 
 export const revalidate = 60
 
-const SITE_URL = "https://lat91.co.jp"
+const SITE_URL = "https://www.lat91.co.jp"
 const SITE_NAME = "Lat91"
 const FALLBACK_DESCRIPTION =
   "Lat91のメディア記事。AIエージェント・生成AI・DX推進に関する実践的な知見を発信します。"

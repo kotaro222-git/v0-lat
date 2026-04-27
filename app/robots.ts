@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    sitemap: "https://lat91.co.jp/sitemap.xml",
-    host: "https://lat91.co.jp",
+    sitemap: "https://www.lat91.co.jp/sitemap.xml",
+    host: "https://www.lat91.co.jp",
   }
 }
