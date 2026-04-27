@@ -1,6 +1,20 @@
+import type { Metadata } from "next"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
+
+export const metadata: Metadata = {
+  title: "Philosophy",
+  description:
+    "Lat91が大切にする価値観と思想。AIエージェント時代に企業と人がどう向き合い、どんな価値を生み出すか——Lat91のフィロソフィをご紹介します。",
+  alternates: { canonical: "https://www.lat91.co.jp/philosophy" },
+  openGraph: {
+    title: "Philosophy | Lat91",
+    description: "Lat91が大切にする価値観と思想。AIエージェント時代の企業のあり方を考えます。",
+    url: "https://www.lat91.co.jp/philosophy",
+    type: "website",
+  },
+}
 
 export default function PhilosophyPage() {
   return (
