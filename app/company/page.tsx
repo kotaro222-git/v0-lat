@@ -3,8 +3,15 @@ import { Footer } from "@/components/footer"
 import { MapPin } from "lucide-react"
 
 export const metadata = {
-  title: "Company | Lat91",
-  description: "株式会社Lat.91の企業情報",
+  title: "Company",
+  description: "株式会社Lat.91の企業情報。AIエージェント開発・DX推進パートナーとして、企業のAI活用と業務変革を支援します。",
+  alternates: { canonical: "https://www.lat91.co.jp/company" },
+  openGraph: {
+    title: "Company | Lat91",
+    description: "株式会社Lat.91の企業情報。AIエージェント開発・DX推進パートナー。",
+    url: "https://www.lat91.co.jp/company",
+    type: "website",
+  },
 }
 
 const companyInfo = [

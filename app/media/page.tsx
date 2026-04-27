@@ -6,8 +6,15 @@ import { client, type Article } from "@/lib/microcms/client"
 export const revalidate = 60
 
 export const metadata = {
-  title: "Media | Lat91",
-  description: "Lat91のメディア・ブログ記事一覧",
+  title: "Media",
+  description: "AIエージェント・生成AI・DX推進に関する実践的な知見と最新動向。Lat91のメディア記事一覧。",
+  alternates: { canonical: "https://www.lat91.co.jp/media" },
+  openGraph: {
+    title: "Media | Lat91",
+    description: "AIエージェント・生成AI・DX推進に関する実践的な知見と最新動向。Lat91のメディア記事一覧。",
+    url: "https://www.lat91.co.jp/media",
+    type: "website",
+  },
 }
 
 async function getArticles(): Promise<Article[]> {
