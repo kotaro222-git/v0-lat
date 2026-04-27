@@ -31,7 +31,18 @@ function buildDescription(article: Article): string {
   if (article.summary && article.summary.trim().length > 0) {
     return article.summary.trim().slice(0, 160)
   }
-  const stripped = (article.body || "").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim()
+  const source = article.htmlBody || article.body || ""
+  const stripped = source
+    .replace(/<style[\s\S]*?<\/style>/gi, "")
+    .replace(/<script[\s\S]*?<\/script>/gi, "")
+    .replace(/<[^>]+>/g, "")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/\s+/g, " ")
+    .trim()
   if (stripped.length > 0) return stripped.slice(0, 160)
   return FALLBACK_DESCRIPTION
 }
@@ -56,7 +67,7 @@ export async function generateMetadata({
 
   const url = `${SITE_URL}/media/${id}`
   const description = buildDescription(article)
-  const title = `${article.title} | ${SITE_NAME} Media`
+  const fullTitle = `${article.title} | ${SITE_NAME} Media`
   const ogImages = article.thumbnail
     ? [
         {
@@ -72,7 +83,8 @@ export async function generateMetadata({
   const robots = draftKey ? { index: false, follow: false } : undefined
 
   return {
-    title,
+    // absoluteを使ってlayoutのtitle templateをバイパス
+    title: { absolute: fullTitle },
     description,
     alternates: { canonical: url },
     robots,
