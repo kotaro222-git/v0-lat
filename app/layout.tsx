@@ -22,12 +22,19 @@ const spaceMono = Space_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Lat91 | AIエージェント・DX推進パートナー',
+  metadataBase: new URL('https://lat91.co.jp'),
+  title: {
+    default: 'Lat91 | AIエージェント・DX推進パートナー',
+    template: '%s | Lat91',
+  },
   description: 'Lat91は、AIエージェント導入とDX推進を通じて、企業の成長を実現します。戦略立案から開発・運用まで一気通貫でサポート。',
+  alternates: {
+    canonical: 'https://lat91.co.jp',
+  },
   openGraph: {
     title: 'Lat91 | AIエージェント・DX推進パートナー',
     description: 'Lat91は、AIエージェント導入とDX推進を通じて、企業の成長を実現します。戦略立案から開発・運用まで一気通貫でサポート。',
-    url: 'https://www.lat91.jp',
+    url: 'https://lat91.co.jp',
     siteName: 'Lat91',
     type: 'website',
     locale: 'ja_JP',
@@ -45,6 +52,16 @@ export const metadata: Metadata = {
     title: 'Lat91 | AIエージェント・DX推進パートナー',
     description: 'Lat91は、AIエージェント導入とDX推進を通じて、企業の成長を実現します。戦略立案から開発・運用まで一気通貫でサポート。',
     images: ['/images/og-image.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 }
 

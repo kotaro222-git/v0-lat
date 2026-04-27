@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import Link from "next/link"
@@ -6,6 +7,11 @@ import { client, type Article } from "@/lib/microcms/client"
 import { notFound } from "next/navigation"
 
 export const revalidate = 60
+
+const SITE_URL = "https://lat91.co.jp"
+const SITE_NAME = "Lat91"
+const FALLBACK_DESCRIPTION =
+  "Lat91のメディア記事。AIエージェント・生成AI・DX推進に関する実践的な知見を発信します。"
 
 async function getArticle(id: string, draftKey?: string): Promise<Article | null> {
   if (!client) return null
@@ -18,6 +24,75 @@ async function getArticle(id: string, draftKey?: string): Promise<Article | null
     return article
   } catch {
     return null
+  }
+}
+
+function buildDescription(article: Article): string {
+  if (article.summary && article.summary.trim().length > 0) {
+    return article.summary.trim().slice(0, 160)
+  }
+  const stripped = (article.body || "").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim()
+  if (stripped.length > 0) return stripped.slice(0, 160)
+  return FALLBACK_DESCRIPTION
+}
+
+export async function generateMetadata({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ id: string }>
+  searchParams: Promise<{ draftKey?: string }>
+}): Promise<Metadata> {
+  const { id } = await params
+  const { draftKey } = await searchParams
+  const article = await getArticle(id, draftKey)
+
+  if (!article) {
+    return {
+      title: `記事が見つかりません | ${SITE_NAME}`,
+      robots: { index: false, follow: false },
+    }
+  }
+
+  const url = `${SITE_URL}/media/${id}`
+  const description = buildDescription(article)
+  const title = `${article.title} | ${SITE_NAME} Media`
+  const ogImages = article.thumbnail
+    ? [
+        {
+          url: article.thumbnail.url,
+          width: article.thumbnail.width,
+          height: article.thumbnail.height,
+          alt: article.title,
+        },
+      ]
+    : undefined
+
+  // Draftプレビューはインデックスさせない
+  const robots = draftKey ? { index: false, follow: false } : undefined
+
+  return {
+    title,
+    description,
+    alternates: { canonical: url },
+    robots,
+    openGraph: {
+      title: article.title,
+      description,
+      url,
+      siteName: SITE_NAME,
+      type: "article",
+      locale: "ja_JP",
+      publishedTime: article.publishedAt,
+      modifiedTime: article.updatedAt,
+      images: ogImages,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description,
+      images: article.thumbnail ? [article.thumbnail.url] : undefined,
+    },
   }
 }
 
