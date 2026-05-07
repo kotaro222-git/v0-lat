@@ -41,6 +41,7 @@ export function Header({ variant = "transparent" }: HeaderProps) {
       <nav className="flex justify-between items-center py-5 px-6 md:px-12 max-w-7xl mx-auto">
         <Link
           href="/"
+          aria-label="株式会社Lat91 トップページ"
           className={`font-mono text-xl font-bold tracking-[0.1em] transition-colors ${
             isLight ? "text-neutral-900" : "text-white"
           }`}

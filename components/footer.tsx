@@ -61,7 +61,7 @@ export function Footer() {
               Company
             </h4>
             <ul className="space-y-3 text-sm text-neutral-400">
-              <li className="font-medium text-white">株式会社Lat.91</li>
+              <li className="font-medium text-white">株式会社Lat91</li>
               <li>東京都港区赤坂3-13-3</li>
               <li>赤坂セントラルビル6F</li>
             </ul>
@@ -71,7 +71,7 @@ export function Footer() {
         {/* Copyright */}
         <div className="pt-8 border-t border-neutral-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <p className="font-mono text-xs tracking-[0.1em] text-neutral-600">
-            © 2026 Lat.91 Inc. All rights reserved.
+            © 2026 Lat91 Inc. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link
@@ -79,12 +79,6 @@ export function Footer() {
               className="text-xs text-neutral-500 hover:text-white transition-colors"
             >
               Privacy Policy
-            </Link>
-            <Link
-              href="/terms"
-              className="text-xs text-neutral-500 hover:text-white transition-colors"
-            >
-              Terms of Service
             </Link>
           </div>
         </div>

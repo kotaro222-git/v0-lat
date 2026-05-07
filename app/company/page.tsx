@@ -3,19 +3,19 @@ import { Footer } from "@/components/footer"
 import { MapPin } from "lucide-react"
 
 export const metadata = {
-  title: "Company",
-  description: "株式会社Lat.91の企業情報。AIエージェント開発・DX推進パートナーとして、企業のAI活用と業務変革を支援します。",
+  title: "株式会社Lat91 会社概要・企業情報",
+  description: "株式会社Lat91の企業情報。AIエージェント開発・DX推進パートナーとして、企業のAI活用と業務変革を支援します。",
   alternates: { canonical: "https://www.lat91.co.jp/company" },
   openGraph: {
-    title: "Company | Lat91",
-    description: "株式会社Lat.91の企業情報。AIエージェント開発・DX推進パートナー。",
+    title: "株式会社Lat91 会社概要・企業情報 | Lat91",
+    description: "株式会社Lat91の企業情報。AIエージェント開発・DX推進パートナー。",
     url: "https://www.lat91.co.jp/company",
     type: "website",
   },
 }
 
 const companyInfo = [
-  { label: "会社名", value: "株式会社Lat.91" },
+  { label: "会社名", value: "株式会社Lat91" },
   { label: "代表者名", value: "稲葉 幸太郎" },
   { label: "設立", value: "2026年 3月" },
   { label: "所在地", value: "東京都港区赤坂3-13-3 赤坂セントラルビル6F" },
@@ -43,7 +43,7 @@ export default function CompanyPage() {
             </span>
           </span>
           <h1 className="text-[clamp(36px,6vw,64px)] font-bold text-neutral-900 leading-[1.1] tracking-tight">
-            企業情報
+            株式会社Lat91 企業情報
           </h1>
         </div>
       </section>

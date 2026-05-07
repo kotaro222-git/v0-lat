@@ -5,11 +5,15 @@ import Image from "next/image"
 export function Hero() {
   return (
     <section id="hero" className="relative w-full h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
+      <h1 className="sr-only">
+        株式会社Lat91 | AIエージェント・DX推進パートナー
+      </h1>
+
       {/* Hero Image */}
       <div className="absolute inset-0 flex items-center justify-center">
         <Image
           src="/images/hero-ai-human.png"
-          alt="Human and AI walking together"
+          alt="株式会社Lat91が目指す、人間とAIが共創する未来"
           fill
           className="object-cover animate-fade-in-image"
           priority

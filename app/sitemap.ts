@@ -23,15 +23,16 @@ async function getAllArticles(): Promise<Pick<Article, "id" | "publishedAt" | "u
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const articles = await getAllArticles()
-  const now = new Date()
+  const lastModified = new Date("2026-05-08")
 
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: BASE_URL, lastModified: now, changeFrequency: "daily", priority: 1.0 },
-    { url: `${BASE_URL}/media`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
-    { url: `${BASE_URL}/service`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE_URL}/philosophy`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${BASE_URL}/company`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${BASE_URL}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: BASE_URL, lastModified, changeFrequency: "weekly", priority: 1.0 },
+    { url: `${BASE_URL}/service`, lastModified, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE_URL}/company`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE_URL}/contact`, lastModified, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE_URL}/media`, lastModified, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${BASE_URL}/philosophy`, lastModified, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE_URL}/privacy`, lastModified, changeFrequency: "yearly", priority: 0.3 },
   ]
 
   const articleRoutes: MetadataRoute.Sitemap = articles.map((a) => ({

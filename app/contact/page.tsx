@@ -2,6 +2,7 @@
 
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import Link from "next/link"
 import { useState, useRef } from "react"
 import { CheckCircle, ArrowRight, Loader2 } from "lucide-react"
 import emailjs from "@emailjs/browser"
@@ -210,7 +211,11 @@ export default function ContactPage() {
               <p className="text-center text-sm text-neutral-400 leading-relaxed">
                 送信いただいた情報は、お問い合わせへの回答のみに使用し、
                 <br className="hidden sm:block" />
-                第三者への提供は行いません。
+                第三者への提供は行いません。詳しくは
+                <Link href="/privacy" className="text-neutral-700 underline underline-offset-4">
+                  プライバシーポリシー
+                </Link>
+                をご確認ください。
               </p>
             </form>
           )}
