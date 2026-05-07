@@ -10,6 +10,12 @@ const nextConfig = {
     return [
       {
         source: "/:path*",
+        has: [{ type: "host", value: "lat91.co.jp" }],
+        destination: "https://www.lat91.co.jp/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
         has: [{ type: "host", value: "lat91.jp" }],
         destination: "https://www.lat91.co.jp/:path*",
         permanent: true,
