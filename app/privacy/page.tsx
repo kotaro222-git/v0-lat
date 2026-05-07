@@ -1,19 +1,17 @@
 import type { Metadata } from "next"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { JsonLd } from "@/components/json-ld"
+import { breadcrumbJsonLd, createPageMetadata, webPageJsonLd } from "@/lib/seo"
 
-export const metadata: Metadata = {
+const description =
+  "株式会社Lat91のプライバシーポリシー。お問い合わせ等で取得する個人情報の利用目的、第三者提供、安全管理、開示・訂正・削除等についてご案内します。"
+
+export const metadata: Metadata = createPageMetadata({
   title: "プライバシーポリシー",
-  description:
-    "株式会社Lat91のプライバシーポリシー。お問い合わせ等で取得する個人情報の取り扱いについてご案内します。",
-  alternates: { canonical: "https://www.lat91.co.jp/privacy" },
-  openGraph: {
-    title: "プライバシーポリシー | Lat91",
-    description: "株式会社Lat91の個人情報の取り扱いについて。",
-    url: "https://www.lat91.co.jp/privacy",
-    type: "website",
-  },
-}
+  description,
+  path: "/privacy",
+})
 
 const sections = [
   {
@@ -46,6 +44,19 @@ export default function PrivacyPage() {
   return (
     <main className="bg-white min-h-screen">
       <Header variant="light" />
+      <JsonLd
+        data={[
+          webPageJsonLd({
+            path: "/privacy",
+            name: "プライバシーポリシー",
+            description,
+          }),
+          breadcrumbJsonLd([
+            { name: "トップ", path: "/" },
+            { name: "プライバシーポリシー", path: "/privacy" },
+          ]),
+        ]}
+      />
 
       <section className="pt-32 pb-16 px-6 md:px-12">
         <div className="max-w-3xl mx-auto">

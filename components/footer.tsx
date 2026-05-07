@@ -4,11 +4,11 @@ import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 
 const navItems = [
-  { label: "Philosophy", href: "/philosophy" },
-  { label: "Service", href: "/service" },
-  { label: "Media", href: "/media" },
-  { label: "Company", href: "/company" },
-  { label: "Contact", href: "/contact" },
+  { label: "理念", href: "/philosophy" },
+  { label: "サービス", href: "/service" },
+  { label: "メディア", href: "/media" },
+  { label: "企業情報", href: "/company" },
+  { label: "お問い合わせ", href: "/contact" },
 ]
 
 export function Footer() {
@@ -78,7 +78,7 @@ export function Footer() {
               href="/privacy"
               className="text-xs text-neutral-500 hover:text-white transition-colors"
             >
-              Privacy Policy
+              プライバシーポリシー
             </Link>
           </div>
         </div>

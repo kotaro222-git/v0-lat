@@ -5,11 +5,11 @@ import { useState, useEffect } from "react"
 import { Menu, X, ArrowRight } from "lucide-react"
 
 const navItems = [
-  { label: "Top", href: "/" },
-  { label: "Philosophy", href: "/philosophy" },
-  { label: "Service", href: "/service" },
-  { label: "Media", href: "/media" },
-  { label: "Company", href: "/company" },
+  { label: "トップ", href: "/" },
+  { label: "理念", href: "/philosophy" },
+  { label: "サービス", href: "/service" },
+  { label: "メディア", href: "/media" },
+  { label: "企業情報", href: "/company" },
 ]
 
 interface HeaderProps {
@@ -75,7 +75,7 @@ export function Header({ variant = "transparent" }: HeaderProps) {
                 : "bg-white text-neutral-900 hover:bg-neutral-100"
             }`}
           >
-            Contact
+            お問い合わせ
             <ArrowRight size={14} />
           </Link>
         </div>
@@ -116,7 +116,7 @@ export function Header({ variant = "transparent" }: HeaderProps) {
                 className="flex items-center justify-center gap-2 w-full px-6 py-4 bg-neutral-900 text-white rounded-full text-base font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Contact
+                お問い合わせ
                 <ArrowRight size={16} />
               </Link>
             </div>

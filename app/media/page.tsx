@@ -1,21 +1,20 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { JsonLd } from "@/components/json-ld"
 import { MediaArticles } from "@/components/media-articles"
 import { client, type Article } from "@/lib/microcms/client"
+import { breadcrumbJsonLd, createPageMetadata, webPageJsonLd } from "@/lib/seo"
 
 export const revalidate = 60
 
-export const metadata = {
-  title: "Media",
-  description: "AIエージェント・生成AI・DX推進に関する実践的な知見と最新動向。Lat91のメディア記事一覧。",
-  alternates: { canonical: "https://www.lat91.co.jp/media" },
-  openGraph: {
-    title: "Media | Lat91",
-    description: "AIエージェント・生成AI・DX推進に関する実践的な知見と最新動向。Lat91のメディア記事一覧。",
-    url: "https://www.lat91.co.jp/media",
-    type: "website",
-  },
-}
+const description =
+  "株式会社Lat91のメディア。AIエージェント、生成AI、DX推進、業務自動化に関する実践的な知見と最新動向を発信します。"
+
+export const metadata = createPageMetadata({
+  title: "AIエージェント・生成AI・DXメディア",
+  description,
+  path: "/media",
+})
 
 async function getArticles(): Promise<Article[]> {
   if (!client) {
@@ -43,6 +42,19 @@ export default async function MediaPage() {
   return (
     <main className="bg-white min-h-screen">
       <Header variant="light" />
+      <JsonLd
+        data={[
+          webPageJsonLd({
+            path: "/media",
+            name: "AIエージェント・生成AI・DXメディア",
+            description,
+          }),
+          breadcrumbJsonLd([
+            { name: "トップ", path: "/" },
+            { name: "メディア", path: "/media" },
+          ]),
+        ]}
+      />
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6 md:px-12">
@@ -54,7 +66,7 @@ export default async function MediaPage() {
             </span>
           </span>
           <h1 className="text-[clamp(36px,6vw,64px)] font-bold text-neutral-900 leading-[1.1] tracking-tight">
-            Insights & Updates
+            AIエージェント・生成AIメディア
           </h1>
           <p className="mt-6 text-lg text-neutral-500 max-w-xl">
             AI時代のビジネス変革に関する知見と、Lat91の最新情報をお届けします。

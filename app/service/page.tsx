@@ -2,8 +2,13 @@
 
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { JsonLd } from "@/components/json-ld"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+import { breadcrumbJsonLd, serviceJsonLd, webPageJsonLd } from "@/lib/seo"
+
+const servicePageDescription =
+  "株式会社Lat91のAIエージェント導入サービス。セールス、マーケティング、カスタマーサポート、バックオフィスを一気通貫で自動化し、業務改善と事業成長を支援します。"
 
 // Service data
 const services = [
@@ -386,6 +391,20 @@ export default function ServicePage() {
   return (
     <main className="bg-white min-h-screen">
       <Header variant="light" />
+      <JsonLd
+        data={[
+          webPageJsonLd({
+            path: "/service",
+            name: "AIエージェント導入・DXソリューション",
+            description: servicePageDescription,
+          }),
+          breadcrumbJsonLd([
+            { name: "トップ", path: "/" },
+            { name: "サービス", path: "/service" },
+          ]),
+          serviceJsonLd(),
+        ]}
+      />
 
       {/* Hero Section */}
       <section className="pt-36 pb-28 px-6 md:px-12 lg:px-20">

@@ -2,10 +2,15 @@
 
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { JsonLd } from "@/components/json-ld"
 import Link from "next/link"
 import { useState, useRef } from "react"
 import { CheckCircle, ArrowRight, Loader2 } from "lucide-react"
 import emailjs from "@emailjs/browser"
+import { breadcrumbJsonLd, webPageJsonLd } from "@/lib/seo"
+
+const contactPageDescription =
+  "株式会社Lat91へのお問い合わせページです。AIエージェント導入、DX推進、業務自動化、サービス資料請求、提携・取材のご相談はこちらからご連絡ください。"
 
 export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -53,6 +58,19 @@ export default function ContactPage() {
   return (
     <main className="bg-white min-h-screen">
       <Header variant="light" />
+      <JsonLd
+        data={[
+          webPageJsonLd({
+            path: "/contact",
+            name: "お問い合わせ・無料相談",
+            description: contactPageDescription,
+          }),
+          breadcrumbJsonLd([
+            { name: "トップ", path: "/" },
+            { name: "お問い合わせ", path: "/contact" },
+          ]),
+        ]}
+      />
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6 md:px-12">

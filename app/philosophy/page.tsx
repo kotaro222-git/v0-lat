@@ -1,25 +1,36 @@
 import type { Metadata } from "next"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { JsonLd } from "@/components/json-ld"
+import { breadcrumbJsonLd, createPageMetadata, webPageJsonLd } from "@/lib/seo"
 import Image from "next/image"
 
-export const metadata: Metadata = {
-  title: "Philosophy",
-  description:
-    "Lat91が大切にする価値観と思想。AIエージェント時代に企業と人がどう向き合い、どんな価値を生み出すか——Lat91のフィロソフィをご紹介します。",
-  alternates: { canonical: "https://www.lat91.co.jp/philosophy" },
-  openGraph: {
-    title: "Philosophy | Lat91",
-    description: "Lat91が大切にする価値観と思想。AIエージェント時代の企業のあり方を考えます。",
-    url: "https://www.lat91.co.jp/philosophy",
-    type: "website",
-  },
-}
+const description =
+  "株式会社Lat91のフィロソフィ。AIエージェント時代に、人間の意志と創造が輝く世界をつくるための思想、代表メッセージ、社名に込めた想いをご紹介します。"
+
+export const metadata: Metadata = createPageMetadata({
+  title: "フィロソフィー・代表メッセージ",
+  description,
+  path: "/philosophy",
+})
 
 export default function PhilosophyPage() {
   return (
     <main className="bg-white min-h-screen">
       <Header variant="light" />
+      <JsonLd
+        data={[
+          webPageJsonLd({
+            path: "/philosophy",
+            name: "フィロソフィー・代表メッセージ",
+            description,
+          }),
+          breadcrumbJsonLd([
+            { name: "トップ", path: "/" },
+            { name: "フィロソフィー", path: "/philosophy" },
+          ]),
+        ]}
+      />
 
       {/* Hero */}
       <section className="pt-40 pb-24 px-6 lg:px-20 max-w-[1200px] mx-auto">

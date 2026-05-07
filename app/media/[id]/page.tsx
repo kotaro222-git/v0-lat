@@ -1,15 +1,23 @@
 import type { Metadata } from "next"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { JsonLd } from "@/components/json-ld"
 import Link from "next/link"
 import { ArrowLeft, Calendar, Clock, Share2, Twitter, Linkedin } from "lucide-react"
 import { client, type Article } from "@/lib/microcms/client"
 import { notFound } from "next/navigation"
+import {
+  COMPANY_NAME,
+  DEFAULT_OG_IMAGE,
+  SITE_BRAND,
+  SITE_URL,
+  articleJsonLd,
+  breadcrumbJsonLd,
+  webPageJsonLd,
+} from "@/lib/seo"
 
 export const revalidate = 60
 
-const SITE_URL = "https://www.lat91.co.jp"
-const SITE_NAME = "Lat91"
 const FALLBACK_DESCRIPTION =
   "Lat91のメディア記事。AIエージェント・生成AI・DX推進に関する実践的な知見を発信します。"
 
@@ -60,24 +68,23 @@ export async function generateMetadata({
 
   if (!article) {
     return {
-      title: `記事が見つかりません | ${SITE_NAME}`,
+      title: `記事が見つかりません | ${SITE_BRAND}`,
       robots: { index: false, follow: false },
     }
   }
 
   const url = `${SITE_URL}/media/${id}`
   const description = buildDescription(article)
-  const fullTitle = `${article.title} | ${SITE_NAME} Media`
-  const ogImages = article.thumbnail
-    ? [
-        {
-          url: article.thumbnail.url,
-          width: article.thumbnail.width,
-          height: article.thumbnail.height,
-          alt: article.title,
-        },
-      ]
-    : undefined
+  const fullTitle = `${article.title} | ${SITE_BRAND} Media`
+  const image = article.thumbnail?.url || DEFAULT_OG_IMAGE
+  const ogImages = [
+    {
+      url: image,
+      width: article.thumbnail?.width || 1200,
+      height: article.thumbnail?.height || 630,
+      alt: article.title,
+    },
+  ]
 
   // Draftプレビューはインデックスさせない
   const robots = draftKey ? { index: false, follow: false } : undefined
@@ -92,7 +99,7 @@ export async function generateMetadata({
       title: article.title,
       description,
       url,
-      siteName: SITE_NAME,
+      siteName: COMPANY_NAME,
       type: "article",
       locale: "ja_JP",
       publishedTime: article.publishedAt,
@@ -103,7 +110,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: article.title,
       description,
-      images: article.thumbnail ? [article.thumbnail.url] : undefined,
+      images: [image],
     },
   }
 }
@@ -149,10 +156,38 @@ export default async function ArticlePage({
   }
 
   const relatedArticles = await getRelatedArticles(id, article.category?.[0] || "")
+  const description = buildDescription(article)
+  const articlePath = `/media/${id}`
+  const articleUrl = `${SITE_URL}${articlePath}`
+  const categoryLabel = article.category?.join(" / ") || "Media"
+  const encodedArticleUrl = encodeURIComponent(articleUrl)
+  const encodedArticleTitle = encodeURIComponent(article.title)
 
   return (
     <main className="bg-white min-h-screen">
       <Header variant="light" />
+      <JsonLd
+        data={[
+          webPageJsonLd({
+            path: articlePath,
+            name: article.title,
+            description,
+          }),
+          breadcrumbJsonLd([
+            { name: "トップ", path: "/" },
+            { name: "メディア", path: "/media" },
+            { name: article.title, path: articlePath },
+          ]),
+          articleJsonLd({
+            path: articlePath,
+            headline: article.title,
+            description,
+            image: article.thumbnail?.url,
+            publishedAt: article.publishedAt,
+            updatedAt: article.updatedAt,
+          }),
+        ]}
+      />
 
       {/* Article Header */}
       <section className="pt-32 pb-12 px-6 md:px-12">
@@ -162,11 +197,11 @@ export default async function ArticlePage({
             className="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-neutral-900 transition-colors mb-10"
           >
             <ArrowLeft size={16} />
-            Back to Media
+            メディア一覧へ戻る
           </Link>
 
           <span className="inline-block px-4 py-2 bg-neutral-100 rounded-full text-xs font-medium text-neutral-600 mb-6">
-            {article.category}
+            {categoryLabel}
           </span>
 
           <h1 className="text-[clamp(32px,5vw,48px)] font-bold text-neutral-900 leading-[1.2] mb-8">
@@ -201,7 +236,7 @@ export default async function ArticlePage({
             ) : (
               <div className="absolute inset-0 flex items-center justify-center">
                 <span className="font-mono text-sm tracking-widest text-neutral-300 uppercase">
-                  {article.category}
+                  {categoryLabel}
                 </span>
               </div>
             )}
@@ -222,15 +257,27 @@ export default async function ArticlePage({
             <div className="flex items-center gap-6">
               <span className="flex items-center gap-2 text-sm text-neutral-400">
                 <Share2 size={14} />
-                Share
+                共有
               </span>
               <div className="flex gap-3">
-                <button className="w-10 h-10 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-500 hover:bg-neutral-900 hover:text-white transition-colors">
+                <a
+                  href={`https://twitter.com/intent/tweet?url=${encodedArticleUrl}&text=${encodedArticleTitle}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Xで記事を共有"
+                  className="w-10 h-10 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-500 hover:bg-neutral-900 hover:text-white transition-colors"
+                >
                   <Twitter size={16} />
-                </button>
-                <button className="w-10 h-10 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-500 hover:bg-neutral-900 hover:text-white transition-colors">
+                </a>
+                <a
+                  href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedArticleUrl}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedInで記事を共有"
+                  className="w-10 h-10 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-500 hover:bg-neutral-900 hover:text-white transition-colors"
+                >
                   <Linkedin size={16} />
-                </button>
+                </a>
               </div>
             </div>
           </div>

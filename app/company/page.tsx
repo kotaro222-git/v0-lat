@@ -1,18 +1,17 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { JsonLd } from "@/components/json-ld"
+import { breadcrumbJsonLd, createPageMetadata, webPageJsonLd } from "@/lib/seo"
 import { MapPin } from "lucide-react"
 
-export const metadata = {
+const description =
+  "株式会社Lat91の会社概要・企業情報。AIエージェント開発・DX推進パートナーとして、企業のAI活用、業務自動化、デジタルレイバー導入を支援します。"
+
+export const metadata = createPageMetadata({
   title: "株式会社Lat91 会社概要・企業情報",
-  description: "株式会社Lat91の企業情報。AIエージェント開発・DX推進パートナーとして、企業のAI活用と業務変革を支援します。",
-  alternates: { canonical: "https://www.lat91.co.jp/company" },
-  openGraph: {
-    title: "株式会社Lat91 会社概要・企業情報 | Lat91",
-    description: "株式会社Lat91の企業情報。AIエージェント開発・DX推進パートナー。",
-    url: "https://www.lat91.co.jp/company",
-    type: "website",
-  },
-}
+  description,
+  path: "/company",
+})
 
 const companyInfo = [
   { label: "会社名", value: "株式会社Lat91" },
@@ -32,6 +31,19 @@ export default function CompanyPage() {
   return (
     <main className="bg-white min-h-screen">
       <Header variant="light" />
+      <JsonLd
+        data={[
+          webPageJsonLd({
+            path: "/company",
+            name: "株式会社Lat91 会社概要・企業情報",
+            description,
+          }),
+          breadcrumbJsonLd([
+            { name: "トップ", path: "/" },
+            { name: "企業情報", path: "/company" },
+          ]),
+        ]}
+      />
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6 md:px-12">
