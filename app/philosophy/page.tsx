@@ -3,7 +3,6 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { JsonLd } from "@/components/json-ld"
 import { breadcrumbJsonLd, createPageMetadata, webPageJsonLd } from "@/lib/seo"
-import Image from "next/image"
 
 const description =
   "株式会社Lat91のフィロソフィ。AIエージェント時代に、人間の意志と創造が輝く世界をつくるための思想、代表メッセージ、社名に込めた想いをご紹介します。"
@@ -50,39 +49,48 @@ export default function PhilosophyPage() {
 
       {/* CEO Message */}
       <section className="border-t border-neutral-200 px-6 lg:px-20 py-20 lg:py-24">
-        <div className="max-w-[1200px] mx-auto">
-          <div className="mb-14">
-            <div className="flex items-center gap-4 mb-6">
-              <span className="w-10 h-px bg-neutral-300" />
-              <span className="font-mono text-[11px] tracking-[0.2em] text-neutral-400 uppercase">Message</span>
-            </div>
-            <h2 className="text-[clamp(24px,3vw,32px)] font-bold tracking-[-0.02em] leading-[1.4] text-neutral-900">
-              {"\u4EE3\u8868\u30E1\u30C3\u30BB\u30FC\u30B8"}
-            </h2>
+        <div className="max-w-[780px] mx-auto">
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <span className="w-10 h-px bg-neutral-300" />
+            <span className="font-mono text-[11px] tracking-[0.2em] text-neutral-400 uppercase">Message</span>
+            <span className="w-10 h-px bg-neutral-300" />
           </div>
-          <div className="grid lg:grid-cols-[380px_1fr] gap-14 items-start">
-            <div>
-              <div className="aspect-[3/3.6] w-full relative overflow-hidden">
-                <Image
-                  src="/images/ceo-photo.jpg"
-                  alt="CEO 稲葉 幸太郎"
-                  fill
-                  className="object-cover object-top"
-                />
-              </div>
-              <div className="mt-5">
-                <div className="font-mono text-[10px] tracking-[0.15em] text-neutral-400 uppercase mb-1.5">CEO & Founder</div>
-                <div className="text-lg font-bold tracking-[-0.01em] text-neutral-900">{"\u7A32\u8449 \u5E78\u592A\u90CE"}</div>
-              </div>
+          <h2 className="text-[clamp(24px,3vw,32px)] font-bold tracking-[-0.02em] leading-[1.4] text-neutral-900 text-center">
+            {"\u4EE3\u8868\u30E1\u30C3\u30BB\u30FC\u30B8"}
+          </h2>
+
+          <div
+            aria-hidden="true"
+            className="text-center text-[64px] lg:text-[96px] leading-[0.7] text-neutral-200 select-none mt-11 mb-6"
+            style={{ fontFamily: '"Hiragino Mincho ProN", "Yu Mincho", YuMincho, "Noto Serif JP", serif' }}
+          >
+            {"\u201C"}
+          </div>
+
+          <p className="text-[clamp(22px,3vw,32px)] font-bold leading-[1.7] tracking-[-0.02em] text-neutral-900 text-center">
+            {"AI\u306B\u4EFB\u305B\u3001\u4EBA\u306E\u7D14\u5EA6\u306B\u5411\u304D\u5408\u3046\u3002"}<br />
+            {"\u30D2\u30E5\u30FC\u30DE\u30F3\u30D5\u30A1\u30FC\u30B9\u30C8\u306E\u6642\u4EE3\u3078"}
+          </p>
+
+          <div className="mt-14 space-y-6 text-[15px] text-neutral-600 leading-[2]">
+            <p>{"\u4EBA\u985E\u306B\u3068\u3063\u3066\u3001\u304B\u3064\u3066\u306A\u3044\u6642\u4EE3\u304C\u3084\u3063\u3066\u304D\u307E\u3057\u305F\u3002\u8AB0\u3082\u304C\u5275\u308C\u308B\u3002\u5C4A\u3051\u3089\u308C\u308B\u3002\u5C4A\u304B\u306A\u304B\u3063\u305F\u77E5\u8B58\u306B\u624B\u304C\u5C4A\u304F\u3002"}</p>
+            <p>{"\u305D\u3057\u3066\u3001\u5F93\u6765\u306E\u30C1\u30E3\u30C3\u30C8\u30DC\u30C3\u30C8\u3067\u306F\u306A\u304F\u3001\u4E00\u5EA6\u30BB\u30C3\u30C8\u30A2\u30C3\u30D7\u3059\u308C\u3070\u300124\u6642\u9593\u81EA\u5F8B\u7684\u306B\u696D\u52D9\u3068\u6539\u5584\u3092\u7E70\u308A\u8FD4\u3059AI\u30A8\u30FC\u30B8\u30A7\u30F3\u30C8\u304C\u8A95\u751F\u3057\u307E\u3057\u305F\u3002"}</p>
+            <p>{"\u3053\u308C\u304B\u3089\u7BC9\u304F\u3079\u304D\u672A\u6765\u306F\u3001AI\u30D5\u30A1\u30FC\u30B9\u30C8\u306E\u6642\u4EE3\u3067\u306F\u306A\u304F\u3001\u30D2\u30E5\u30FC\u30DE\u30F3\u30D5\u30A1\u30FC\u30B9\u30C8\u306E\u6642\u4EE3\u3060\u3068\u3001\u50D5\u305F\u3061\u306F\u4FE1\u3058\u3066\u3044\u307E\u3059\u3002"}</p>
+            <p>{"\u751F\u7523\u306E\u305F\u3081\u306B\u81EA\u5206\u3089\u3057\u3055\u3092\u6D88\u8017\u3055\u305B\u308B\u5FC5\u8981\u304C\u306A\u304F\u306A\u308A\u3001\u4F55\u304B\u3092\u751F\u307F\u51FA\u3059\u3053\u3068\u3001\u81EA\u5206\u3089\u3057\u304F\u3044\u308B\u3053\u3068\u304C\u3001\u4E21\u7ACB\u3059\u308B\u3002"}</p>
+            <p>{"AI\u304C\u5B9F\u52D9\u306E99%\u3092\u62C5\u3063\u3066\u3044\u304F\u6642\u4EE3\u3002\u4EBA\u9593\u306F\u3001\u6700\u3082\u5C0A\u30441%\u306E\u610F\u5FD7\u3068\u5275\u9020\u3060\u3051\u306B\u5411\u304D\u5408\u3048\u308B\u3002\u4F55\u3092\u7F8E\u3057\u3044\u3068\u611F\u3058\u3001\u4F55\u306B\u6012\u308A\u3001\u4F55\u3092\u9078\u3076\u304B\u3002"}</p>
+            <p>{"\u3082\u3057\u4ECA\u306E\u4ED5\u4E8B\u306E\u307B\u3068\u3093\u3069\u304C\u306A\u304F\u306A\u3063\u305F\u3068\u3057\u3066\u3001\u50D5\u305F\u3061\u306F\u4F55\u306B\u96C6\u4E2D\u3059\u308B\u3060\u308D\u3046\u3002\u8AB0\u306E\u4EE3\u308F\u308A\u3067\u3082\u306A\u3044\u3001\u81EA\u5206\u306B\u3057\u304B\u751F\u307F\u51FA\u305B\u306A\u3044\u4FA1\u5024\u306F\u306A\u3093\u3060\u308D\u3046\u304B\u3002"}</p>
+            <p>{"\u50D5\u305F\u3061\u306F\u305D\u306E\u77AC\u9593\u3092\u5275\u308A\u3001\u7D14\u5EA6\u306E\u9AD8\u3044\u5275\u9020\u3067\u6EA2\u308C\u308B\u4E16\u754C\u3092\u76EE\u6307\u3057\u3066\u307E\u3059\u3002"}</p>
+          </div>
+
+          <div className="mt-14 pt-8 border-t border-neutral-200 flex items-end justify-between gap-6">
+            <div className="font-mono text-[10px] tracking-[0.15em] text-neutral-400 uppercase leading-[1.8]">
+              {"\u682A\u5F0F\u4F1A\u793ELat91"}<br />CEO &amp; Founder
             </div>
-            <div className="space-y-[18px] text-[14px] text-neutral-600 leading-[1.85]">
-              <p>{"\u4EBA\u985E\u306B\u3068\u3063\u3066\u3001\u304B\u3064\u3066\u306A\u3044\u6642\u4EE3\u304C\u3084\u3063\u3066\u304D\u307E\u3057\u305F\u3002\u8AB0\u3082\u304C\u5275\u308C\u308B\u3002\u5C4A\u3051\u3089\u308C\u308B\u3002\u5C4A\u304B\u306A\u304B\u3063\u305F\u77E5\u8B58\u306B\u624B\u304C\u5C4A\u304F\u3002"}</p>
-              <p>{"\u305D\u3057\u3066\u3001\u5F93\u6765\u306E\u30C1\u30E3\u30C3\u30C8\u30DC\u30C3\u30C8\u3067\u306F\u306A\u304F\u3001\u4E00\u5EA6\u30BB\u30C3\u30C8\u30A2\u30C3\u30D7\u3059\u308C\u3070\u300124\u6642\u9593\u81EA\u5F8B\u7684\u306B\u696D\u52D9\u3068\u6539\u5584\u3092\u7E70\u308A\u8FD4\u3059AI\u30A8\u30FC\u30B8\u30A7\u30F3\u30C8\u304C\u8A95\u751F\u3057\u307E\u3057\u305F\u3002"}</p>
-              <p>{"\u3053\u308C\u304B\u3089\u7BC9\u304F\u3079\u304D\u672A\u6765\u306F\u3001AI\u30D5\u30A1\u30FC\u30B9\u30C8\u306E\u6642\u4EE3\u3067\u306F\u306A\u304F\u3001\u30D2\u30E5\u30FC\u30DE\u30F3\u30D5\u30A1\u30FC\u30B9\u30C8\u306E\u6642\u4EE3\u3060\u3068\u3001\u50D5\u305F\u3061\u306F\u4FE1\u3058\u3066\u3044\u307E\u3059\u3002"}</p>
-              <p>{"\u751F\u7523\u306E\u305F\u3081\u306B\u81EA\u5206\u3089\u3057\u3055\u3092\u6D88\u8017\u3055\u305B\u308B\u5FC5\u8981\u304C\u306A\u304F\u306A\u308A\u3001\u4F55\u304B\u3092\u751F\u307F\u51FA\u3059\u3053\u3068\u3001\u81EA\u5206\u3089\u3057\u304F\u3044\u308B\u3053\u3068\u304C\u3001\u4E21\u7ACB\u3059\u308B\u3002"}</p>
-              <p>{"AI\u304C\u5B9F\u52D9\u306E99%\u3092\u62C5\u3063\u3066\u3044\u304F\u6642\u4EE3\u3002\u4EBA\u9593\u306F\u3001\u6700\u3082\u5C0A\u30441%\u306E\u610F\u5FD7\u3068\u5275\u9020\u3060\u3051\u306B\u5411\u304D\u5408\u3048\u308B\u3002\u4F55\u3092\u7F8E\u3057\u3044\u3068\u611F\u3058\u3001\u4F55\u306B\u6012\u308A\u3001\u4F55\u3092\u9078\u3076\u304B\u3002"}</p>
-              <p>{"\u3082\u3057\u4ECA\u306E\u4ED5\u4E8B\u306E\u307B\u3068\u3093\u3069\u304C\u306A\u304F\u306A\u3063\u305F\u3068\u3057\u3066\u3001\u50D5\u305F\u3061\u306F\u4F55\u306B\u96C6\u4E2D\u3059\u308B\u3060\u308D\u3046\u3002\u8AB0\u306E\u4EE3\u308F\u308A\u3067\u3082\u306A\u3044\u3001\u81EA\u5206\u306B\u3057\u304B\u751F\u307F\u51FA\u305B\u306A\u3044\u4FA1\u5024\u306F\u306A\u3093\u3060\u308D\u3046\u304B\u3002"}</p>
-              <p>{"\u50D5\u305F\u3061\u306F\u305D\u306E\u77AC\u9593\u3092\u5275\u308A\u3001\u7D14\u5EA6\u306E\u9AD8\u3044\u5275\u9020\u3067\u6EA2\u308C\u308B\u4E16\u754C\u3092\u76EE\u6307\u3057\u3066\u307E\u3059\u3002"}</p>
+            <div
+              className="text-[22px] lg:text-[26px] tracking-[0.12em] leading-[1.2] text-neutral-900"
+              style={{ fontFamily: '"Hiragino Mincho ProN", "Yu Mincho", YuMincho, "Noto Serif JP", serif' }}
+            >
+              {"\u7A32\u8449 \u5E78\u592A\u90CE"}
             </div>
           </div>
         </div>
